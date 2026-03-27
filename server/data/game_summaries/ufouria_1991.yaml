@@ -1,0 +1,24 @@
+game_id: ufouria_1991
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls one of four characters in interconnected horizontally scrolling platform areas.
+  Characters can be switched between, each with unique abilities for accessing different areas.
+  The world is non-linear and requires exploration to find new paths and items.
+  Items unlock abilities rather than providing stat growth.
+  The objective is to explore the world, defeat enemies, and reach objectives.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, attack, switch between four characters, use character-specific abilities]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Attack enemy → defeat threat
+    - Switch character → access character with needed ability
+    - Different characters access different areas → exploration progression
+    - Collect item → unlock new abilities or access
+    - Touch enemy → take damage
+    - Explore interconnected areas → discover new paths
+  enemy_characteristics: [patrol platforms, contact damage, defeated by attacks, varied enemy types]
+  environment_characteristics: [interconnected non-linear world, character switching enables access to different areas, items unlock abilities not stats, exploration-focused progression]
+  win_condition: Explore the world and reach objectives

@@ -1,0 +1,25 @@
+game_id: donkey_kong_jr_1983
+tags: [Platform, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a character climbing vines and chains between multi-level platforms.
+  Climbing speed can be controlled: slower for precision, faster for escaping danger.
+  The player can jump between vines to navigate and drop items onto enemies below.
+  Keys must be collected to unlock the goal at the top.
+  The objective is to collect all keys and reach the top platform.
+
+key_mechanics:
+  player_abilities: [move left/right on platforms, climb vines at variable speed, jump between vines, drop items downward]
+  interaction_modes:
+    - Climb vine → ascend to higher platforms
+    - Climb faster → escape pursuing enemies but less control
+    - Climb slower → precise positioning and timing
+    - Jump between vines → cross gaps, change paths
+    - Drop item on enemy below → defeat enemy
+    - Touch enemy → lose life
+    - Collect key → progress toward goal
+    - Collect all keys and reach top → complete level
+  enemy_characteristics: [patrol platforms, climb vines in pursuit, contact damage, defeated by dropped items]
+  environment_characteristics: [vines and chains suspended between platforms, multi-level vertical structure, items to drop as weapons, keys scattered across levels]
+  win_condition: Collect all keys and reach the top platform

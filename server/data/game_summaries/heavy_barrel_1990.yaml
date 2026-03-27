@@ -1,0 +1,23 @@
+game_id: heavy_barrel_1990
+tags: [Shooter, Run and Gun, Arcade]
+view: top-down view
+
+gameplay_summary: |
+  The player controls a soldier in top-down perspective, shooting enemies and collecting key parts to assemble a powerful weapon.
+  The soldier can rotate facing direction independently from movement direction.
+  Keys must be collected to unlock and assemble the super weapon.
+  The objective is to advance through enemy territory and reach the end of each area.
+
+key_mechanics:
+  player_abilities: [move in 8 directions on ground, rotate facing direction, shoot continuously, throw grenades (limited), collect keys]
+  interaction_modes:
+    - Shoot enemy → destroy threat
+    - Rotate facing independent of movement → aim while moving
+    - Throw grenade → area damage on impact
+    - Collect key → progress toward super weapon assembly
+    - Assemble super weapon → gain powerful temporary weapon
+    - Touch enemy or projectile → take damage
+    - Advance through stage → progress forward
+  enemy_characteristics: [ground and aerial enemies attack, shoot projectiles, contact damage, varied enemy types]
+  environment_characteristics: [top-down battlefield terrain, independent rotation for tactical shooting, keys unlock super weapon assembly]
+  win_condition: Advance through enemy territory and reach the end

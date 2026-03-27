@@ -1,0 +1,27 @@
+game_id: balloon_fight_1985
+tags: [Platform, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a character flying with balloons in a fixed-screen arena.
+  Flight is controlled by momentum and requires continuous input to maintain altitude.
+  The player must collide with enemies' balloons to pop them and make enemies fall.
+  Fallen enemies must be kicked to be fully defeated before they reinflate their balloons.
+  The objective is to defeat all enemies while protecting your own balloons from being popped.
+
+key_mechanics:
+  player_abilities: [flap to gain altitude, move left/right with momentum, kick fallen enemies]
+  interaction_modes:
+    - Flap continuously → maintain or gain altitude
+    - Stop flapping → fall due to gravity
+    - Collide with enemy's balloon → pop enemy's balloon
+    - Enemy loses all balloons → falls to ground
+    - Kick fallen enemy → defeat enemy permanently
+    - Fallen enemy reaches parachute → reinflates balloon and returns
+    - Enemy collides with player's balloon → player loses balloon
+    - Lose all balloons → fall to ground, vulnerable
+    - Touch water surface → lose life
+    - Defeat all enemies → complete level
+  enemy_characteristics: [fly with balloons using same physics, attempt to pop player's balloons, fall when balloons popped, reinflate if not kicked in time, some protected by more balloons]
+  environment_characteristics: [fixed-screen aerial arena, platforms at various heights, water hazard at bottom, enemies spawn with balloons, balloon count determines survivability]
+  win_condition: Defeat all enemies in the arena

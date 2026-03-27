@@ -1,0 +1,25 @@
+game_id: altered_beast_1990
+tags: [Beat 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a warrior in horizontally scrolling stages, fighting enemies and collecting power orbs to transform.
+  Collecting power orbs triggers transformation into a powerful beast form.
+  The transformed form provides enhanced attacks and abilities.
+  Enemies attack from both sides and must be defeated to progress forward.
+  The objective is to clear all enemies from each area and reach the boss.
+
+key_mechanics:
+  player_abilities: [move left/right, punch, kick, jump attack, collect power orbs, transform into beast]
+  interaction_modes:
+    - Punch enemy → damage opponent
+    - Kick enemy → damage opponent
+    - Jump attack → aerial damage
+    - Collect power orb → progress toward transformation
+    - Transform when orbs sufficient → become powerful beast form
+    - Beast form provides enhanced attacks → increased power
+    - Touch enemy or attack → take damage
+    - Defeat all enemies in area → progress forward
+  enemy_characteristics: [attack in groups from both sides, varied enemy types, contact and attack damage]
+  environment_characteristics: [horizontally scrolling stages, power orbs dropped by enemies, transformation provides temporary power boost]
+  win_condition: Defeat all enemies and reach the boss

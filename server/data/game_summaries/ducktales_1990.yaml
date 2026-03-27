@@ -1,0 +1,24 @@
+game_id: ducktales_1989
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character with a cane in horizontally scrolling platform stages.
+  The cane can be used to bounce on top of enemies and obstacles like a pogo stick.
+  The cane also functions as a melee weapon and tool for hitting objects.
+  Stages can be selected in non-linear order to collect treasures.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, bounce on cane like pogo stick, attack with cane, use cane to hit objects]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Bounce on cane → pogo-style movement, defeat enemies from above
+    - Attack with cane → defeat enemies with melee
+    - Hit object with cane → reveal items or secrets
+    - Touch enemy from side → take damage
+    - Select stage order → choose progression path
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms, contact damage from sides, defeated by bouncing on top or cane attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, non-linear stage selection, cane bouncing enables unique movement, treasures collected throughout]
+  win_condition: Complete all stages and collect treasures

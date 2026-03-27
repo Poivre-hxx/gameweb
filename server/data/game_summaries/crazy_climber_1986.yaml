@@ -1,0 +1,23 @@
+game_id: crazy_climber_1986
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a climber ascending the exterior of a building in vertically scrolling stages, gripping windows with alternating hands.
+  Objects fall from above and obstacles emerge from windows requiring evasion while maintaining grip.
+  Both hands must be controlled independently to climb, creating unique coordination challenges.
+  Missing a grip or being hit by obstacles causes the climber to fall.
+  The objective is to reach the top of each building while avoiding all hazards.
+
+key_mechanics:
+  player_abilities: [move left/right on building face, grip with left hand, grip with right hand, climb upward by alternating grips]
+  interaction_modes:
+    - Grip window with hand → secure position
+    - Alternate hands while climbing → ascend building
+    - Move to avoid obstacle → dodge falling objects or emerging hazards
+    - Miss grip → fall and lose life
+    - Hit by obstacle → fall and lose life
+    - Reach top of building → complete stage
+  enemy_characteristics: [falling objects drop from above, obstacles emerge from windows, require precise timing to avoid, cannot be defeated]
+  environment_characteristics: [vertically auto-scrolling building exterior, windows arranged in grid pattern for gripping, hazards continuously appear, climbing requires hand coordination]
+  win_condition: Reach the top of the building

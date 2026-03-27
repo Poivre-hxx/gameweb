@@ -1,0 +1,23 @@
+game_id: gimmick_1992
+tags: [Shooter, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character in horizontally scrolling platform stages, shooting star projectiles with physics properties.
+  Stars bounce and roll with realistic physics, damaging enemies they contact.
+  Stars can also be used as temporary platforms by jumping on them.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, shoot star projectiles, jump on stars as platforms]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Shoot star → create bouncing projectile
+    - Star bounces with physics → rolls and damages enemies
+    - Jump on star → use as temporary platform
+    - Star physics create tactical positioning options
+    - Touch enemy or projectile → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms, contact damage, defeated by star projectiles, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, star physics enable creative solutions, stars function as both weapons and platforms]
+  win_condition: Reach the end of each stage

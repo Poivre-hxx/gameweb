@@ -1,0 +1,23 @@
+game_id: kung_fu_heroes_1986
+tags: [Beat 'em up, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a martial artist in fixed-screen rooms, defeating all enemies to progress.
+  Combat uses punches and jumping kicks to attack surrounding enemies.
+  Certain objects must be destroyed to reveal the exit to the next room.
+  Enemies spawn continuously until all are defeated within the time limit.
+  The objective is to clear all enemies from each room and find the exit.
+
+key_mechanics:
+  player_abilities: [move in 8 directions, punch nearby enemies, jump kick for ranged attack, destroy objects]
+  interaction_modes:
+    - Punch enemy → damage or defeat nearby threat
+    - Jump kick → attack at range with greater power
+    - Destroy certain objects → reveal hidden exit
+    - Touch enemy → take damage
+    - Defeat all enemies → exit becomes accessible
+    - Reach exit → advance to next room
+  enemy_characteristics: [spawn in waves within room, surround and attack player, contact damage, varied enemy types, continue spawning until defeated]
+  environment_characteristics: [fixed-screen rooms with multiple chambers, destructible objects hiding secrets, exit hidden until requirements met, enemies confined to current room]
+  win_condition: Defeat all enemies and reach the exit in each room

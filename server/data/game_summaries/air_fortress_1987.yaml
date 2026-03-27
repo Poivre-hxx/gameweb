@@ -1,0 +1,24 @@
+game_id: air_fortress_1987
+tags: [Shooter, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character through alternating stage types with different perspectives.
+  Vertical scrolling approach stages feature flight shooting toward fortress entrances.
+  Horizontal scrolling infiltration stages involve platforming inside fortresses with limited fuel.
+  A bomb must be placed at the fortress core before fuel depletes.
+  The objective is to navigate both stage types, infiltrate fortresses, and destroy their cores.
+
+key_mechanics:
+  player_abilities: [fly in approach stages, move and jump in infiltration stages, shoot continuously, place bomb at core]
+  interaction_modes:
+    - Shoot enemy in approach stage → destroy threat
+    - Navigate to fortress entrance → complete approach stage
+    - Jump and shoot in infiltration stage → explore fortress interior
+    - Fuel depletes continuously in fortress → creates time pressure
+    - Place bomb at core → arm destruction sequence
+    - Escape fortress after placing bomb → complete stage
+    - Touch enemy or run out of fuel → lose life
+  enemy_characteristics: [aerial enemies in approach stages, fortress defenders in infiltration stages, contact and projectile damage, varied patterns]
+  environment_characteristics: [vertically scrolling approach stages, horizontally scrolling fortress interiors, fuel management critical in infiltration, bomb placement required to complete]
+  win_condition: Complete approach stage, infiltrate fortress, place bomb at core, and escape

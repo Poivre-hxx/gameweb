@@ -1,0 +1,23 @@
+game_id: aso_1986
+tags: [Shooter, Shoot 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls an armored spacecraft in a vertically scrolling shooter with a power-up collection system.
+  Energy items gradually fill a gauge that upgrades weapons and shields when maxed.
+  Multiple layers of armor absorb damage before the core is vulnerable.
+  Letter items can be collected and combined for special weapon abilities.
+  The objective is to survive through continuous waves and reach the end of each area.
+
+key_mechanics:
+  player_abilities: [move in 8 directions, shoot continuously, collect energy items, collect letter items]
+  interaction_modes:
+    - Collect energy item → fill power gauge incrementally
+    - Max power gauge → upgrade weapon or shield level
+    - Collect letter items → combine for special weapons
+    - Armor absorbs damage → multiple hits before vulnerable
+    - Lose armor layer → continue with reduced protection
+    - Touch enemy or projectile → damage armor or core
+  enemy_characteristics: [aerial and ground enemies attack, formation patterns, varied attack types, contact and projectile damage]
+  environment_characteristics: [vertically auto-scrolling terrain, energy and letter items dropped by enemies, multi-layered armor system visible]
+  win_condition: Survive through the area and defeat all enemy waves

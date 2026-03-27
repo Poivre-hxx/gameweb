@@ -1,0 +1,2101 @@
+{
+    "coordinate_system": "Top-left corner is the origin (0,0)",
+    "field_guide": {
+        "mapping": "Defines all element types (terrain and interactive objects), where the key is a single-character representation of the element.",
+        "terrain": "Single-tile terrain layer. Each character in each row string of the grid array directly corresponds to a key in mapping",
+        "interaction": "Multi-tile interactive object layer. The anchor represents the top-left corner coordinate of the area occupied by the object, and the object extends size-specified tiles to the right (+x) and downward (+y) from that point. Includes: id (unique identifier), category (category), element (references mapping key), anchor (top-left corner coordinates {x,y}), size (occupied tiles {width,height})",
+        "collision": "Collision type for physics behavior. prevent: no collision detection or events; Passive: triggers collision events only, no physical response; Active: full collision with movement response; Fixed: immovable solid object that blocks Active bodies"
+    },
+    "games": {
+        "game_a": {
+            "mapping": {
+                "X": {
+                    "name": "space",
+                    "description": "empty area, all entities can pass through freely",
+                    "color": "#000000",
+                    "collision": "prevent",
+                    "layer": "terrain"
+                },
+                "B": {
+                    "name": "brick",
+                    "description": "destructible wall, blocks player/enemy/projectile, can be destroyed by projectile",
+                    "color": "#9c4a00",
+                    "collision": "fixed",
+                    "layer": "terrain"
+                },
+                "T": {
+                    "name": "steel wall",
+                    "description": "indestructible wall, blocks player/enemy/projectile permanently",
+                    "color": "#adadad",
+                    "collision": "fixed",
+                    "layer": "terrain"
+                },
+                "S": {
+                    "name": "snow field",
+                    "description": "slippery terrain, player/enemy/projectile can pass through, reduces movement speed for player/enemy while on it",
+                    "color": "#ffffff",
+                    "collision": "passive",
+                    "layer": "terrain"
+                },
+                "F": {
+                    "name": "forest",
+                    "description": "visual cover layer, all entities can pass through, hides player/enemy beneath it visually",
+                    "color": "#8cd600",
+                    "collision": "prevent",
+                    "layer": "terrain"
+                },
+                "R": {
+                    "name": "water",
+                    "description": "liquid terrain, blocks player/enemy movement, projectile can pass through freely",
+                    "color": "#4242ff",
+                    "collision": "fixed",
+                    "layer": "terrain"
+                },
+                "E": {
+                    "name": "eagle",
+                    "description": "player base, must be protected, game over if destroyed by projectile, blocks player/enemy movement",
+                    "color": "#636363",
+                    "collision": "passive",
+                    "layer": "interaction",
+                    "category": "prop",
+                    "default_size": {
+                        "width": 2,
+                        "height": 2
+                    }
+                },
+                "P": {
+                    "name": "player",
+                    "description": "player controlled tank, can move in four directions, fires projectile, collides with enemy/brick/steel/water/eagle",
+                    "color": "#00ff00",
+                    "collision": "active",
+                    "layer": "interaction",
+                    "category": "character",
+                    "default_size": {
+                        "width": 2,
+                        "height": 2
+                    }
+                },
+                "N": {
+                    "name": "enemy",
+                    "description": "AI controlled enemy tank, moves and fires automatically, collides with player/brick/steel/water/eagle, destroyed by player projectile",
+                    "color": "#ff0000",
+                    "collision": "active",
+                    "layer": "interaction",
+                    "category": "character",
+                    "default_size": {
+                        "width": 2,
+                        "height": 2
+                    }
+                }
+            },
+            "maps": [
+                {
+                    "map_id": "stage_1",
+                    "terrain": {
+                        "grid": [
+                            {
+                                "y": 0,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 1,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 2,
+                                "row": "XXBBXXBBXXBBXXBBXXBBXXBBXX"
+                            },
+                            {
+                                "y": 3,
+                                "row": "XXBBXXBBXXBBXXBBXXBBXXBBXX"
+                            },
+                            {
+                                "y": 4,
+                                "row": "XXBBXXBBXXBBXXBBXXBBXXBBXX"
+                            },
+                            {
+                                "y": 5,
+                                "row": "XXBBXXBBXXBBXXBBXXBBXXBBXX"
+                            },
+                            {
+                                "y": 6,
+                                "row": "XXBBXXBBXXBBTTBBXXBBXXBBXX"
+                            },
+                            {
+                                "y": 7,
+                                "row": "XXBBXXBBXXBBTTBBXXBBXXBBXX"
+                            },
+                            {
+                                "y": 8,
+                                "row": "XXBBXXBBXXBBXXBBXXBBXXBBXX"
+                            },
+                            {
+                                "y": 9,
+                                "row": "XXBBXXBBXXXXXXXXXXBBXXBBXX"
+                            },
+                            {
+                                "y": 10,
+                                "row": "XXBBXXBBXXXXXXXXXXBBXXBBXX"
+                            },
+                            {
+                                "y": 11,
+                                "row": "XXXXXXXXXXBBXXBBXXXXXXXXXX"
+                            },
+                            {
+                                "y": 12,
+                                "row": "XXXXXXXXXXBBXXBBXXXXXXXXXX"
+                            },
+                            {
+                                "y": 13,
+                                "row": "BBXXBBBBXXXXXXXXXXBBBBXXBB"
+                            },
+                            {
+                                "y": 14,
+                                "row": "TTXXBBBBXXXXXXXXXXBBBBXXTT"
+                            },
+                            {
+                                "y": 15,
+                                "row": "XXXXXXXXXXBBXXBBXXXXXXXXXX"
+                            },
+                            {
+                                "y": 16,
+                                "row": "XXXXXXXXXXBBBBBBXXXXXXXXXX"
+                            },
+                            {
+                                "y": 17,
+                                "row": "XXBBXXBBXXBBBBBBXXBBXXBBXX"
+                            },
+                            {
+                                "y": 18,
+                                "row": "XXBBXXBBXXBBXXBBXXBBXXBBXX"
+                            },
+                            {
+                                "y": 19,
+                                "row": "XXBBXXBBXXBBXXBBXXBBXXBBXX"
+                            },
+                            {
+                                "y": 20,
+                                "row": "XXBBXXBBXXBBXXBBXXBBXXBBXX"
+                            },
+                            {
+                                "y": 21,
+                                "row": "XXBBXXBBXXXXXXXXXXBBXXBBXX"
+                            },
+                            {
+                                "y": 22,
+                                "row": "XXBBXXBBXXXXXXXXXXBBXXBBXX"
+                            },
+                            {
+                                "y": 23,
+                                "row": "XXBBXXBBXXXBBBBXXXBBXXBBXX"
+                            },
+                            {
+                                "y": 24,
+                                "row": "XXXXXXXXXXXBXXBXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 25,
+                                "row": "XXXXXXXXXXXBXXBXXXXXXXXXXX"
+                            }
+                        ]
+                    },
+                    "interaction": [
+                        {
+                            "id": "enemy",
+                            "element": "N",
+                            "anchor": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "N",
+                            "anchor": {
+                                "x": 24,
+                                "y": 0
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "player",
+                            "element": "P",
+                            "anchor": {
+                                "x": 8,
+                                "y": 24
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "eagle",
+                            "element": "E",
+                            "anchor": {
+                                "x": 12,
+                                "y": 24
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        }
+                    ]
+                },
+                {
+                    "map_id": "stage_2",
+                    "terrain": {
+                        "grid": [
+                            {
+                                "y": 0,
+                                "row": "XXXXXXTTXXXXXXTTXXXXXXXXXX"
+                            },
+                            {
+                                "y": 1,
+                                "row": "XXXXXXTTXXXXXXTTXXXXXXXXXX"
+                            },
+                            {
+                                "y": 2,
+                                "row": "XXBBXXTTXXXXXXBBXXBBXXBBXX"
+                            },
+                            {
+                                "y": 3,
+                                "row": "XXXXXXTTXXXXXXBBXXBBXXBBXX"
+                            },
+                            {
+                                "y": 4,
+                                "row": "XXBBXXXXXXXXBBBBXXBBTTBBXX"
+                            },
+                            {
+                                "y": 5,
+                                "row": "XXBBXXXXXXXXBBBBXXBBTTBBXX"
+                            },
+                            {
+                                "y": 6,
+                                "row": "XXXXXXBBXXXXXXXXXXTTXXXXXX"
+                            },
+                            {
+                                "y": 7,
+                                "row": "XXXXXXBBXXXXXXXXXXTTXXXXXX"
+                            },
+                            {
+                                "y": 8,
+                                "row": "FFXXXXBBXXXXTTXXXXBBFFBBTT"
+                            },
+                            {
+                                "y": 9,
+                                "row": "FFXXXXBBXXXXTTXXXXBBFFBBTT"
+                            },
+                            {
+                                "y": 10,
+                                "row": "FFFFXXXXXXBBXXXXTTXXFFXXXX"
+                            },
+                            {
+                                "y": 11,
+                                "row": "FFFFXXXXXXBBXXXXTTXXFFXXXX"
+                            },
+                            {
+                                "y": 12,
+                                "row": "XXBBBBBBFFFFFFTTXXXXFFBBXX"
+                            },
+                            {
+                                "y": 13,
+                                "row": "XXBBBBBBFFFFFFTTXXXXFFBBXX"
+                            },
+                            {
+                                "y": 14,
+                                "row": "XXXXXXTTFFBBXXBBXXBBXXBBXX"
+                            },
+                            {
+                                "y": 15,
+                                "row": "XXXXXXTTFFBBXXBBXXBBXXBBXX"
+                            },
+                            {
+                                "y": 16,
+                                "row": "TTBBXXTTXXBBXXBBXXXXXXBBXX"
+                            },
+                            {
+                                "y": 17,
+                                "row": "TTBBXXTTXXBBXXBBXXXXXXBBXX"
+                            },
+                            {
+                                "y": 18,
+                                "row": "XXBBXXBBXXBBBBBBXXBBTTBBXX"
+                            },
+                            {
+                                "y": 19,
+                                "row": "XXBBXXBBXXBBBBBBXXBBTTBBXX"
+                            },
+                            {
+                                "y": 20,
+                                "row": "XXBBXXBBXXBBBBBBXXXXXXXXXX"
+                            },
+                            {
+                                "y": 21,
+                                "row": "XXBBXXBBXXBBBBBBXXXXXXXXXX"
+                            },
+                            {
+                                "y": 22,
+                                "row": "XXBBXXXXXXXXXXXXXXBBXXBBXX"
+                            },
+                            {
+                                "y": 23,
+                                "row": "XXBBXXXXXXXBBBBXXXBBXXBBXX"
+                            },
+                            {
+                                "y": 24,
+                                "row": "XXBBXXBBXXXBXXBXXXBBBBBBXX"
+                            },
+                            {
+                                "y": 25,
+                                "row": "XXBBXXBBXXXBXXBXXXBBBBBBXX"
+                            }
+                        ]
+                    },
+                    "interaction": [
+                        {
+                            "id": "eagle",
+                            "element": "E",
+                            "anchor": {
+                                "x": 12,
+                                "y": 24
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "N",
+                            "anchor": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "N",
+                            "anchor": {
+                                "x": 24,
+                                "y": 0
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "player",
+                            "element": "P",
+                            "anchor": {
+                                "x": 8,
+                                "y": 24
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        }
+                    ]
+                },
+                {
+                    "map_id": "stage_7",
+                    "terrain": {
+                        "grid": [
+                            {
+                                "y": 0,
+                                "row": "XXXXXXXXXXXXXXTTTTXXXXXXXX"
+                            },
+                            {
+                                "y": 1,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 2,
+                                "row": "XXXXTTTTTTTTXXXXXXXXTTXXXX"
+                            },
+                            {
+                                "y": 3,
+                                "row": "XXXXTTXXXXXXXXXXXXXXTTXXXX"
+                            },
+                            {
+                                "y": 4,
+                                "row": "XXXXTTXXXXXXFFXXTTTTTTXXXX"
+                            },
+                            {
+                                "y": 5,
+                                "row": "XXXXTTXXXXXXFFXXXXTTTTXXXX"
+                            },
+                            {
+                                "y": 6,
+                                "row": "XXTTXXXXXXFFTTXXXXXXTTXXXX"
+                            },
+                            {
+                                "y": 7,
+                                "row": "XXTTXXXXXXFFTTXXXXXXTTXXXX"
+                            },
+                            {
+                                "y": 8,
+                                "row": "XXXXXXXXFFTTTTXXXXXXTTTTXX"
+                            },
+                            {
+                                "y": 9,
+                                "row": "XXXXXXXXFFTTTTXXXXXXXXTTXX"
+                            },
+                            {
+                                "y": 10,
+                                "row": "XXTTXXFFTTTTTTXXTTXXXXXXXX"
+                            },
+                            {
+                                "y": 11,
+                                "row": "XXTTXXFFTTTTTTXXTTXXXXXXXX"
+                            },
+                            {
+                                "y": 12,
+                                "row": "XXXTXXTTTTXXXXXXTTTTXXXXXX"
+                            },
+                            {
+                                "y": 13,
+                                "row": "XXXTXXTTTTXXXXXXTTTTXXXXXX"
+                            },
+                            {
+                                "y": 14,
+                                "row": "TXXXXXXXTTXXTTTTTTXXXXXTXX"
+                            },
+                            {
+                                "y": 15,
+                                "row": "TXXXXXXXTTXXTTTTTTXXXXXTXX"
+                            },
+                            {
+                                "y": 16,
+                                "row": "XXXTTTXXXXXXTTTTFFXXXXTTXX"
+                            },
+                            {
+                                "y": 17,
+                                "row": "XXXTTTXXXXXXTTTTFFXXXXTTXX"
+                            },
+                            {
+                                "y": 18,
+                                "row": "XXTTXXXXXXXXTTFFXXXXTTTTXX"
+                            },
+                            {
+                                "y": 19,
+                                "row": "XXTTXXXXXXXXTTFFXXXXTTTTXX"
+                            },
+                            {
+                                "y": 20,
+                                "row": "XXTTTTTTXXXXFFXXXXTTXXXXXX"
+                            },
+                            {
+                                "y": 21,
+                                "row": "XXXXXXTTXXXXFFXXXXTTXXXXXX"
+                            },
+                            {
+                                "y": 22,
+                                "row": "XXXXXXXXXXXXXXXXXXTTXXXXTT"
+                            },
+                            {
+                                "y": 23,
+                                "row": "XXXXXXXXXXXBBBBXXXXXXXTTTT"
+                            },
+                            {
+                                "y": 24,
+                                "row": "XXXXXXXXXXXBXXBXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 25,
+                                "row": "TTTTXXXXXXXBXXBXXXXXXXXXXX"
+                            }
+                        ]
+                    },
+                    "interaction": [
+                        {
+                            "id": "enemy",
+                            "element": "N",
+                            "anchor": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "N",
+                            "anchor": {
+                                "x": 24,
+                                "y": 0
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "player",
+                            "element": "P",
+                            "anchor": {
+                                "x": 8,
+                                "y": 24
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "eagle",
+                            "element": "E",
+                            "anchor": {
+                                "x": 12,
+                                "y": 24
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        }
+                    ]
+                },
+                {
+                    "map_id": "stage_9",
+                    "terrain": {
+                        "grid": [
+                            {
+                                "y": 0,
+                                "row": "XXXXXXBBXXXXXXXXXXXXFFXXXX"
+                            },
+                            {
+                                "y": 1,
+                                "row": "XXXXXXBBXXXXXXXXXXTTFFXXXX"
+                            },
+                            {
+                                "y": 2,
+                                "row": "BBXXXXXXXXXXXXFFXTTTTXXXBB"
+                            },
+                            {
+                                "y": 3,
+                                "row": "BBXXXXXXXXXXTTFFXTTTTXXXBB"
+                            },
+                            {
+                                "y": 4,
+                                "row": "XXXXXXXXFFXTTTTXXXTTFFXXXX"
+                            },
+                            {
+                                "y": 5,
+                                "row": "XXXXXXTTFFXTTTTXXXXXFFXXXX"
+                            },
+                            {
+                                "y": 6,
+                                "row": "XXXXXTTTTXXXTTFFXXXXXXXXXX"
+                            },
+                            {
+                                "y": 7,
+                                "row": "XXXXXTTTTXXXXXFFXXXXXXXXXX"
+                            },
+                            {
+                                "y": 8,
+                                "row": "XXXXXXTTFFXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 9,
+                                "row": "XXXXXXXXFFXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 10,
+                                "row": "XXXXXXFFXXFFXXFFXXFFXXXXXX"
+                            },
+                            {
+                                "y": 11,
+                                "row": "XXXXXXFFTTFFXXFFTTFFXXXXXX"
+                            },
+                            {
+                                "y": 12,
+                                "row": "TTBBXXXTTTTXXXXTTTTXXXBBTT"
+                            },
+                            {
+                                "y": 13,
+                                "row": "TTBBXXXTTTTXXXXTTTTXXXBBTT"
+                            },
+                            {
+                                "y": 14,
+                                "row": "XXXXXXFFTTFFXXFFTTFFXXXXXX"
+                            },
+                            {
+                                "y": 15,
+                                "row": "XXXXXXFFXXFFXXFFXXFFXXXXXX"
+                            },
+                            {
+                                "y": 16,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 17,
+                                "row": "XXXXXXXXTTXXXXXXTTXXXXXXXX"
+                            },
+                            {
+                                "y": 18,
+                                "row": "BBXXXXXTTTTXXXXTTTTXXXXXBB"
+                            },
+                            {
+                                "y": 19,
+                                "row": "BBXXXXXTTTTXXXXTTTTXXXXXBB"
+                            },
+                            {
+                                "y": 20,
+                                "row": "BBXXXXFFTTFFXXFFTTFFXXXXBB"
+                            },
+                            {
+                                "y": 21,
+                                "row": "BBXXXXFFXXFFXXFFXXFFXXXXBB"
+                            },
+                            {
+                                "y": 22,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 23,
+                                "row": "XXXXBBXXXXXBBBBXXXXXBBXXXX"
+                            },
+                            {
+                                "y": 24,
+                                "row": "XXXXBBBBXXXBXXBXXXBBBBXXXX"
+                            },
+                            {
+                                "y": 25,
+                                "row": "XXXXBBBBXXXBXXBXXXBBBBXXXX"
+                            }
+                        ]
+                    },
+                    "interaction": [
+                        {
+                            "id": "player",
+                            "element": "P",
+                            "anchor": {
+                                "x": 8,
+                                "y": 24
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "N",
+                            "anchor": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "N",
+                            "anchor": {
+                                "x": 24,
+                                "y": 0
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "eagle",
+                            "element": "E",
+                            "anchor": {
+                                "x": 12,
+                                "y": 24
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        }
+                    ]
+                },
+                {
+                    "map_id": "stage_12",
+                    "terrain": {
+                        "grid": [
+                            {
+                                "y": 0,
+                                "row": "XXXXXXXXXXXXXXBBBBBBXXXXXX"
+                            },
+                            {
+                                "y": 1,
+                                "row": "XXXXXXXXXXXXXXBBBBBBXXXXXX"
+                            },
+                            {
+                                "y": 2,
+                                "row": "XXBBBBBBXXXXXXXXXXBBXXXXXX"
+                            },
+                            {
+                                "y": 3,
+                                "row": "XXBBBBBBBBXXBBXXXXBBXXXXXX"
+                            },
+                            {
+                                "y": 4,
+                                "row": "XXXXXXXXBBXXBBXXXXXXXXBBBB"
+                            },
+                            {
+                                "y": 5,
+                                "row": "XXXXXXXXBBXXXXXXXXXXXXBBBB"
+                            },
+                            {
+                                "y": 6,
+                                "row": "XXRRRRRRRRRRXXBBBXXXXXBBTT"
+                            },
+                            {
+                                "y": 7,
+                                "row": "XXRRRRRRRRRRXXBBBXXXXXBBXX"
+                            },
+                            {
+                                "y": 8,
+                                "row": "XXXXXXXXXXRRXXBBXXTTTXBBXX"
+                            },
+                            {
+                                "y": 9,
+                                "row": "XXXXTTTTTTRRXXBBXXTTTXBBXX"
+                            },
+                            {
+                                "y": 10,
+                                "row": "BBXXBBBBBBRRRRRRXXRRBBBBXX"
+                            },
+                            {
+                                "y": 11,
+                                "row": "BBXXBBBBBBRRRRRRXXRRBBBBXX"
+                            },
+                            {
+                                "y": 12,
+                                "row": "XXXXXXXXTTRRXXXXXXRRTTXXXX"
+                            },
+                            {
+                                "y": 13,
+                                "row": "XXXXXXXXTTRRXXXXXXRRXXXXXX"
+                            },
+                            {
+                                "y": 14,
+                                "row": "RRRRRRXXRRRRBBBBXXRRXXXXXX"
+                            },
+                            {
+                                "y": 15,
+                                "row": "RRRRRRXXRRRRBBBBXXRRXXXXXX"
+                            },
+                            {
+                                "y": 16,
+                                "row": "XXXXXXXXXXBBTTTTXXRRRRRRXX"
+                            },
+                            {
+                                "y": 17,
+                                "row": "XXXXXXXXXXBBXXXXXXRRRRRRXX"
+                            },
+                            {
+                                "y": 18,
+                                "row": "BBBBBBXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 19,
+                                "row": "BBBBBBXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 20,
+                                "row": "XXXXBBXXTTTTXXXXXXBBBBXXXB"
+                            },
+                            {
+                                "y": 21,
+                                "row": "XXXXBBXXXXXXXXXXXXBBBBXXXB"
+                            },
+                            {
+                                "y": 22,
+                                "row": "BBXXXXXXXXXXXXXXXXBBXXXXBB"
+                            },
+                            {
+                                "y": 23,
+                                "row": "BBXXXXXXXXXBBBBXXXBBXXXXBB"
+                            },
+                            {
+                                "y": 24,
+                                "row": "XXXXXXXXXXXBXXBXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 25,
+                                "row": "XXXXXXXXXXXBXXBXXXXXXXXXXX"
+                            }
+                        ]
+                    },
+                    "interaction": [
+                        {
+                            "id": "player",
+                            "element": "P",
+                            "anchor": {
+                                "x": 8,
+                                "y": 24
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "N",
+                            "anchor": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "N",
+                            "anchor": {
+                                "x": 24,
+                                "y": 0
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "eagle",
+                            "element": "E",
+                            "anchor": {
+                                "x": 12,
+                                "y": 24
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        }
+                    ]
+                },
+                {
+                    "map_id": "stage_18",
+                    "terrain": {
+                        "grid": [
+                            {
+                                "y": 0,
+                                "row": "XXXXXXXXXXXXXXXXTTTTTTFFXX"
+                            },
+                            {
+                                "y": 1,
+                                "row": "XXXXXXXXXXXXXXXXTTTTTTFFXX"
+                            },
+                            {
+                                "y": 2,
+                                "row": "XXBBXXXXXXXXXXXXTTXXXXTTXX"
+                            },
+                            {
+                                "y": 3,
+                                "row": "XXBBXXXXXXXXXXXXTTXXXXTTXX"
+                            },
+                            {
+                                "y": 4,
+                                "row": "BBFFBBXXXXXXBBBBBBBBXXTTXX"
+                            },
+                            {
+                                "y": 5,
+                                "row": "BBFFBBXXXXXXBBBBBBBBXXTTXX"
+                            },
+                            {
+                                "y": 6,
+                                "row": "XXBBFFBBXXXXBBXXFFBBTTTTXX"
+                            },
+                            {
+                                "y": 7,
+                                "row": "XXBBFFBBXXXXBBXXFFBBTTTTXX"
+                            },
+                            {
+                                "y": 8,
+                                "row": "XXXXBBXXFFTTBBFFXXBBXXXXXX"
+                            },
+                            {
+                                "y": 9,
+                                "row": "XXXXBBXXFFTTBBFFXXBBXXXXXX"
+                            },
+                            {
+                                "y": 10,
+                                "row": "XXXXXXXXTTXXBBTTBBBBXXXXXX"
+                            },
+                            {
+                                "y": 11,
+                                "row": "XXXXXXXXTTXXBBTTBBBBXXXXXX"
+                            },
+                            {
+                                "y": 12,
+                                "row": "XXXXBBBBTTBBXXTTXXXXXXXXXX"
+                            },
+                            {
+                                "y": 13,
+                                "row": "XXXXBBBBTTBBXXTTXXXXXXXXXX"
+                            },
+                            {
+                                "y": 14,
+                                "row": "XXXXBBXXFFBBTTFFXXXXXXXXXX"
+                            },
+                            {
+                                "y": 15,
+                                "row": "XXXXBBXXFFBBTTFFXXXXXXXXXX"
+                            },
+                            {
+                                "y": 16,
+                                "row": "TTTTTTFFXXBBXXXXBBBBXXXXXX"
+                            },
+                            {
+                                "y": 17,
+                                "row": "TTTTTTFFXXBBXXXXBBBBXXXXXX"
+                            },
+                            {
+                                "y": 18,
+                                "row": "TTXXBBBBBBBBXXXXBBTTTTXXXX"
+                            },
+                            {
+                                "y": 19,
+                                "row": "TTXXBBBBBBBBXXXXBBTTTTXXXX"
+                            },
+                            {
+                                "y": 20,
+                                "row": "TTXXXXTTXXXXXXXXXXTTBBBBXX"
+                            },
+                            {
+                                "y": 21,
+                                "row": "TTXXXXTTXXXXXXXXXXTTBBBBXX"
+                            },
+                            {
+                                "y": 22,
+                                "row": "FFTTTTTTXXXXXXXXXXXXBBTTTT"
+                            },
+                            {
+                                "y": 23,
+                                "row": "FFTTTTTTXXXBBBBXXXXXBBTTTT"
+                            },
+                            {
+                                "y": 24,
+                                "row": "XXXXXXXXXXXBXXBXXXXXXXTTTT"
+                            },
+                            {
+                                "y": 25,
+                                "row": "XXXXXXXXXXXBXXBXXXXXXXTTTT"
+                            }
+                        ]
+                    },
+                    "interaction": [
+                        {
+                            "id": "eagle",
+                            "element": "E",
+                            "anchor": {
+                                "x": 12,
+                                "y": 24
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "N",
+                            "anchor": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "N",
+                            "anchor": {
+                                "x": 24,
+                                "y": 0
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "playe",
+                            "element": "P",
+                            "anchor": {
+                                "x": 8,
+                                "y": 24
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        }
+                    ]
+                },
+                {
+                    "map_id": "stage_20",
+                    "terrain": {
+                        "grid": [
+                            {
+                                "y": 0,
+                                "row": "XXXXXXRRXXBBXXXXBBXXBBXXXX"
+                            },
+                            {
+                                "y": 1,
+                                "row": "XXXXXXRRXXBBXXXXBBXXBBXXXX"
+                            },
+                            {
+                                "y": 2,
+                                "row": "XXXXXXXXXXXXXXXXBBXXTTXXXX"
+                            },
+                            {
+                                "y": 3,
+                                "row": "XXXXXXXXXXXXXXXXBBXXTTXXXX"
+                            },
+                            {
+                                "y": 4,
+                                "row": "XXXXXXRRXXXXTTXXBBXXBBXXXX"
+                            },
+                            {
+                                "y": 5,
+                                "row": "XXXXXXRRXXBBTTXXBBXXBBXXXX"
+                            },
+                            {
+                                "y": 6,
+                                "row": "TTXXBBRRXXTTXXXXBBXXBBXXXX"
+                            },
+                            {
+                                "y": 7,
+                                "row": "XXXXBBRRXXTTXXBBXXXXBBXXXX"
+                            },
+                            {
+                                "y": 8,
+                                "row": "XXXXBBRRXXXXXXBBXXXXXXXXXX"
+                            },
+                            {
+                                "y": 9,
+                                "row": "XXXXBBRRXXXXXXBBXXXXXXXXXX"
+                            },
+                            {
+                                "y": 10,
+                                "row": "BBXXBBRRRRXXRRRRRRRRXXXXBB"
+                            },
+                            {
+                                "y": 11,
+                                "row": "BBXXBBRRRRXXRRRRRRRRXXXXBB"
+                            },
+                            {
+                                "y": 12,
+                                "row": "XXXXXXXXXXXXXXFFXXRRXXTTTT"
+                            },
+                            {
+                                "y": 13,
+                                "row": "XXXXXXBBXXXXXXFFXXRRXXXXXX"
+                            },
+                            {
+                                "y": 14,
+                                "row": "BBBBXBBBXXTTFFFFFFRRXXXXXX"
+                            },
+                            {
+                                "y": 15,
+                                "row": "BBBBXBBBXXTTFFFFFFRRXXBBBB"
+                            },
+                            {
+                                "y": 16,
+                                "row": "BBXXXBXXXXBBFFFFFFRRXXBBXX"
+                            },
+                            {
+                                "y": 17,
+                                "row": "XXXXXBXXXXBBFFFFFFRRXXBBXX"
+                            },
+                            {
+                                "y": 18,
+                                "row": "XXXXXXXXXXBBXXFFXXRRXXFFXX"
+                            },
+                            {
+                                "y": 19,
+                                "row": "XXTTXXXXXXBBXXFFXXRRXXFFXX"
+                            },
+                            {
+                                "y": 20,
+                                "row": "XXBBXXXXXXBBBBBBXXXXFFFFFF"
+                            },
+                            {
+                                "y": 21,
+                                "row": "XXBBXXTTXXXXXXXXXXXXFFFFFF"
+                            },
+                            {
+                                "y": 22,
+                                "row": "XXBBXXBBXXXXXXXXXXRRFFFFFF"
+                            },
+                            {
+                                "y": 23,
+                                "row": "XXBBXXBBXXXBBBBXXXRRFFFFFF"
+                            },
+                            {
+                                "y": 24,
+                                "row": "XXXXXXXXXXXBXXBXXXRRXXFFXX"
+                            },
+                            {
+                                "y": 25,
+                                "row": "XXXXXXXXXXXBXXBXXXRRXXFFXX"
+                            }
+                        ]
+                    },
+                    "interaction": [
+                        {
+                            "id": "eagle",
+                            "element": "E",
+                            "anchor": {
+                                "x": 12,
+                                "y": 24
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "N",
+                            "anchor": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "N",
+                            "anchor": {
+                                "x": 24,
+                                "y": 0
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "player",
+                            "element": "P",
+                            "anchor": {
+                                "x": 8,
+                                "y": 24
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        }
+                    ]
+                },
+                {
+                    "map_id": "stage_25",
+                    "terrain": {
+                        "grid": [
+                            {
+                                "y": 0,
+                                "row": "XXXXXXTTXXBBXXBBXXBBXXTTXX"
+                            },
+                            {
+                                "y": 1,
+                                "row": "XXXXXXTTXXBBXXBBXXBBXXTTXX"
+                            },
+                            {
+                                "y": 2,
+                                "row": "XXBBXXBBXXXXXXXXXXTTXXXXXX"
+                            },
+                            {
+                                "y": 3,
+                                "row": "XXBBXXBBXXXXXXXXXXTTXXXXXX"
+                            },
+                            {
+                                "y": 4,
+                                "row": "XXBBXXBBXXXXTTXXXXTTXXTTTT"
+                            },
+                            {
+                                "y": 5,
+                                "row": "XXBBXXBBXXXXTTXXXXTTXXTTTT"
+                            },
+                            {
+                                "y": 6,
+                                "row": "XXBBXXXXXXBBXXTTBBXXXXXXTT"
+                            },
+                            {
+                                "y": 7,
+                                "row": "XXBBXXXXXXBBXXTTBBXXXXXXTT"
+                            },
+                            {
+                                "y": 8,
+                                "row": "XXXXXXXXBBBBXXBBBBXXTTXXXX"
+                            },
+                            {
+                                "y": 9,
+                                "row": "XXXXXXXXBBBBXXBBBBXXTTXXXX"
+                            },
+                            {
+                                "y": 10,
+                                "row": "XXXXTTXXBBXXXXBBBBXXBBBBXX"
+                            },
+                            {
+                                "y": 11,
+                                "row": "XXXXTTXXBBXXXXBBBBXXBBBBXX"
+                            },
+                            {
+                                "y": 12,
+                                "row": "TTXXTTXXXXBBXXTTXXXXTTBBXX"
+                            },
+                            {
+                                "y": 13,
+                                "row": "TTXXTTXXXXBBXXTTXXXXTTBBXX"
+                            },
+                            {
+                                "y": 14,
+                                "row": "XXXXBBBBXXBBXXXXXXBBTTXXXX"
+                            },
+                            {
+                                "y": 15,
+                                "row": "XXXXBBBBXXBBXXXXXXBBTTXXXX"
+                            },
+                            {
+                                "y": 16,
+                                "row": "XXTTBBBBXXBBBBXXBBBBXXXXBB"
+                            },
+                            {
+                                "y": 17,
+                                "row": "XXTTBBBBXXBBBBXXBBBBXXXXBB"
+                            },
+                            {
+                                "y": 18,
+                                "row": "XXBBXXXXXXBBTTXXXXXXXXBBBB"
+                            },
+                            {
+                                "y": 19,
+                                "row": "XXBBXXXXXXBBTTXXXXXXXXBBBB"
+                            },
+                            {
+                                "y": 20,
+                                "row": "XXXXXXBBXXBBBBTTXXTTXXXXBB"
+                            },
+                            {
+                                "y": 21,
+                                "row": "XXXXXXBBXXBBBBTTXXTTXXXXBB"
+                            },
+                            {
+                                "y": 22,
+                                "row": "BBXXBBBBXXXXXXXXXXBBTTXXXX"
+                            },
+                            {
+                                "y": 23,
+                                "row": "BBXXBBBBXXXBBBBXXXBBTTXXXX"
+                            },
+                            {
+                                "y": 24,
+                                "row": "BBXXBBXXXXXBXXBXXXBBBBBBXX"
+                            },
+                            {
+                                "y": 25,
+                                "row": "BBXXBBXXXXXBXXBXXXBBBBBBXX"
+                            }
+                        ]
+                    },
+                    "interaction": [
+                        {
+                            "id": "eagle",
+                            "element": "E",
+                            "anchor": {
+                                "x": 12,
+                                "y": 24
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "N",
+                            "anchor": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "N",
+                            "anchor": {
+                                "x": 24,
+                                "y": 0
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "player",
+                            "element": "P",
+                            "anchor": {
+                                "x": 8,
+                                "y": 24
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        }
+                    ]
+                },
+                {
+                    "map_id": "stage_27",
+                    "terrain": {
+                        "grid": [
+                            {
+                                "y": 0,
+                                "row": "XXXXXXXXTTXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 1,
+                                "row": "XXXXXXXXTTXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 2,
+                                "row": "TTTTXXXXTTXXXXTTTTXXXXXXXX"
+                            },
+                            {
+                                "y": 3,
+                                "row": "TTTTXXXXTTXXXXTTTTXXXXXXXX"
+                            },
+                            {
+                                "y": 4,
+                                "row": "XXTTXXXXTTXXXXXXTTXXTTTTFF"
+                            },
+                            {
+                                "y": 5,
+                                "row": "XXTTXXXXTTXXXXXXTTXXTTTTFF"
+                            },
+                            {
+                                "y": 6,
+                                "row": "XXTTXXXXTTTTTTXXFFXXTTXXXX"
+                            },
+                            {
+                                "y": 7,
+                                "row": "XXTTXXXXTTTTTTXXFFXXTTXXXX"
+                            },
+                            {
+                                "y": 8,
+                                "row": "XXBBXXXXXXXXTTXXTTTTTTXXXX"
+                            },
+                            {
+                                "y": 9,
+                                "row": "XXBBXXXXXXXXTTXXTTTTTTXXXX"
+                            },
+                            {
+                                "y": 10,
+                                "row": "FFTTTTXXTTBBTTBBBBXXXXXXXX"
+                            },
+                            {
+                                "y": 11,
+                                "row": "FFTTTTXXTTBBTTBBBBXXXXXXXX"
+                            },
+                            {
+                                "y": 12,
+                                "row": "XXXXTTFFTTFFXXXXBBXXXXTTTT"
+                            },
+                            {
+                                "y": 13,
+                                "row": "XXXXTTFFTTFFXXXXBBXXXXTTTT"
+                            },
+                            {
+                                "y": 14,
+                                "row": "XXXXTTXXXXFFXXXXTTXXXXTTXX"
+                            },
+                            {
+                                "y": 15,
+                                "row": "XXXXTTXXXXFFXXXXTTXXXXTTXX"
+                            },
+                            {
+                                "y": 16,
+                                "row": "XXXXBBXXXXTTXXXXTTTTBBTTXX"
+                            },
+                            {
+                                "y": 17,
+                                "row": "XXXXBBXXXXTTXXXXTTTTBBTTXX"
+                            },
+                            {
+                                "y": 18,
+                                "row": "FFTTTTTTFFFFBBTTTTXXBBTTXX"
+                            },
+                            {
+                                "y": 19,
+                                "row": "FFTTTTTTFFFFBBTTTTXXBBTTXX"
+                            },
+                            {
+                                "y": 20,
+                                "row": "XXXXXXBBXXXXXXXXFFFFXXBBXX"
+                            },
+                            {
+                                "y": 21,
+                                "row": "XXXXXXBBXXXXXXXXFFFFXXBBXX"
+                            },
+                            {
+                                "y": 22,
+                                "row": "XXXXXXTTXXXXXXXXXXFFXXBBXX"
+                            },
+                            {
+                                "y": 23,
+                                "row": "XXXXXXTTXXXBBBBXXXFFXXBBXX"
+                            },
+                            {
+                                "y": 24,
+                                "row": "XXXXXXTTXXXBXXBXXXTTXXBBXX"
+                            },
+                            {
+                                "y": 25,
+                                "row": "XXXXXXTTXXXBXXBXXXTTXXBBXX"
+                            }
+                        ]
+                    },
+                    "interaction": [
+                        {
+                            "id": "eagle",
+                            "element": "E",
+                            "anchor": {
+                                "x": 12,
+                                "y": 24
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "player",
+                            "element": "P",
+                            "anchor": {
+                                "x": 8,
+                                "y": 24
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "N",
+                            "anchor": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "N",
+                            "anchor": {
+                                "x": 24,
+                                "y": 0
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        }
+                    ]
+                },
+                {
+                    "map_id": "stage_29",
+                    "terrain": {
+                        "grid": [
+                            {
+                                "y": 0,
+                                "row": "XXXXXXXXXXXXXXXXXXXXBBXXXX"
+                            },
+                            {
+                                "y": 1,
+                                "row": "XXXXXXXXXXXXXXXXXXXXBBXXXX"
+                            },
+                            {
+                                "y": 2,
+                                "row": "XXBBRRRRXXTTXXBBXXXXXXXXXX"
+                            },
+                            {
+                                "y": 3,
+                                "row": "XXBBRRRRXXTTXXBBXXXXXXXXXX"
+                            },
+                            {
+                                "y": 4,
+                                "row": "XXXXRRRRBBFFFFFFRRRRXXTTXX"
+                            },
+                            {
+                                "y": 5,
+                                "row": "XXXXRRRRBBFFFFFFRRRRXXTTXX"
+                            },
+                            {
+                                "y": 6,
+                                "row": "XXXXXXXXXXFFFFFFRRRRBBXXXX"
+                            },
+                            {
+                                "y": 7,
+                                "row": "XXXXXXXXXXFFFFFFRRRRBBXXXX"
+                            },
+                            {
+                                "y": 8,
+                                "row": "XXTTXXXXRRRRXXFFXXXXXXXXXX"
+                            },
+                            {
+                                "y": 9,
+                                "row": "XXTTXXXXRRRRXXFFXXXXXXXXXX"
+                            },
+                            {
+                                "y": 10,
+                                "row": "FFFFBBXXRRRRTTXXXXXXXXBBXX"
+                            },
+                            {
+                                "y": 11,
+                                "row": "FFFFBBXXRRRRTTXXXXXXXXBBXX"
+                            },
+                            {
+                                "y": 12,
+                                "row": "FFFFFFXXXXXXXXXXXXTTXXXXTT"
+                            },
+                            {
+                                "y": 13,
+                                "row": "FFFFFFXXXXXXXXXXXXTTXXXXTT"
+                            },
+                            {
+                                "y": 14,
+                                "row": "XXBBRRRRXXBBXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 15,
+                                "row": "XXBBRRRRXXBBXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 16,
+                                "row": "TTXXRRRRFFFFRRRRFFFFXXBBXX"
+                            },
+                            {
+                                "y": 17,
+                                "row": "TTXXRRRRFFFFRRRRFFFFXXBBXX"
+                            },
+                            {
+                                "y": 18,
+                                "row": "XXXXXXXXFFXXRRRRFFFFRRRRXX"
+                            },
+                            {
+                                "y": 19,
+                                "row": "XXXXXXXXFFXXRRRRFFFFRRRRXX"
+                            },
+                            {
+                                "y": 20,
+                                "row": "XXXXXXTTFFXXXXXXFFFFRRRRXX"
+                            },
+                            {
+                                "y": 21,
+                                "row": "XXXXXXTTFFXXXXXXFFFFRRRRXX"
+                            },
+                            {
+                                "y": 22,
+                                "row": "XXXXBBXXBBXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 23,
+                                "row": "XXXXBBXXBBXBBBBXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 24,
+                                "row": "BBXXXXXXXXXBXXBXXXBBTTXXXX"
+                            },
+                            {
+                                "y": 25,
+                                "row": "BBXXXXXXXXXBXXBXXXBBTTXXXX"
+                            }
+                        ]
+                    },
+                    "interaction": [
+                        {
+                            "id": "eagle",
+                            "element": "E",
+                            "anchor": {
+                                "x": 12,
+                                "y": 24
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "player",
+                            "element": "P",
+                            "anchor": {
+                                "x": 8,
+                                "y": 24
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "N",
+                            "anchor": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "N",
+                            "anchor": {
+                                "x": 24,
+                                "y": 0
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        }
+                    ]
+                },
+                {
+                    "map_id": "stage_31",
+                    "terrain": {
+                        "grid": [
+                            {
+                                "y": 0,
+                                "row": "XXXXXXRRXXXXXXXXRRXXXXXXXX"
+                            },
+                            {
+                                "y": 1,
+                                "row": "XXXXXXRRXXXXXXXXRRXXXXXXXX"
+                            },
+                            {
+                                "y": 2,
+                                "row": "RRRRXXRRXXRRRRRRRRXXRRRRRR"
+                            },
+                            {
+                                "y": 3,
+                                "row": "RRRRXXRRXXRRRRRRRRXXRRRRRR"
+                            },
+                            {
+                                "y": 4,
+                                "row": "FFFFBBXXXXBBXXXXRRXXRRFFRR"
+                            },
+                            {
+                                "y": 5,
+                                "row": "FFFFBBXXXXBBXXXXRRXXRRFFRR"
+                            },
+                            {
+                                "y": 6,
+                                "row": "FFRRRRRRRRXXTTXXXXBBFFFFFF"
+                            },
+                            {
+                                "y": 7,
+                                "row": "FFRRRRRRRRXXTTXXXXBBFFFFFF"
+                            },
+                            {
+                                "y": 8,
+                                "row": "FFFFXXRRXXXXRRXXRRRRRRRRFF"
+                            },
+                            {
+                                "y": 9,
+                                "row": "FFFFXXRRXXXXRRXXRRRRRRRRFF"
+                            },
+                            {
+                                "y": 10,
+                                "row": "RRRRXXRRXXRRRRXXXXRRXXXXXX"
+                            },
+                            {
+                                "y": 11,
+                                "row": "RRRRXXRRXXRRRRXXXXRRXXXXXX"
+                            },
+                            {
+                                "y": 12,
+                                "row": "XXXXBBFFBBXXBBFFXXRRXXXXRR"
+                            },
+                            {
+                                "y": 13,
+                                "row": "XXXXBBFFBBXXBBFFXXRRXXXXRR"
+                            },
+                            {
+                                "y": 14,
+                                "row": "XXRRRRFFRRRRRRRRXXFFBBXXRR"
+                            },
+                            {
+                                "y": 15,
+                                "row": "XXRRRRFFRRRRRRRRXXFFBBXXRR"
+                            },
+                            {
+                                "y": 16,
+                                "row": "BBXXXXBBXXXXRRXXFFFFRRXXRR"
+                            },
+                            {
+                                "y": 17,
+                                "row": "BBXXXXBBXXXXRRXXFFFFRRXXRR"
+                            },
+                            {
+                                "y": 18,
+                                "row": "RRRRXXRRRRXXRRBBRRRRRRXXXX"
+                            },
+                            {
+                                "y": 19,
+                                "row": "RRRRXXRRRRXXRRBBRRRRRRXXXX"
+                            },
+                            {
+                                "y": 20,
+                                "row": "XXXXBBXXFFFFXXXXFFRRXXXXRR"
+                            },
+                            {
+                                "y": 21,
+                                "row": "XXXXBBXXFFFFXXXXFFRRXXXXRR"
+                            },
+                            {
+                                "y": 22,
+                                "row": "XXRRRRRRFFXXXXXXXXRRXXRRRR"
+                            },
+                            {
+                                "y": 23,
+                                "row": "XXRRRRRRFFXBBBBXXXRRXXRRRR"
+                            },
+                            {
+                                "y": 24,
+                                "row": "XXRRXXXXXXXBXXBXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 25,
+                                "row": "XXRRXXXXXXXBXXBXXXXXXXXXXX"
+                            }
+                        ]
+                    },
+                    "interaction": [
+                        {
+                            "id": "eagle",
+                            "element": "E",
+                            "anchor": {
+                                "x": 12,
+                                "y": 24
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "player",
+                            "element": "P",
+                            "anchor": {
+                                "x": 8,
+                                "y": 24
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "N",
+                            "anchor": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "N",
+                            "anchor": {
+                                "x": 24,
+                                "y": 0
+                            },
+                            "size": {
+                                "width": 2,
+                                "height": 2
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "game_b": {
+            "mapping": {
+                "X": {
+                    "name": "space",
+                    "description": "empty passable corridor, player and ghosts can move through freely, no collision detection",
+                    "color": "#000000",
+                    "collision": "prevent",
+                    "layer": "terrain"
+                },
+                "B": {
+                    "name": "wall",
+                    "description": "solid maze wall, blocks player and ghost movement permanently, defines maze pathways and boundaries",
+                    "color": "#084dba",
+                    "collision": "fixed",
+                    "layer": "terrain"
+                },
+                "o": {
+                    "name": "pellet",
+                    "description": "small dot collectible, player eats on contact for 10 points, eating 70 pellets spawns first fruit, eating 170 pellets spawns second fruit, all pellets must be eaten to complete level",
+                    "color": "#f39d1b",
+                    "collision": "passive",
+                    "layer": "terrain"
+                },
+                "O": {
+                    "name": "power_pellet",
+                    "description": "large flashing energizer in maze corners, player eats on contact for 50 points, turns all ghosts blue and vulnerable for limited time, allows player to eat ghosts for bonus points (200/400/800/1600), effect duration decreases in later levels",
+                    "color": "#fcc527",
+                    "collision": "passive",
+                    "layer": "terrain"
+                },
+                "P": {
+                    "name": "player",
+                    "description": "pac-man character, moves through maze corridors in four directions, eats pellets and power pellets on contact, dies on ghost contact (unless ghost is blue), can eat blue ghosts for points, moves faster when not eating, turns corners faster than ghosts",
+                    "color": "#ffff00",
+                    "collision": "active",
+                    "layer": "interaction",
+                    "category": "character",
+                    "default_size": {
+                        "width": 1,
+                        "height": 1
+                    }
+                },
+                "G": {
+                    "name": "ghost",
+                    "description": "enemy pursuer (Blinky/Pinky/Inky/Clyde), each has unique AI behavior and patrol corner, chases player or patrols in scatter mode, kills player on contact normally, turns blue and flees when player eats power pellet, eyes return to ghost house when eaten, moves slower in tunnels",
+                    "color": "#ff0000",
+                    "collision": "active",
+                    "layer": "interaction",
+                    "category": "character",
+                    "default_size": {
+                        "width": 1,
+                        "height": 1
+                    }
+                }
+            },
+            "maps": [
+                {
+                    "map_id": "stage_1",
+                    "terrain": {
+                        "grid": [
+                            {
+                                "y": 0,
+                                "row": "BBBBBBBBBBBBBBBBBBBBB"
+                            },
+                            {
+                                "y": 1,
+                                "row": "BoooooooooBoooooooooB"
+                            },
+                            {
+                                "y": 2,
+                                "row": "BoBBBoBBBoBoBBBoBBBoB"
+                            },
+                            {
+                                "y": 3,
+                                "row": "BOBXBoBXBoBoBXBoBXBOB"
+                            },
+                            {
+                                "y": 4,
+                                "row": "BoBBBoBBBoBoBBBoBBBoB"
+                            },
+                            {
+                                "y": 5,
+                                "row": "BoooooooooooooooooooB"
+                            },
+                            {
+                                "y": 6,
+                                "row": "BoBBBoBoBBBBBoBoBBBoB"
+                            },
+                            {
+                                "y": 7,
+                                "row": "BoBBBoBoBBBBBoBoBBBoB"
+                            },
+                            {
+                                "y": 8,
+                                "row": "BoooooBoooBoooBoooooB"
+                            },
+                            {
+                                "y": 9,
+                                "row": "BBBBBoBBBXBXBBBoBBBBB"
+                            },
+                            {
+                                "y": 10,
+                                "row": "XXXXBoBXXXXXXXBoBXXXX"
+                            },
+                            {
+                                "y": 11,
+                                "row": "XXXXBoBXBBXBBXBoBXXXX"
+                            },
+                            {
+                                "y": 12,
+                                "row": "BBBBBoBXBXXXBXBoBBBBB"
+                            },
+                            {
+                                "y": 13,
+                                "row": "XXXXXoXXBXXXBXXoXXXXX"
+                            },
+                            {
+                                "y": 14,
+                                "row": "BBBBBoBXBBBBBXBoBBBBB"
+                            },
+                            {
+                                "y": 15,
+                                "row": "XXXXBoBXXXXXXXBoBXXXX"
+                            },
+                            {
+                                "y": 16,
+                                "row": "XXXXBoBXBBBBBXBoBXXXX"
+                            },
+                            {
+                                "y": 17,
+                                "row": "BBBBBoBXBBBBBXBoBBBBB"
+                            },
+                            {
+                                "y": 18,
+                                "row": "BoooooooooBoooooooooB"
+                            },
+                            {
+                                "y": 19,
+                                "row": "BoBBBoBBBoBoBBBoBBBoB"
+                            },
+                            {
+                                "y": 20,
+                                "row": "BOooBoooooXoooooBooOB"
+                            },
+                            {
+                                "y": 21,
+                                "row": "BBBoBoBoBBBBBoBoBoBBB"
+                            },
+                            {
+                                "y": 22,
+                                "row": "BBBoBoBoBBBBBoBoBoBBB"
+                            },
+                            {
+                                "y": 23,
+                                "row": "BoooooBoooBoooBoooooB"
+                            },
+                            {
+                                "y": 24,
+                                "row": "BoBBBBBBBoBoBBBBBBBoB"
+                            },
+                            {
+                                "y": 25,
+                                "row": "BoooooooooooooooooooB"
+                            },
+                            {
+                                "y": 26,
+                                "row": "BBBBBBBBBBBBBBBBBBBBB"
+                            }
+                        ]
+                    },
+                    "interaction": [
+                        {
+                            "id": "ghost",
+                            "element": "G",
+                            "anchor": {
+                                "x": 9,
+                                "y": 12
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "ghost",
+                            "element": "G",
+                            "anchor": {
+                                "x": 11,
+                                "y": 12
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "ghost",
+                            "element": "G",
+                            "anchor": {
+                                "x": 11,
+                                "y": 13
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "ghost",
+                            "element": "G",
+                            "anchor": {
+                                "x": 9,
+                                "y": 13
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "player",
+                            "element": "P",
+                            "anchor": {
+                                "x": 10,
+                                "y": 20
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

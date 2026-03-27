@@ -1,0 +1,22 @@
+game_id: bomber_king_1987
+tags: [Shooter, Arcade]
+view: top-down view
+
+gameplay_summary: |
+  The player controls a robot in top-down maze stages, shooting enemies and placing bombs to destroy obstacles.
+  Bombs can be placed to destroy walls and create paths through the environment.
+  The robot can shoot projectiles to defeat enemies at range.
+  The objective is to navigate mazes, defeat enemies, and reach the goal in each area.
+
+key_mechanics:
+  player_abilities: [move in 8 directions, shoot projectiles, place bombs]
+  interaction_modes:
+    - Shoot enemy → destroy threat
+    - Place bomb → bomb explodes after delay, destroys obstacles
+    - Bomb destroys wall → create passage
+    - Touch enemy or explosion → take damage
+    - Navigate through maze → explore and progress
+    - Reach goal → complete stage
+  enemy_characteristics: [patrol mazes, shoot projectiles, contact damage, varied enemy types]
+  environment_characteristics: [top-down maze layouts, destructible walls blocking paths, bombs required to progress, enemies distributed throughout]
+  win_condition: Navigate through the maze and reach the goal

@@ -1,0 +1,19 @@
+game_id: hi_no_tori_1987
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a warrior in horizontally scrolling platform stages, using a weapon to defeat enemies.
+  The warrior can jump between platforms and swing the weapon to attack threats.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, swing weapon to attack]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Swing weapon at enemy → defeat threat
+    - Touch enemy → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms, contact damage, defeated by weapon attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, platforms at multiple heights]
+  win_condition: Reach the end of each stage

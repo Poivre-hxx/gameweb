@@ -1,0 +1,22 @@
+game_id: star_soldier_1986
+tags: [Shooter, Shoot 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a spacecraft in a fast-paced vertically scrolling shooter with dense enemy waves.
+  Rapid-fire weapons continuously shoot at swarms of enemies filling the screen.
+  Power-up capsules enhance speed, firepower, and provide shields when collected.
+  Enemies attack in large formations requiring quick reflexes and pattern recognition.
+  The objective is to survive through intense waves and reach the end of each area.
+
+key_mechanics:
+  player_abilities: [move in 8 directions, rapid-fire continuously, collect power-ups to enhance capabilities]
+  interaction_modes:
+    - Shoot enemy → destroy threat with rapid fire
+    - Collect power-up → enhance speed, increase firepower, or gain shield
+    - Shield active → absorb damage once before breaking
+    - Touch enemy or projectile without shield → take damage
+    - Lose powered-up state when hit → revert to weaker weapons
+  enemy_characteristics: [swarm in large numbers across screen, varied formations and attack patterns, some enemies kamikaze dive, dense bullet patterns require evasion]
+  environment_characteristics: [vertically auto-scrolling space, enemies fill screen densely, power-up capsules dropped by certain enemies, intense action pace]
+  win_condition: Survive through the area and defeat all enemy waves

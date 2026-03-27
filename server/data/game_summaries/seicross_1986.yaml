@@ -1,0 +1,23 @@
+game_id: seicross_1986
+tags: [Shooter, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a motorcycle in a horizontally scrolling shooter, advancing automatically to the right.
+  The motorcycle shoots at aerial and ground enemies while rescuing stranded people.
+  Rescued people provide score bonuses and extra lives.
+  The stage scrolls continuously, requiring constant forward movement and quick reactions.
+  The objective is to survive through the auto-scrolling stage while rescuing people and defeating enemies.
+
+key_mechanics:
+  player_abilities: [move up/down within lane, shoot forward, rescue people by touching them]
+  interaction_modes:
+    - Shoot enemy → destroy threat
+    - Touch stranded person → rescue and gain bonus
+    - Rescue multiple people consecutively → increased rewards
+    - Touch enemy or projectile → take damage
+    - Stage scrolls automatically → must keep pace
+    - Fall behind screen edge → lose life
+  enemy_characteristics: [aerial enemies fly in patterns, ground enemies patrol terrain, contact and projectile damage, varied attack patterns]
+  environment_characteristics: [horizontally auto-scrolling terrain, stranded people positioned throughout, enemies spawn continuously, must maintain forward movement]
+  win_condition: Survive to the end of the auto-scrolling stage

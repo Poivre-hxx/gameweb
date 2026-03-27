@@ -1,0 +1,23 @@
+game_id: exerion_1985
+tags: [Shooter, Shoot 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a craft in a vertically scrolling shooter with a dual weapon system.
+  One weapon fires rapid shots with limited range, while the other fires powerful long-range shots.
+  An energy system limits continuous firing, requiring strategic weapon management.
+  Enemies attack in formations and must be destroyed before colliding with the player.
+  The objective is to survive through continuous enemy waves and destroy as many targets as possible.
+
+key_mechanics:
+  player_abilities: [move in 8 directions, fire rapid short-range weapon, fire powerful long-range weapon]
+  interaction_modes:
+    - Fire rapid weapon → destroy nearby enemies, consumes energy gradually
+    - Fire long-range weapon → destroy distant enemies, consumes more energy
+    - Energy depletes → weapons become unavailable temporarily
+    - Energy regenerates over time → weapons become available again
+    - Touch enemy or projectile → lose life
+    - Destroy enemy formations → earn points and progress
+  enemy_characteristics: [attack in formation patterns, some dive toward player, some shoot projectiles, contact damage, formations increase in density and speed]
+  environment_characteristics: [vertically scrolling battlefield with depth perception, no terrain obstacles, enemies enter from top and sides, energy meter limits continuous fire]
+  win_condition: Survive as long as possible through continuous enemy waves

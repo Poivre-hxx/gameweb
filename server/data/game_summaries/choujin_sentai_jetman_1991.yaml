@@ -1,0 +1,23 @@
+game_id: choujin_sentai_jetman_1991
+tags: [Beat 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls one of multiple selectable heroes in horizontally scrolling stages, battling waves of enemies.
+  Combat uses punches, kicks, and special techniques to defeat groups of attackers.
+  Different heroes have unique fighting styles and abilities.
+  Enemies attack from both sides and must be defeated to progress forward.
+  The objective is to clear all enemies from each area and reach the end of the stage.
+
+key_mechanics:
+  player_abilities: [move left/right, punch, kick, use special techniques, select from multiple heroes]
+  interaction_modes:
+    - Punch enemy → damage opponent
+    - Kick enemy → damage opponent
+    - Use special technique → powerful attack
+    - Select hero → choose character with unique style
+    - Touch enemy or attack → take damage
+    - Defeat all enemies in area → progress forward
+  enemy_characteristics: [attack in groups from both sides, varied enemy types, contact and attack damage]
+  environment_characteristics: [horizontally scrolling stages, multiple selectable heroes with different styles, enemies spawn in waves]
+  win_condition: Defeat all enemies and reach the end of each stage

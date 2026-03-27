@@ -1,0 +1,25 @@
+game_id: adventure_island_1986
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character in horizontally scrolling platform stages with a constantly depleting vitality meter.
+  Fruits must be collected continuously to replenish vitality and prevent death.
+  Weapons such as axes can be thrown at enemies for ranged attacks.
+  A skateboard provides temporary speed boost and invincibility against minor hazards.
+  The objective is to reach the end of each stage while managing vitality and overcoming obstacles.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, throw weapon at enemies, ride skateboard, collect items]
+  interaction_modes:
+    - Vitality depletes continuously → must collect fruits regularly
+    - Collect fruit → restore vitality
+    - Vitality reaches zero → lose life
+    - Throw weapon at enemy → defeat threat
+    - Mount skateboard → gain speed and protection from minor hazards
+    - Take damage on skateboard → lose skateboard, continue on foot
+    - Touch enemy without protection → lose life
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms and fly in patterns, contact damage, defeated by thrown weapons, varied enemy types]
+  environment_characteristics: [horizontally scrolling stages, fruits scattered throughout for vitality management, weapons and skateboards as pickups, gaps and platforms requiring jumps]
+  win_condition: Reach the end of each stage

@@ -1,0 +1,21 @@
+game_id: xexyz_1988
+tags: [Shooter, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player alternates between side-scrolling shooting stages and top-down exploration areas.
+  Side-scrolling stages feature platforming and shooting action against enemies.
+  Top-down areas connect stages and contain shops and story elements.
+  The objective is to navigate both stage types, defeat enemies, and progress through the game.
+
+key_mechanics:
+  player_abilities: [move and jump in side-scrolling, shoot continuously, explore in top-down areas]
+  interaction_modes:
+    - Shoot enemy → destroy threat
+    - Jump between platforms in side-scrolling → navigate terrain
+    - Navigate top-down areas → connect stages and access shops
+    - Touch enemy or projectile → take damage
+    - Complete stage → progress forward
+  enemy_characteristics: [varied enemies in side-scrolling stages, enemies in top-down areas, contact and projectile damage]
+  environment_characteristics: [alternating side-scrolling shooting and top-down exploration, shops and story elements in top-down areas]
+  win_condition: Complete all stages

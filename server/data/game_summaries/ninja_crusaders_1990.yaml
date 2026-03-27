@@ -1,0 +1,22 @@
+game_id: ninja_crusaders_1990
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a ninja in horizontally scrolling platform stages with the ability to transform into different animal forms.
+  Each animal form provides unique combat or movement abilities.
+  Transformation allows tactical adaptation to different combat situations.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, attack with ninja weapons, transform into animal forms, use form-specific abilities]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Attack with weapon → defeat enemies
+    - Transform into animal form → gain unique abilities
+    - Different forms provide different combat or movement options → tactical choices
+    - Touch enemy or projectile → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms, contact damage, defeated by attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, animal transformations provide tactical variety, different forms suited for different situations]
+  win_condition: Reach the end of each stage

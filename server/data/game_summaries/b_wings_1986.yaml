@@ -1,0 +1,23 @@
+game_id: b_wings_1986
+tags: [Shooter, Shoot 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls an aircraft in a vertically scrolling shooter with adjustable weapon configuration.
+  Weapons can be switched between forward-firing and rear-firing positions for tactical advantage.
+  The aircraft attacks both aerial enemies and ground installations.
+  Power-up items enhance weapon capabilities when collected.
+  The objective is to survive through continuous waves of enemies and reach the end of each area.
+
+key_mechanics:
+  player_abilities: [move in 8 directions, shoot with current weapon configuration, switch weapon direction (forward/rear)]
+  interaction_modes:
+    - Shoot forward → attack enemies ahead
+    - Switch to rear weapons → attack enemies behind
+    - Shoot aerial enemy → destroy flying threat
+    - Shoot ground target → destroy surface installation
+    - Collect power-up → enhance weapon firepower
+    - Touch enemy or projectile → take damage
+  enemy_characteristics: [aerial enemies attack from multiple directions, ground installations fire upward, some enemies approach from behind, varied attack patterns]
+  environment_characteristics: [vertically auto-scrolling terrain, enemies enter from various angles including rear, power-up items dropped by certain enemies]
+  win_condition: Survive through the area and defeat all enemy waves

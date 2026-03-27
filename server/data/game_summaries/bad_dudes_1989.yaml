@@ -1,0 +1,23 @@
+game_id: bad_dudes_1989
+tags: [Beat 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a fighter in horizontally scrolling stages, battling multiple enemies using martial arts.
+  Combat uses punches, kicks, and jump attacks to defeat groups of attackers.
+  The fighter can climb obstacles and attack while climbing.
+  Enemies attack from both sides and must be defeated to progress forward.
+  The objective is to clear all enemies from each area and reach the end of the stage.
+
+key_mechanics:
+  player_abilities: [move left/right, punch, kick, jump attack, climb obstacles]
+  interaction_modes:
+    - Punch enemy → damage opponent
+    - Kick enemy → damage opponent
+    - Jump attack → aerial damage
+    - Climb obstacle → navigate terrain, attack while climbing
+    - Touch enemy or attack → take damage
+    - Defeat all enemies in area → progress forward
+  enemy_characteristics: [attack in groups from both sides, varied fighting styles, contact and attack damage, varied enemy types]
+  environment_characteristics: [horizontally scrolling stages with climbing sections, enemies spawn in waves]
+  win_condition: Defeat all enemies and reach the end of each stage

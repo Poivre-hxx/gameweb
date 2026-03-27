@@ -1,0 +1,22 @@
+game_id: chubby_cherub_1985
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a flying character in horizontally scrolling stages, consuming food to maintain flight energy.
+  Flight consumes energy continuously and must be replenished by collecting food items.
+  Running out of energy causes the character to fall, requiring careful resource management.
+  Enemies chase and attack, forcing the player to navigate while managing energy.
+  The objective is to reach the goal at the end of each stage while maintaining enough energy to fly.
+
+key_mechanics:
+  player_abilities: [move left/right, fly (consumes energy), walk on ground]
+  interaction_modes:
+    - Fly continuously → energy depletes
+    - Collect food → restore energy
+    - Run out of energy → fall to ground, limited mobility
+    - Touch enemy → take damage
+    - Reach goal → complete stage
+  enemy_characteristics: [chase player on ground, contact damage, must be avoided through flight or timing]
+  environment_characteristics: [horizontally scrolling stages, food items scattered throughout, enemies patrol ground level, goal marker at stage end]
+  win_condition: Reach the goal at the end of each stage

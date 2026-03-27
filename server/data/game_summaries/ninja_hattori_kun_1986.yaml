@@ -1,0 +1,21 @@
+game_id: ninja_hattori_kun_1986
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a ninja character navigating horizontally scrolling platform stages.
+  The ninja can jump between platforms, climb walls, and throw projectiles at enemies.
+  Enemies patrol platforms and must be defeated or avoided while progressing forward.
+  The objective is to reach the end of each stage while overcoming obstacles and enemies.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, climb walls, throw projectiles]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Climb wall → scale vertical surfaces
+    - Throw projectile at enemy → defeat threat
+    - Touch enemy → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms, contact damage, defeated by projectiles, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, climbable walls, gaps requiring jumps, enemies distributed throughout]
+  win_condition: Reach the end of each stage

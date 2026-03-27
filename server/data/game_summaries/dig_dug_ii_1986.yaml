@@ -1,0 +1,26 @@
+game_id: dig_dug_ii_1986
+tags: [Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a character on fixed-screen island stages, defeating enemies by splitting off land sections.
+  Digging creates fault lines that separate pieces of the island, causing them to break off and sink.
+  Enemies on sinking sections are defeated when the land falls into the water.
+  The inflation device from the original can still be used to eliminate enemies directly.
+  The objective is to defeat all enemies by sinking land or inflating them while avoiding falling into water.
+
+key_mechanics:
+  player_abilities: [move in 4 directions on island surface, drill to create fault lines, connect inflation device to enemy, pump to inflate enemy]
+  interaction_modes:
+    - Drill ground → create fault line segment
+    - Complete fault line around section → section breaks off and sinks
+    - Enemy on sinking section → enemy defeated
+    - Player on sinking section → lose life
+    - Connect device to enemy → begin inflation process
+    - Pump continuously → enemy inflates gradually
+    - Fully inflate enemy → enemy bursts and is defeated
+    - Touch enemy → lose life
+    - Defeat all enemies → complete stage
+  enemy_characteristics: [move across island surface, chase player, contact damage, defeated by sinking or inflation, can also fall into water]
+  environment_characteristics: [fixed-screen island surrounded by water, island can be divided into sections, sections sink when separated, player and enemies both vulnerable to falling]
+  win_condition: Defeat all enemies on the island

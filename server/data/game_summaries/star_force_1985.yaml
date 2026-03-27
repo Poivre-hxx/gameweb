@@ -1,0 +1,23 @@
+game_id: star_force_1985
+tags: [Shooter, Shoot 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a craft in a vertically scrolling shooter, automatically advancing upward through enemy territory.
+  The craft fires continuously at both aerial enemies and ground installations.
+  Power-up items enhance the craft's firepower and capabilities when collected.
+  Each area culminates in a confrontation with a larger boss enemy.
+  The objective is to survive through continuous waves of enemies and destroy area bosses.
+
+key_mechanics:
+  player_abilities: [move in 8 directions, fire forward continuously, collect power-ups to enhance weapons]
+  interaction_modes:
+    - Fire at aerial enemies → destroy flying threats
+    - Fire at ground targets → destroy surface installations
+    - Collect power-up → increase fire rate or weapon spread
+    - Touch enemy or projectile → lose life
+    - Lose powered-up state when hit → revert to basic weapons
+    - Destroy boss enemy → complete area, advance to next
+  enemy_characteristics: [aerial enemies attack in various formations, ground installations fire upward, some enemies release power-ups when destroyed, boss enemies have attack patterns and higher durability]
+  environment_characteristics: [vertically auto-scrolling terrain, enemies enter from top and sides, ground installations embedded in terrain, power-up items dropped by certain enemies, boss arena at end of each area]
+  win_condition: Destroy the boss at the end of each area

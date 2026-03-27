@@ -1,0 +1,18 @@
+game_id: seikima_ii_1986
+tags: [Shooter, Shoot 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a flying character in horizontally scrolling stages, shooting enemies and avoiding obstacles.
+  Continuous shooting defeats enemies approaching from the right side of the screen.
+  The objective is to survive through waves of enemies and reach the end of each area.
+
+key_mechanics:
+  player_abilities: [fly in 8 directions, shoot continuously forward]
+  interaction_modes:
+    - Shoot enemy → destroy threat
+    - Touch enemy or projectile → take damage
+    - Progress through stage → advance forward
+  enemy_characteristics: [approach from right side, shoot projectiles, contact damage, varied enemy types]
+  environment_characteristics: [horizontally auto-scrolling stages, enemies spawn continuously, obstacles require evasion]
+  win_condition: Survive through the area and reach the end

@@ -1,0 +1,21 @@
+game_id: nuts_and_milk_1984
+tags: [Platform, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a character navigating a fixed-screen platform maze to collect all items.
+  An enemy constantly pursues the player throughout the maze with relentless chase behavior.
+  After collecting all items, the goal position becomes accessible to complete the level.
+  The player must plan efficient routes to collect items while staying ahead of the pursuer.
+  The objective is to collect all items and reach the goal without being caught.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, climb ladders]
+  interaction_modes:
+    - Collect item → progress toward completion
+    - Collect all items → goal becomes accessible
+    - Reach goal → complete level
+    - Touch pursuing enemy → lose life
+  enemy_characteristics: [constantly pursues player, mirrors player's movements across platforms, contact damage, cannot be defeated or slowed]
+  environment_characteristics: [single-screen platform maze, ladders for vertical movement, items scattered throughout maze, goal position that unlocks after collection]
+  win_condition: Collect all items and reach the goal

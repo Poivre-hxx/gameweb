@@ -1,0 +1,23 @@
+game_id: the_battle_of_midway_1943_1988
+tags: [Shooter, Shoot 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls an aircraft in vertically scrolling stages, shooting enemies and avoiding obstacles.
+  An energy gauge depletes continuously and must be replenished by collecting power-ups.
+  Special weapons and upgrades can be collected to enhance firepower temporarily.
+  The objective is to survive through continuous waves while managing energy and reach the end of each area.
+
+key_mechanics:
+  player_abilities: [move in 8 directions, shoot continuously, collect power-ups and energy]
+  interaction_modes:
+    - Shoot enemy → destroy threat
+    - Collect power-up → enhance weapons or gain abilities
+    - Collect energy → replenish depleting energy gauge
+    - Energy depletes continuously → must collect energy regularly
+    - Run out of energy → lose life
+    - Touch enemy or projectile → take damage and lose energy
+    - Progress through stage → advance forward
+  enemy_characteristics: [aerial and naval enemies attack, shoot projectiles, contact damage, varied formations and large boss encounters]
+  environment_characteristics: [vertically auto-scrolling over ocean, energy gauge depletes continuously creating pressure, power-ups dropped by enemies]
+  win_condition: Survive through the area and reach the end

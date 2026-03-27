@@ -1,0 +1,25 @@
+game_id: mighty_bomb_jack_1986
+tags: [Platform, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a character in fixed-screen platform stages, collecting bombs to unlock treasure chests.
+  A unique jump mechanic allows controlling descent speed by holding the jump button in mid-air.
+  Treasure chests must be opened in specific color sequences for maximum rewards.
+  The character has no attack ability and must avoid all enemies through jumping and timing.
+  The objective is to collect required bombs, open treasure chests, and reach the exit in each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump with variable descent control, collect bombs, open chests]
+  interaction_modes:
+    - Jump and hold button → slow descent, extend air time
+    - Release button during jump → normal fall speed
+    - Collect bomb → progress toward chest unlock requirement
+    - Open chest → reveal item or power-up
+    - Open chests in color sequence → bonus rewards
+    - Touch enemy → lose life
+    - Cannot attack enemies → must evade through movement
+    - Collect required bombs and reach exit → complete stage
+  enemy_characteristics: [patrol platforms, contact damage only, cannot be defeated, must be avoided, varied movement patterns]
+  environment_characteristics: [fixed-screen multi-level platforms, bombs scattered throughout, treasure chests of different colors, exit door requiring bomb collection]
+  win_condition: Collect required bombs and reach the exit

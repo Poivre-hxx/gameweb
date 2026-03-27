@@ -1,0 +1,23 @@
+game_id: tiny_toon_adventures_1991
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls one of multiple selectable characters in horizontally scrolling platform stages.
+  Characters can jump on enemies to defeat them.
+  Different characters have unique abilities and characteristics.
+  Items can be collected to restore health and gain power-ups.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, jump on enemies to attack, select from multiple characters]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Jump on enemy → defeat threat by landing on top
+    - Select character → choose character with unique abilities
+    - Collect item → restore health or gain power-ups
+    - Touch enemy from side → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms, contact damage from sides, defeated by jumping on top, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, multiple selectable characters with different abilities, items scattered throughout]
+  win_condition: Reach the end of each stage

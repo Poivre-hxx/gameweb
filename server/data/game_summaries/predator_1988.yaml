@@ -1,0 +1,19 @@
+game_id: predator_1988
+tags: [Shooter, Run and Gun, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a soldier in horizontally scrolling stages, shooting enemies and jumping to navigate.
+  The soldier can shoot forward and must progress through jungle terrain.
+  The objective is to advance through enemy territory and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, shoot forward]
+  interaction_modes:
+    - Shoot enemy → destroy threat
+    - Jump between platforms → navigate terrain
+    - Touch enemy or projectile → take damage
+    - Advance through stage → progress forward
+  enemy_characteristics: [ground and aerial enemies attack, shoot projectiles, contact damage, varied enemy types]
+  environment_characteristics: [horizontally scrolling jungle stages, enemies spawn continuously]
+  win_condition: Advance through stages and complete missions

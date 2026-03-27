@@ -1,0 +1,21 @@
+game_id: mickey_mousecapade_1987
+tags: [Shooter, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character in horizontally scrolling platform stages, shooting projectiles and jumping to navigate.
+  A companion character follows and assists by attacking nearby enemies.
+  Enemies must be defeated with projectile attacks while navigating platform layouts.
+  The objective is to reach the end of each stage while defeating enemies.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, shoot projectiles, companion follows and attacks]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Shoot projectile at enemy → defeat threat
+    - Companion automatically attacks nearby enemies → additional firepower
+    - Touch enemy → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms, contact damage, defeated by projectile attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, companion character provides support, platforms at multiple heights]
+  win_condition: Reach the end of each stage

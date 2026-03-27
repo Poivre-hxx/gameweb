@@ -1,0 +1,23 @@
+game_id: spy_vs_spy_1986
+tags: [Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a spy competing against an opponent to collect required items and escape.
+  Rooms must be searched by opening furniture and containers to find hidden items.
+  Traps can be set in furniture to harm the opponent when they search.
+  Both spies race to collect all required items and reach the exit door first.
+  The objective is to gather all necessary items and escape before the opponent.
+
+key_mechanics:
+  player_abilities: [move through rooms, search furniture, collect items, set traps in furniture]
+  interaction_modes:
+    - Search furniture → reveal contents, find items or trigger traps
+    - Collect required item → progress toward escape goal
+    - Set trap in furniture → opponent triggered when they search
+    - Opponent triggers trap → opponent takes damage or loses time
+    - Touch opponent in combat → fight sequence, winner continues
+    - Collect all required items and reach exit → win round
+  enemy_characteristics: [opponent spy searches rooms competitively, sets traps, collects same items, can engage in direct confrontation, AI-controlled or second player]
+  environment_characteristics: [multi-room building with connected areas, furniture and containers hide items, traps remain until triggered, exit door requires all items collected]
+  win_condition: Collect all required items and reach the exit before the opponent

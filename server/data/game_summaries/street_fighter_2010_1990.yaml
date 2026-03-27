@@ -1,0 +1,23 @@
+game_id: street_fighter_2010_1990
+tags: [Shooter, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character in horizontally scrolling platform stages, using an energy whip to attack enemies.
+  The character can jump and stick to walls and ceilings for advanced navigation.
+  Power-ups can be collected to enhance weapons and capabilities.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, shoot energy whip, stick to walls and ceilings, collect power-ups]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Shoot energy whip at enemy → defeat threat
+    - Jump to wall or ceiling → stick to surface
+    - Stick to surface → navigate unusual terrain
+    - Collect power-up → enhance weapons or gain abilities
+    - Touch enemy or projectile → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms and fly in patterns, contact damage, defeated by energy whip attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, wall and ceiling sticking enables advanced navigation, power-ups enhance capabilities]
+  win_condition: Reach the end of each stage

@@ -1,0 +1,22 @@
+game_id: hokuto_no_ken_1986
+tags: [Beat 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a martial artist in horizontally scrolling stages, fighting through waves of enemies.
+  Combat uses punches, kicks, and special moves powered by an energy meter.
+  Enemies attack in groups and must be defeated to progress forward.
+  Special attacks consume energy but deal greater damage to multiple enemies.
+  The objective is to defeat all enemies and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, punch, kick, jump, use special attacks (consumes energy)]
+  interaction_modes:
+    - Punch or kick enemy → damage or defeat opponent
+    - Use special attack → powerful area attack, consumes energy
+    - Defeat enemies → gain energy for special attacks
+    - Touch enemy or attack → take damage
+    - Defeat all enemies in area → progress forward
+  enemy_characteristics: [attack in groups, approach from both sides, contact and attack damage, some enemies have higher durability]
+  environment_characteristics: [horizontally scrolling stages, enemies spawn in waves, boss enemies at stage ends]
+  win_condition: Defeat all enemies and reach the end of each stage

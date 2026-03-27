@@ -1,0 +1,148 @@
+{
+  "entityConfig": {
+    "player": {
+      "speed": 100,
+      "color": "#00FF00",
+      "projectileType": "player_projectile",
+      "width": 1.5,
+      "height": 1.5
+    },
+    "enemy": {
+      "speed": 60,
+      "color": "#FF0000",
+      "projectileType": "enemy_projectile",
+      "width": 1.5,
+      "height": 1.5
+    },
+    "eagle": {
+      "color": "#636363",
+      "width": 0.9,
+      "height": 0.9
+    },
+    "brick": {
+      "color": "#9c4a00",
+      "width": 1,
+      "height": 1
+    },
+    "forest": {
+      "color": "#8cd600",
+      "width": 1,
+      "height": 1
+    },
+    "steel_wall": {
+      "color": "#adadad",
+      "width": 1,
+      "height": 1
+    },
+    "water": {
+      "color": "#4242ff",
+      "width": 1,
+      "height": 1
+    },
+    "space": {
+      "color": "#000000",
+      "width": 1,
+      "height": 1
+    },
+    "player_projectile": {
+      "speed": 250,
+      "color": "#FFFF00",
+      "width": 0.25,
+      "height": 0.25
+    },
+    "enemy_projectile": {
+      "speed": 250,
+      "color": "#FFFFFF",
+      "width": 0.25,
+      "height": 0.25
+    }
+  },
+  "inputMapping": {
+    "A": "basic_shoot",
+    "B": null,
+    "X": null,
+    "Y": null
+  },
+  "skillRules": [
+    {
+      "entity": "player",
+      "skills": [
+        "basic_shoot"
+      ]
+    }
+  ],
+  "aiRules": [
+    {
+      "entity": "enemy",
+      "movementAI": "patrol_then_chase",
+      "combatAI": "aim_attack"
+    }
+  ],
+  "collisionRules": [
+    {
+      "a": "player_projectile",
+      "b": "enemy",
+      "action": [
+        "destroy_a",
+        "damage_b"
+      ]
+    },
+    {
+      "a": "enemy_projectile",
+      "b": "player",
+      "action": [
+        "destroy_a",
+        "damage_b"
+      ]
+    },
+    {
+      "a": "player_projectile",
+      "b": "brick",
+      "action": [
+        "destroy_both"
+      ]
+    },
+    {
+      "a": "enemy_projectile",
+      "b": "brick",
+      "action": [
+        "destroy_both"
+      ]
+    },
+    {
+      "a": "player_projectile",
+      "b": "steel_wall",
+      "action": [
+        "destroy_a"
+      ]
+    },
+    {
+      "a": "enemy_projectile",
+      "b": "steel_wall",
+      "action": [
+        "destroy_a"
+      ]
+    },
+    {
+      "a": "enemy_projectile",
+      "b": "eagle",
+      "action": [
+        "destroy_both"
+      ]
+    },
+    {
+      "a": "player_projectile",
+      "b": "eagle",
+      "action": [
+        "destroy_a"
+      ]
+    },
+    {
+      "a": "player_projectile",
+      "b": "enemy_projectile",
+      "action": [
+        "destroy_both"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+game_id: formation_z_1985
+tags: [Shooter, Run and Gun, Platform]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a transforming unit that can switch between two forms with different capabilities.
+  Humanoid form allows jumping and agile movement across platforms but has limited firepower.
+  Vehicle form provides stronger firepower and defense but cannot jump and moves more slowly.
+  The player must strategically transform between forms to handle different combat situations.
+  The objective is to progress through the level while adapting form to terrain and enemy threats.
+
+key_mechanics:
+  player_abilities: [transform between humanoid and vehicle forms, shoot in current form, jump (humanoid only), move horizontally]
+  interaction_modes:
+    - Transform to humanoid form → gain jump ability, faster movement, weaker firepower
+    - Transform to vehicle form → gain stronger firepower, more defense, lose jump ability
+    - Shoot enemy → destroy threat
+    - Jump over obstacles (humanoid) → navigate terrain
+    - Cannot jump (vehicle) → must find ground-level paths
+    - Touch enemy or projectile → take damage
+    - Choose form based on situation → tactical advantage
+  enemy_characteristics: [some enemies require strong firepower (favor vehicle form), some positioned above ground level (favor humanoid form), contact damage, shoot projectiles]
+  environment_characteristics: [horizontally scrolling level with varied terrain, platforms at different heights, obstacles requiring jumps or detours, enemies positioned to challenge both forms]
+  win_condition: Reach the end of the level

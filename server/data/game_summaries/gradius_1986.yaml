@@ -1,0 +1,24 @@
+game_id: gradius_1986
+tags: [Shooter, Shoot 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a spacecraft in a horizontally scrolling shooter with a unique power-up selection system.
+  Collecting power-up capsules advances a selection gauge, allowing the player to choose desired upgrades.
+  Upgrades include speed boosts, additional weapons, shields, and option drones that mirror the player's fire.
+  Terrain and walls cause instant death on contact, requiring precise navigation.
+  The objective is to progress through stages while building power-ups and defeating area bosses.
+
+key_mechanics:
+  player_abilities: [fly in 8 directions, shoot forward, activate selected power-up from gauge]
+  interaction_modes:
+    - Shoot enemy → destroy threat, may drop power-up capsule
+    - Collect capsule → advance power-up gauge one position
+    - Activate power-up → gain selected upgrade (speed/missile/laser/shield/option)
+    - Build upgrades strategically → customize ship capabilities
+    - Touch terrain or wall → instant death
+    - Touch enemy or projectile → lose one power-up level or life
+    - Defeat boss → complete stage
+  enemy_characteristics: [attack in waves and formations, some enemies kamikaze dive, varied attack patterns, boss enemies with multiple forms at stage ends]
+  environment_characteristics: [horizontally scrolling stages with terrain hazards, narrow passages requiring precision, enemies spawn from multiple angles, boss arenas at stage ends]
+  win_condition: Defeat the boss at the end of each stage

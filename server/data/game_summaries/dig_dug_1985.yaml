@@ -1,0 +1,26 @@
+game_id: dig_dug_1985
+tags: [Maze, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a character digging through underground soil to create tunnels while defeating enemies.
+  Enemies are defeated by connecting an inflation device and pumping them until they burst.
+  The inflation process requires continuous pumping input and leaves the player vulnerable.
+  Rocks can be dropped on enemies by digging beneath them to cause cave-ins.
+  The objective is to eliminate all enemies in the underground area.
+
+key_mechanics:
+  player_abilities: [move in 4 directions through soil, dig tunnels by moving, connect inflation device to enemy, pump to inflate enemy]
+  interaction_modes:
+    - Move through solid soil → automatically dig tunnel
+    - Connect device to enemy → begin inflation process
+    - Pump continuously → enemy inflates gradually
+    - Fully inflate enemy → enemy bursts and is defeated
+    - Stop pumping before full → enemy deflates and escapes
+    - Dig beneath rock → rock falls downward
+    - Falling rock hits enemy → crush and defeat enemy
+    - Touch enemy → lose life
+    - Defeat all enemies → complete stage
+  enemy_characteristics: [move through both tunnels and solid soil, some enemies can pass through walls freely, chase player through underground, contact damage, can only be defeated by inflation or crushing]
+  environment_characteristics: [underground area filled with diggable soil, pre-dug tunnels and open spaces, rocks positioned above soil that can be dropped, player creates new tunnels by digging]
+  win_condition: Defeat all enemies in the underground area

@@ -1,0 +1,23 @@
+game_id: challenger_1985
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character jumping across the tops of moving train cars while collecting items.
+  The train advances automatically, requiring precise jumping between cars and ducking under obstacles.
+  Tunnels, birds, and gaps between cars create hazards that must be avoided through timing.
+  Items are scattered across train cars and must be collected while maintaining position.
+  The objective is to collect items and survive the journey without falling or hitting obstacles.
+
+key_mechanics:
+  player_abilities: [move left/right on train cars, jump between cars, duck to avoid obstacles]
+  interaction_modes:
+    - Jump between train cars → navigate forward or backward
+    - Collect item → earn points, progress
+    - Duck under tunnel → avoid overhead obstacle
+    - Miss jump between cars → fall, lose life
+    - Hit obstacle → take damage
+    - Survive to end of journey → complete stage
+  enemy_characteristics: [birds fly overhead requiring ducking, obstacles appear at regular intervals, some hazards require precise timing]
+  environment_characteristics: [horizontally scrolling train of connected cars, gaps between cars, overhead obstacles (tunnels), items scattered on car tops, automatic forward movement]
+  win_condition: Survive the journey and collect items

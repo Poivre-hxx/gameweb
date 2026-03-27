@@ -1,0 +1,20 @@
+game_id: musashi_no_ken_1986
+tags: [Beat 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a martial artist in horizontally scrolling stages, using sword strikes to defeat multiple opponents.
+  The sword can strike in multiple directions to hit surrounding enemies.
+  Enemies approach and attack from both sides, requiring defensive positioning.
+  The objective is to defeat all enemies and progress through each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, strike with sword in multiple directions, jump]
+  interaction_modes:
+    - Strike enemy with sword → damage or defeat opponent
+    - Enemies attack from multiple directions → must defend from all sides
+    - Defeat all enemies in area → progress forward
+    - Touch enemy or attack → take damage
+  enemy_characteristics: [approach from both sides, use sword strikes, contact and attack damage, varied timing patterns]
+  environment_characteristics: [horizontally scrolling stages, enemies spawn in groups, limited space for maneuvering]
+  win_condition: Defeat all enemies and reach the end of each stage

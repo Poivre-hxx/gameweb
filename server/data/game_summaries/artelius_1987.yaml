@@ -1,0 +1,20 @@
+game_id: artelius_1987
+tags: [Shooter, Shoot 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a spacecraft in horizontally scrolling stages, shooting enemies and avoiding obstacles.
+  Power-ups can be collected to enhance weapons and capabilities.
+  Enemies attack in formations and patterns requiring evasion and shooting skills.
+  The objective is to survive through continuous waves and reach the end of each area.
+
+key_mechanics:
+  player_abilities: [fly in multiple directions, shoot continuously, collect power-ups]
+  interaction_modes:
+    - Shoot enemy → destroy threat
+    - Collect power-up → enhance weapons or gain abilities
+    - Touch enemy or projectile → take damage
+    - Progress through stage → advance forward
+  enemy_characteristics: [aerial and ground enemies attack, shoot projectiles, contact damage, varied formations]
+  environment_characteristics: [horizontally auto-scrolling space, power-ups dropped by enemies, enemies spawn continuously]
+  win_condition: Survive through the area and reach the end

@@ -1,0 +1,24 @@
+game_id: wrecking_crew_1985
+tags: [Platform, Puzzle, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a character wielding a hammer to demolish all destructible walls and obstacles in each stage.
+  Enemies patrol the area and interfere with demolition work but cannot be directly defeated.
+  The order of wall destruction matters as some walls block access to other areas.
+  Bombs can be used to destroy multiple walls simultaneously but require careful positioning.
+  The objective is to destroy all designated targets while avoiding enemies and planning an efficient demolition sequence.
+
+key_mechanics:
+  player_abilities: [move left/right, climb ladders, swing hammer to break walls, use bombs]
+  interaction_modes:
+    - Swing hammer at wall → wall breaks, creates passage
+    - Some walls require multiple hits → gradual destruction
+    - Break wall blocking path → access new areas
+    - Place bomb → destroys multiple adjacent walls after delay
+    - Touch enemy → knocked back, lose time
+    - Enemy cannot be defeated → must avoid or trap
+    - Destroy all target walls → complete stage
+  enemy_characteristics: [patrol platforms and ladders, interfere with player, contact causes knockback, cannot be defeated directly, can be temporarily trapped by destroying walls around them]
+  environment_characteristics: [fixed-screen multi-level layout, destructible walls and obstacles, indestructible walls as barriers, ladders for vertical movement, bombs as power-ups, wall destruction affects available paths]
+  win_condition: Destroy all designated destructible objects in the stage

@@ -1,0 +1,19 @@
+game_id: superman_1987
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a flying hero in horizontally scrolling stages, using melee attacks to defeat enemies.
+  The hero can fly freely through stages while fighting enemies with close-range attacks.
+  The objective is to navigate through stages, defeat enemies, and reach the end of each area.
+
+key_mechanics:
+  player_abilities: [fly in multiple directions, attack with melee strikes]
+  interaction_modes:
+    - Fly through stage → navigate freely
+    - Attack enemy with melee → defeat threat
+    - Touch enemy → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol and attack, contact damage, defeated by melee attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling stages, free flight movement, hero-themed environments]
+  win_condition: Reach the end of each stage

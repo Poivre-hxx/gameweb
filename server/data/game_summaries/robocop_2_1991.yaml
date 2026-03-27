@@ -1,0 +1,19 @@
+game_id: robocop_2_1991
+tags: [Shooter, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls an armored officer in horizontally scrolling platform stages, shooting enemies with weapons.
+  The officer can jump between platforms and shoot in multiple directions.
+  The objective is to advance through stages, defeat enemies, and reach mission objectives.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, shoot in facing direction]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Shoot enemy → destroy threat
+    - Touch enemy or projectile → take damage
+    - Reach objective → complete stage
+  enemy_characteristics: [patrol platforms and attack, shoot projectiles, contact damage, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, enemies spawn continuously]
+  win_condition: Complete missions and reach objectives

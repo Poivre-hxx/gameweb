@@ -1,0 +1,22 @@
+game_id: pow_prisoners_of_war_1989
+tags: [Beat 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a prisoner fighting through enemy territory in horizontally scrolling stages.
+  Combat uses punches, kicks, grabs, and throws to defeat groups of attackers.
+  Enemies attack from both sides and must be defeated to progress forward.
+  The objective is to clear all enemies from each area and reach the end of the stage.
+
+key_mechanics:
+  player_abilities: [move left/right, punch, kick, grab enemy, throw enemy]
+  interaction_modes:
+    - Punch enemy → damage opponent
+    - Kick enemy → damage opponent
+    - Grab enemy → initiate hold
+    - Throw enemy → deal significant damage
+    - Touch enemy or attack → take damage
+    - Defeat all enemies in area → progress forward
+  enemy_characteristics: [attack in groups from both sides, use varied fighting styles, contact and attack damage, varied enemy types]
+  environment_characteristics: [horizontally scrolling stages, enemies spawn in waves]
+  win_condition: Defeat all enemies and reach the end of each stage

@@ -1,0 +1,26 @@
+game_id: spelunker_1985
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a fragile explorer navigating treacherous cave systems using various tools.
+  The explorer is extremely vulnerable to falls, requiring precise jumping and careful descent.
+  Tools such as bombs, ropes, and flares must be used strategically to overcome obstacles.
+  Oxygen depletes over time and must be replenished at air sources.
+  The objective is to reach the bottom of the cave while collecting treasures and avoiding hazards.
+
+key_mechanics:
+  player_abilities: [move left/right, jump short distances, use rope to descend, plant bombs, use flares, collect oxygen]
+  interaction_modes:
+    - Jump carefully → safe landing only from minimal heights
+    - Fall from too high → instant death
+    - Use rope → descend safely to lower level
+    - Plant bomb → destroy blocked passages
+    - Use flare → temporarily scare away enemies
+    - Touch enemy → lose life
+    - Oxygen depletes → must reach air source
+    - Run out of oxygen → lose life
+    - Collect treasure → earn points
+  enemy_characteristics: [bats fly in patterns, ghosts patrol areas, contact damage, some enemies scared by flares temporarily]
+  environment_characteristics: [vertically descending cave system with horizontal paths, rope descent points, bomb-breakable walls, oxygen refill stations, treasures scattered throughout, extreme fall damage sensitivity]
+  win_condition: Reach the bottom of the cave

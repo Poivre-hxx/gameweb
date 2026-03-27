@@ -1,0 +1,22 @@
+game_id: karnov_1987
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a fire-breathing warrior in horizontally scrolling platform stages, using flame attacks to defeat enemies.
+  Various items can be collected to gain temporary abilities and enhancements.
+  The warrior can jump between platforms and breathe fire forward as the primary attack.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, breathe fire forward, collect and use items]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Breathe fire at enemy → defeat threat
+    - Collect item → gain temporary ability or enhancement
+    - Use collected item → activate special ability
+    - Touch enemy → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms and fly in patterns, contact damage, defeated by fire attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, items scattered throughout for collection, platforms at multiple heights]
+  win_condition: Reach the end of each stage

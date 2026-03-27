@@ -1,0 +1,22 @@
+game_id: guerrilla_war_1988
+tags: [Shooter, Run and Gun, Arcade]
+view: top-down view
+
+gameplay_summary: |
+  The player controls a soldier in top-down perspective, shooting enemies and throwing grenades while advancing through territory.
+  The soldier can rotate facing direction independently from movement direction.
+  Enemies attack from multiple directions and must be defeated while progressing.
+  The objective is to advance through enemy territory and reach the end of each area.
+
+key_mechanics:
+  player_abilities: [move in 8 directions on ground, rotate facing direction, shoot continuously, throw grenades (limited)]
+  interaction_modes:
+    - Shoot enemy → destroy threat
+    - Rotate facing independent of movement → aim while moving
+    - Throw grenade → area damage on impact
+    - Collect grenade pickup → replenish grenades
+    - Touch enemy or projectile → take damage
+    - Advance through stage → progress forward
+  enemy_characteristics: [ground and aerial enemies attack, shoot projectiles, contact damage, varied enemy types]
+  environment_characteristics: [top-down battlefield terrain, independent rotation for tactical shooting, grenades limited and replenished by pickups]
+  win_condition: Advance through enemy territory and reach the end

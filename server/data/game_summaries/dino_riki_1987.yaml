@@ -1,0 +1,20 @@
+game_id: dino_riki_1987
+tags: [Shooter, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character advancing through vertically scrolling stages, shooting enemies with projectile weapons.
+  Power-ups enhance weapon types and increase attack strength.
+  Enemies attack from multiple directions and must be defeated while progressing upward.
+  The objective is to survive through continuous waves and reach the end of each area.
+
+key_mechanics:
+  player_abilities: [move in 8 directions on ground, shoot projectiles in facing direction, collect power-ups]
+  interaction_modes:
+    - Shoot enemy → destroy threat
+    - Collect power-up → enhance weapon or gain abilities
+    - Touch enemy or projectile → take damage
+    - Progress upward through stage → advance forward
+  enemy_characteristics: [ground and aerial enemies attack, shoot projectiles, contact damage, varied enemy types]
+  environment_characteristics: [vertically auto-scrolling terrain, power-ups scattered throughout, enemies spawn continuously]
+  win_condition: Survive through the area and reach the end

@@ -1,0 +1,24 @@
+game_id: galaxian_1984
+tags: [Shooter, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a craft at the bottom of the screen, moving horizontally to shoot upward.
+  Enemy units are arranged in stationary formations at the top.
+  Enemies periodically break from formation to dive downward in attack patterns while shooting.
+  After diving, enemies loop back to rejoin the formation or continue attacking.
+  The objective is to destroy all enemies in each wave while avoiding dive attacks and projectiles.
+
+key_mechanics:
+  player_abilities: [move left/right at bottom, shoot upward continuously]
+  interaction_modes:
+    - Shoot enemy in formation → destroy enemy, earn points
+    - Shoot diving enemy → destroy enemy, earn bonus points
+    - Enemy breaks formation → dive attack begins
+    - Diving enemy shoots projectiles → must dodge both enemy and shots
+    - Enemy completes dive loop → returns to formation
+    - Touch enemy or projectile → lose life
+    - Destroy all enemies → advance to next wave with increased difficulty
+  enemy_characteristics: [arranged in formations at top, break formation to dive-bomb in patterns, shoot while diving, contact damage, diving enemies worth more points, speed increases in later waves]
+  environment_characteristics: [fixed screen with vertical space, no cover or obstacles, enemy formations at top, player confined to bottom area]
+  win_condition: Destroy all enemies in each wave

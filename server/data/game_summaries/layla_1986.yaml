@@ -1,0 +1,20 @@
+game_id: layla_1986
+tags: [Shooter, Arcade]
+view: top-down view
+
+gameplay_summary: |
+  The player controls a character exploring a space station in top-down perspective, shooting enemies and navigating rooms.
+  The character can shoot in the direction they are facing to defeat threats.
+  Items and power-ups are scattered throughout the station and must be collected.
+  The objective is to explore the station, defeat enemies, and reach the goal.
+
+key_mechanics:
+  player_abilities: [move in 8 directions, shoot in facing direction, collect items]
+  interaction_modes:
+    - Shoot enemy → destroy threat
+    - Collect item → gain power-up or progress
+    - Navigate between connected rooms → explore station
+    - Touch enemy or projectile → take damage
+  enemy_characteristics: [patrol rooms, shoot projectiles, contact damage, varied enemy types]
+  environment_characteristics: [top-down space station with connected rooms, items scattered throughout, enemies distributed in rooms]
+  win_condition: Explore the station and reach the goal

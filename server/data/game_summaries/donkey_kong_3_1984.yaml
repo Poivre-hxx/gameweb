@@ -1,0 +1,23 @@
+game_id: donkey_kong_3_1984
+tags: [Shooter, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a character at the bottom of the screen, shooting upward with a spray weapon.
+  A large boss enemy hangs from vines at the top and must be forced off-screen by repeated shooting.
+  Simultaneously, smaller enemies descend from above attempting to steal items at the bottom.
+  The player must shoot the boss to push it upward while defending against descending enemies.
+  The objective is to push the boss completely off the top of the screen before losing all items.
+
+key_mechanics:
+  player_abilities: [move left/right at bottom, shoot upward continuously]
+  interaction_modes:
+    - Shoot boss enemy → push upward incrementally
+    - Shoot descending enemies → defeat them
+    - Descending enemy reaches bottom → steal protected item
+    - All items stolen → lose level
+    - Touch descending enemy → lose life
+    - Push boss off top of screen → complete level
+  enemy_characteristics: [boss moves left/right on vines at top, small enemies descend in waves, contact damage, some enemies target items at bottom]
+  environment_characteristics: [fixed screen with vertical space, vines at top, items at bottom to protect, no cover or obstacles]
+  win_condition: Push the boss enemy completely off the top of the screen

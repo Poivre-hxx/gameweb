@@ -1,0 +1,23 @@
+game_id: dr_jekyll_mr_hyde_1988
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character alternating between two forms in horizontally scrolling stages.
+  As the normal form, taking damage builds an anger meter leading to transformation.
+  The transformed form fights enemies in a mirrored nighttime version of the stage.
+  Taking too much damage in either form results in failure.
+  The objective is to reach the end while managing the stress meter and surviving both forms.
+
+key_mechanics:
+  player_abilities: [move left/right as normal form, limited combat as transformed form]
+  interaction_modes:
+    - Take damage as normal form → anger meter increases
+    - Anger meter fills completely → transform to battle form
+    - Fight enemies as transformed form → reduce threats
+    - Take damage as transformed form → health decreases
+    - Survive as transformed form → return to normal
+    - Reach goal as normal form → complete stage
+  enemy_characteristics: [civilians and obstacles harm normal form, monsters attack transformed form, contact damage in both forms, varied threats]
+  environment_characteristics: [horizontally scrolling Victorian streets, normal daytime progresses forward, transformed nighttime mirrors the route, stress management critical to survival]
+  win_condition: Reach the destination while managing both forms

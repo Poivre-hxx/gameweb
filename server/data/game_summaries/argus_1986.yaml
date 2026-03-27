@@ -1,0 +1,21 @@
+game_id: argus_1986
+tags: [Shooter, Shoot 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a spacecraft in a vertically scrolling shooter, advancing through enemy-filled space.
+  The craft shoots at enemy ships and obstacles while dodging incoming fire.
+  Power-up items enhance weapon capabilities when collected.
+  Enemy formations attack in waves with varied patterns.
+  The objective is to survive through continuous waves of enemies and reach the end of each area.
+
+key_mechanics:
+  player_abilities: [move in 8 directions, shoot forward continuously, collect power-ups to enhance weapons]
+  interaction_modes:
+    - Shoot enemy → destroy threat
+    - Collect power-up → enhance weapon spread or firepower
+    - Touch enemy or projectile → take damage
+    - Lose powered-up state when hit → revert to basic weapons
+  enemy_characteristics: [spacecraft attack in formation patterns, varied enemy types with different behaviors, contact and projectile damage]
+  environment_characteristics: [vertically auto-scrolling space, enemies enter from top and sides, power-up items dropped by certain enemies]
+  win_condition: Survive through the area and defeat all enemy waves

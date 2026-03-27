@@ -1,0 +1,21 @@
+game_id: urusei_yatsura_1986
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character in horizontally scrolling platform stages, jumping and throwing items at enemies.
+  Items can be thrown at enemies for ranged attacks.
+  Collectibles are scattered throughout stages and must be gathered.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, throw items at enemies, collect objects]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Throw item at enemy → defeat threat
+    - Collect object → gather items
+    - Touch enemy → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms, contact damage, defeated by thrown items, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, collectible items scattered throughout, platforms at multiple heights]
+  win_condition: Reach the end of each stage

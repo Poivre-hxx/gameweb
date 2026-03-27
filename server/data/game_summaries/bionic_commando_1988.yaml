@@ -1,0 +1,23 @@
+game_id: bionic_commando_1988
+tags: [Shooter, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a soldier with a bionic arm in horizontally scrolling stages, using a grappling hook to navigate instead of jumping.
+  The bionic arm shoots a grapple that latches onto surfaces, allowing the player to swing and pull up to platforms.
+  The soldier can also shoot enemies with a weapon while grappling.
+  The objective is to navigate platforms using the grapple, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, shoot grappling hook upward, swing from grappled surfaces, pull up to platforms, shoot weapon]
+  interaction_modes:
+    - Shoot grappling hook → latch onto surface above
+    - Swing from grappled point → build momentum and reach distant platforms
+    - Pull up while grappled → climb to higher platforms
+    - Shoot weapon at enemy → defeat threat
+    - Cannot jump → must use grapple for all vertical movement
+    - Touch enemy or projectile → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms and attack, shoot projectiles, contact damage, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, grappling hook required for all vertical navigation, no jumping ability creates unique movement puzzles]
+  win_condition: Reach the end of each stage

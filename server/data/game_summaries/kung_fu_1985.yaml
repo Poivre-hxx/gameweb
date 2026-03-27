@@ -1,0 +1,25 @@
+game_id: kung_fu_1985
+tags: [Beat 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a martial artist fighting through enemy-filled areas in a side-scrolling format.
+  Enemies continuously approach from both sides and must be defeated using punches, kicks, and jumping attacks.
+  The player progresses automatically to the right as enemies are cleared from each section.
+  Some enemies attack from upper and lower levels, requiring vertical awareness.
+  The objective is to reach and defeat the boss at the end of each area.
+
+key_mechanics:
+  player_abilities: [move left/right, punch forward, kick forward, jump kick, crouch kick]
+  interaction_modes:
+    - Punch enemy → damage or defeat enemy
+    - Kick enemy → damage or defeat enemy with more range
+    - Jump kick → attack enemies at different heights or while jumping
+    - Crouch kick → attack low enemies
+    - Defeat wave of enemies → screen scrolls forward automatically
+    - Touch enemy → take damage
+    - Enemy grabs player → rapidly tap buttons to break free
+    - Defeat boss → complete area, advance to next
+  enemy_characteristics: [approach from both left and right sides, some attack from upper platforms or by jumping, some attempt to grab player, contact damage, boss enemies have more health and attack patterns]
+  environment_characteristics: [horizontally scrolling areas with multiple vertical levels, enemies spawn continuously until section cleared, boss arena at end of each area, limited vertical space]
+  win_condition: Defeat the boss at the end of the area

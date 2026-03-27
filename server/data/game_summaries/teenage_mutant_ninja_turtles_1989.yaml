@@ -1,0 +1,22 @@
+game_id: teenage_mutant_ninja_turtles_1989
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls one of four turtles in stages alternating between side-scrolling platforming and top-down exploration.
+  Each turtle has different weapon characteristics and can be switched between.
+  Side-scrolling stages feature platforming and combat while top-down areas emphasize exploration.
+  The objective is to navigate both stage types, defeat enemies, and complete missions.
+
+key_mechanics:
+  player_abilities: [move and jump in side-scrolling, attack with turtle-specific weapon, switch between four turtles, explore in top-down areas]
+  interaction_modes:
+    - Jump between platforms in side-scrolling → navigate terrain
+    - Attack with weapon → defeat enemies
+    - Switch turtle → use different weapon and health pool
+    - Navigate top-down areas → explore and find objectives
+    - Touch enemy or projectile → take damage
+    - Complete stage → progress forward
+  enemy_characteristics: [varied enemies in side-scrolling and top-down areas, contact and projectile damage, defeated by weapon attacks]
+  environment_characteristics: [alternating side-scrolling platforming and top-down exploration, four turtles with individual health pools, switching provides tactical flexibility]
+  win_condition: Complete all stages and missions

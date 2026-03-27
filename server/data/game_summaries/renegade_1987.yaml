@@ -1,0 +1,23 @@
+game_id: renegade_1987
+tags: [Beat 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a fighter in horizontally scrolling stages, battling multiple enemies simultaneously.
+  Combat uses punches, kicks, jump kicks, and throws to defeat groups of attackers.
+  Enemies attack from both sides and must be defeated to progress forward.
+  The objective is to clear all enemies from each area and reach the end of the stage.
+
+key_mechanics:
+  player_abilities: [move left/right, punch, kick, jump kick, grab and throw enemy]
+  interaction_modes:
+    - Punch enemy → quick damage
+    - Kick enemy → moderate damage
+    - Jump kick → powerful aerial attack
+    - Grab enemy → initiate throw
+    - Throw enemy → deal significant damage
+    - Touch enemy or attack → take damage
+    - Defeat all enemies in area → progress forward
+  enemy_characteristics: [attack in groups from both sides, use varied fighting styles, contact and attack damage, require pattern recognition and crowd control]
+  environment_characteristics: [horizontally scrolling urban stages, enemies spawn in waves, limited space for maneuvering]
+  win_condition: Defeat all enemies and reach the end of each stage

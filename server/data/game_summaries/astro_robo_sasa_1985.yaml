@@ -1,0 +1,21 @@
+game_id: astro_robo_sasa_1985
+tags: [Shooter, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a flying robot with free directional movement through horizontally scrolling stages.
+  The robot can fly in any direction while shooting at enemies and avoiding obstacles.
+  Unlike ground-based shooters, flight allows vertical positioning to dodge attacks.
+  Enemies attack from various angles requiring constant repositioning.
+  The objective is to progress through stages while destroying enemy threats.
+
+key_mechanics:
+  player_abilities: [fly in 8 directions freely, shoot forward continuously]
+  interaction_modes:
+    - Fly freely → navigate through stage, position for attacks
+    - Shoot enemy → destroy threat
+    - Touch enemy or projectile → take damage
+    - Navigate through obstacles → avoid terrain hazards
+  enemy_characteristics: [appear from various directions, shoot projectiles, contact damage, some enemies require multiple hits, attack patterns vary by type]
+  environment_characteristics: [horizontally scrolling stages, obstacles and terrain hazards, enemies enter from multiple angles, open flight space with hazards]
+  win_condition: Progress through the stage and survive enemy waves

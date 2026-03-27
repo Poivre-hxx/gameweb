@@ -1,0 +1,22 @@
+game_id: exed_exes_1985
+tags: [Shooter, Shoot 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls an aircraft in a vertically scrolling shooter, advancing through enemy-filled skies.
+  The aircraft shoots at aerial enemies and ground installations while dodging incoming fire.
+  Power-up items enhance weapon capabilities when collected.
+  Enemy formations attack in waves with varied patterns requiring evasion and shooting skills.
+  The objective is to survive through continuous waves and reach the end of each area.
+
+key_mechanics:
+  player_abilities: [move in 8 directions, shoot continuously, collect power-ups to enhance weapons]
+  interaction_modes:
+    - Shoot aerial enemy → destroy flying threat
+    - Shoot ground target → destroy surface installation
+    - Collect power-up → enhance weapon spread or firepower
+    - Touch enemy or projectile → take damage
+    - Lose powered-up state when hit → revert to basic weapons
+  enemy_characteristics: [aircraft attack in formation patterns, ground installations fire upward, varied enemy types with different behaviors, boss enemies at area ends]
+  environment_characteristics: [vertically auto-scrolling terrain, enemies enter from top and sides, power-up items dropped by certain enemies, boss encounters at mission ends]
+  win_condition: Survive through the area and defeat all enemy waves

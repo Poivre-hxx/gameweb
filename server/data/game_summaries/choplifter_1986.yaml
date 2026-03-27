@@ -1,0 +1,24 @@
+game_id: choplifter_1986
+tags: [Shooter, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a helicopter on rescue missions, landing to pick up hostages and transport them to safety.
+  The helicopter can fly freely and must land at designated areas to board passengers.
+  Enemy forces attack with tanks and aircraft that must be destroyed or avoided.
+  The helicopter takes progressive damage affecting its performance and passenger capacity.
+  The objective is to rescue all hostages and return them to base while surviving enemy attacks.
+
+key_mechanics:
+  player_abilities: [fly in multiple directions, land to pick up hostages, shoot at enemies, transport passengers]
+  interaction_modes:
+    - Land at hostage location → hostages board helicopter
+    - Fly with passengers → transport to base
+    - Land at base → deliver rescued hostages
+    - Shoot enemy → destroy threat
+    - Take damage → helicopter degrades, reduced capacity or mobility
+    - Passengers killed by enemy fire → lose rescue opportunity
+    - Rescue all hostages → complete mission
+  enemy_characteristics: [tanks fire from ground, aircraft attack in air, both target helicopter and hostages, projectile damage]
+  environment_characteristics: [horizontally scrolling terrain, base at starting position, hostages at various locations, enemies patrol between rescue points]
+  win_condition: Rescue all hostages and return them to base

@@ -1,0 +1,22 @@
+game_id: the_krion_conquest_1990
+tags: [Shooter, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a witch in horizontally scrolling platform stages, using magic projectiles and spells.
+  The witch can shoot magic projectiles and use a powerful bomb attack.
+  Gliding ability allows controlled descent after jumping.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, shoot magic projectiles, use bomb attack (limited), glide after jumping]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Shoot magic projectile at enemy → defeat threat
+    - Use bomb attack → powerful area damage, limited uses
+    - Glide after jumping → controlled descent, extend jump distance
+    - Touch enemy or projectile → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms and fly in patterns, contact damage, defeated by magic attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, gliding enables advanced platforming, bomb provides tactical power option]
+  win_condition: Reach the end of each stage

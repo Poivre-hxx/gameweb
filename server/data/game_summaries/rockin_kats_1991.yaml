@@ -1,0 +1,22 @@
+game_id: rockin_kats_1991
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character in horizontally scrolling platform stages, using a boxing glove grappling hook.
+  The grappling hook can latch onto surfaces to swing across gaps or pull the character upward.
+  The glove also functions as a melee weapon for punching enemies.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, shoot grappling hook, swing from grappled point, punch with glove]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Shoot grappling hook → latch onto surface
+    - Swing from grappled point → cross gaps or reach distant platforms
+    - Punch enemy with glove → defeat threat
+    - Touch enemy → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms, contact damage, defeated by punch attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, grappling hook enables advanced navigation, swinging creates momentum-based movement]
+  win_condition: Reach the end of each stage

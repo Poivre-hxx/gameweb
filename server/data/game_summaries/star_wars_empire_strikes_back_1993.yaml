@@ -1,0 +1,19 @@
+game_id: star_wars_empire_strikes_back_1993
+tags: [Shooter, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character in horizontally scrolling stages, using weapons to defeat enemies.
+  Stages alternate between vehicle-based and on-foot gameplay.
+  The objective is to advance through stages, defeat enemies, and reach mission objectives.
+
+key_mechanics:
+  player_abilities: [move left/right, jump in on-foot sections, shoot continuously]
+  interaction_modes:
+    - Jump between platforms in on-foot sections → navigate terrain
+    - Shoot enemy → destroy threat
+    - Touch enemy or projectile → take damage
+    - Complete objective → advance stage
+  enemy_characteristics: [ground and aerial enemies attack, shoot projectiles, contact damage, varied enemy types]
+  environment_characteristics: [horizontally scrolling stages, alternating vehicle and on-foot sections, continuous action gameplay]
+  win_condition: Complete missions and reach objectives

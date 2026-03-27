@@ -1,0 +1,21 @@
+game_id: chip_n_dale_rescue_rangers_1990
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character in horizontally scrolling platform stages, lifting and throwing objects to defeat enemies.
+  Boxes and other items can be picked up, carried, and thrown at enemies or obstacles.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, pick up objects, carry objects, throw objects]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Pick up box or object → lift item
+    - Throw object at enemy → defeat threat
+    - Throw object at obstacle → destroy barrier
+    - Touch enemy → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms, contact damage, defeated by thrown objects, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, boxes and objects scattered for pickup, throwing mechanics create tactical combat]
+  win_condition: Reach the end of each stage

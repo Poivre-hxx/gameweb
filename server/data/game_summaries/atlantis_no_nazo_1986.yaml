@@ -1,0 +1,24 @@
+game_id: atlantis_no_nazo_1986
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character in horizontally scrolling platform stages with complex maze-like structures.
+  Bombs can be thrown to defeat enemies and destroy obstacles.
+  Stages contain hidden doors and alternate paths leading to different areas.
+  Some doors advance progress while others lead to traps or earlier stages.
+  The objective is to navigate through the labyrinthine stage structure and reach the final area.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, throw bombs]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Throw bomb at enemy → defeat threat
+    - Throw bomb at obstacle → destroy barrier
+    - Enter door → warp to different stage
+    - Find hidden door → discover alternate path
+    - Touch enemy → take damage
+    - Reach goal → progress (or loop back depending on path)
+  enemy_characteristics: [patrol platforms, contact damage, defeated by bombs, varied enemy types]
+  environment_characteristics: [horizontally scrolling stages with complex branching paths, visible and hidden doors throughout, some paths advance while others loop backward, labyrinthine stage structure]
+  win_condition: Navigate to the final area through correct path choices

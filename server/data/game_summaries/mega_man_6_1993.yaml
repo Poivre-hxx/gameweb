@@ -1,0 +1,28 @@
+game_id: mega_man_6_1993
+tags: [Shooter, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character in horizontally scrolling platform stages, shooting enemies and defeating stage bosses.
+  Defeating a stage boss grants the boss's special weapon with unique properties.
+  Special weapons are effective against specific bosses, creating strategic stage order choices.
+  The character can fuse with a robotic dog for enhanced mobility options.
+  Special weapon energy depletes with use and must be managed as a resource.
+  The objective is to defeat all bosses in chosen order and reach the final stages.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, shoot continuously, acquire and switch between special weapons, fuse with dog for enhanced abilities]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Shoot enemy → defeat threat
+    - Defeat stage boss → acquire boss's special weapon
+    - Switch to special weapon → use unique abilities
+    - Special weapon effective against specific boss → strategic advantage
+    - Special weapon energy depletes with use → manage resources
+    - Fuse with dog → gain jet or power armor form
+    - Choose stage order → tackle bosses in strategic sequence
+    - Touch enemy or projectile → take damage
+    - Complete stage → advance forward
+  enemy_characteristics: [patrol platforms and fly in patterns, contact damage, defeated by shots, bosses have weapon weaknesses, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, non-linear stage selection with weapon weakness system, special weapons provide tactical options, fusion forms enhance mobility]
+  win_condition: Defeat all bosses and complete final stages

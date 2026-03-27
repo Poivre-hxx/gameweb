@@ -1,0 +1,24 @@
+game_id: bucky_ohare_1992
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls one of multiple characters in horizontally scrolling platform stages, switching between them.
+  Characters must be rescued to unlock them for use.
+  Different characters have unique abilities and weapon types.
+  Characters can be switched freely to utilize their specific strengths.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, attack with character-specific weapons, switch between unlocked characters]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Attack enemy → defeat threat with character weapon
+    - Rescue character → unlock for switching
+    - Switch character → access different abilities
+    - Different characters provide different tactical options
+    - Touch enemy or projectile → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms and fly in patterns, contact damage, defeated by character attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, character switching enables tactical variety, rescuing teammates unlocks new characters]
+  win_condition: Reach the end of each stage

@@ -1,0 +1,22 @@
+game_id: ninja_kun_1985
+tags: [Platform, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a ninja character in fixed-screen platform stages, defeating enemies using a two-step process.
+  Enemies must first be stunned by body collision, then eliminated with thrown projectiles.
+  The ninja can jump between multiple platform levels and throw projectiles at stunned enemies.
+  Enemies have various attack patterns and movement behaviors that must be evaded.
+  The objective is to defeat all enemies in each stage to progress.
+
+key_mechanics:
+  player_abilities: [move left/right, jump between platforms, body slam to stun enemies, throw projectiles]
+  interaction_modes:
+    - Body slam enemy → stun enemy temporarily
+    - Throw projectile at stunned enemy → defeat enemy permanently
+    - Stunned enemy recovers if not eliminated → returns to active state
+    - Touch active enemy → take damage
+    - Defeat all enemies → complete stage
+  enemy_characteristics: [patrol platforms with various movement patterns, some jump between levels, contact damage when active, temporarily stunned by body slam, require projectile to defeat permanently]
+  environment_characteristics: [fixed-screen platform layout with multiple levels, platforms at different heights, enemies spawn throughout stage]
+  win_condition: Defeat all enemies in the stage

@@ -1,0 +1,24 @@
+game_id: ice_climber_1985
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character climbing vertically upward through ice platforms to reach the summit.
+  A hammer is used to break ice blocks above, creating passages to higher levels.
+  Platforms have slippery physics requiring careful movement control.
+  Enemies and environmental hazards attempt to knock the player down to lower levels.
+  The objective is to reach the top before being caught by the rising threat from below.
+
+key_mechanics:
+  player_abilities: [move left/right on slippery surfaces, jump upward, swing hammer to break ice blocks]
+  interaction_modes:
+    - Swing hammer upward → break ice block above, create passage
+    - Jump through broken passage → reach platform above
+    - Touch enemy → knocked backward, may fall to lower platform
+    - Fall to lower platform → must reclimb
+    - Move on ice platforms → reduced traction, slides after stopping
+    - Reach summit → complete level
+    - Get caught by rising hazard → lose life
+  enemy_characteristics: [patrol platforms, attempt to push player off edges, contact causes knockback rather than direct damage, some move on multiple platforms]
+  environment_characteristics: [vertically stacked ice platforms, ice blocks blocking upward paths, slippery surface physics, gaps between platforms, rising hazard from below creating time pressure, summit as goal]
+  win_condition: Reach the summit at the top of the mountain

@@ -1,0 +1,24 @@
+game_id: snow_bros_1991
+tags: [Platform, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a character in fixed-screen platform stages, shooting snow to freeze enemies.
+  Frozen enemies become snowballs that can be kicked to destroy other enemies.
+  Kicked snowballs create chain reactions when hitting multiple enemies.
+  All enemies must be defeated to clear each stage.
+  The objective is to defeat all enemies and advance through stages.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, shoot snow, kick frozen enemies]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Shoot snow at enemy → progressively freeze enemy
+    - Enemy fully frozen → becomes snowball
+    - Kick snowball → snowball rolls and destroys enemies
+    - Snowball hits enemy → create chain reaction
+    - Touch enemy → take damage
+    - Defeat all enemies → complete stage
+  enemy_characteristics: [patrol platforms, contact damage, progressively frozen by snow, destroyed by kicked snowballs, varied enemy types]
+  environment_characteristics: [fixed-screen platform stages, freezing and kicking creates chain reactions, all enemies must be defeated to proceed]
+  win_condition: Defeat all enemies in each stage

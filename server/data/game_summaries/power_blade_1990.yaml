@@ -1,0 +1,24 @@
+game_id: power_blade_1990
+tags: [Shooter, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls an agent in horizontally scrolling platform stages, throwing a boomerang to defeat enemies.
+  The boomerang returns after being thrown and can hit enemies on both paths.
+  Stages can be selected in non-linear order.
+  Power-ups can be collected to enhance abilities.
+  The objective is to navigate platforms, defeat enemies, and complete all stages.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, throw boomerang, collect power-ups]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Throw boomerang at enemy → projectile attack
+    - Boomerang returns → hits enemies on return path
+    - Collect power-up → enhance weapons or gain abilities
+    - Touch enemy or projectile → take damage
+    - Select stage order → choose progression path
+    - Complete stage → advance forward
+  enemy_characteristics: [patrol platforms and fly in patterns, contact damage, defeated by boomerang attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, non-linear stage selection, boomerang returns creating tactical attack patterns]
+  win_condition: Complete all stages

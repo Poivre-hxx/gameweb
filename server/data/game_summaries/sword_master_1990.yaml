@@ -1,0 +1,22 @@
+game_id: sword_master_1990
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a swordsman in horizontally scrolling platform stages, using sword attacks and magic.
+  The swordsman can attack with a sword and cast magic spells.
+  Items can be collected to restore health and enhance abilities.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, sword attack, cast magic spells, collect items]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Sword attack enemy → defeat threat at close range
+    - Cast magic spell → ranged or area attack
+    - Collect item → restore health or gain power-ups
+    - Touch enemy or projectile → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms, contact damage, defeated by sword or magic attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, magic provides tactical attack options, items scattered throughout]
+  win_condition: Reach the end of each stage

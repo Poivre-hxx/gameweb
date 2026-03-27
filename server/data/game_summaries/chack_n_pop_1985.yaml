@@ -1,0 +1,25 @@
+game_id: chack_n_pop_1985
+tags: [Platform, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a character on fixed-screen platforms, rescuing captured creatures by defeating enemies with bombs.
+  Bombs are thrown horizontally and explode after a short delay, requiring timing and positioning.
+  Enemies hatch from eggs and multiply if not dealt with quickly.
+  Captured creatures must be freed by eliminating nearby enemies.
+  The objective is to rescue all creatures in the stage while avoiding enemies and managing bomb timing.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, throw bombs left/right]
+  interaction_modes:
+    - Throw bomb → bomb travels horizontally, stops at wall or platform edge
+    - Bomb explodes after delay → destroys enemies in blast radius
+    - Defeat enemy near captured creature → free creature
+    - Collect freed creature → progress toward completion
+    - Enemy hatches from egg → new threat spawns
+    - Eggs multiply if ignored → enemy population increases
+    - Touch enemy → lose life
+    - Free all creatures → complete stage
+  enemy_characteristics: [hatch from eggs over time, patrol platforms, contact damage, defeated by bomb explosions, multiply if eggs left unchecked]
+  environment_characteristics: [fixed-screen platform layout with multiple levels, captured creatures at various locations, enemy eggs scattered throughout, platforms and walls affect bomb trajectory]
+  win_condition: Free all captured creatures in the stage

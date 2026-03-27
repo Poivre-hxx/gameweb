@@ -1,0 +1,23 @@
+game_id: rygar_1987
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a warrior in horizontally scrolling stages with interconnected non-linear areas, using a unique shield weapon.
+  The shield weapon extends on a chain and can attack in multiple directions.
+  Power-up items enhance abilities and unlock access to new areas.
+  Areas connect in non-linear ways requiring exploration and backtracking.
+  The objective is to explore interconnected areas, defeat enemies, and reach the final goal.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, swing shield weapon on chain, collect power-ups]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Swing shield weapon → attack enemies at medium range
+    - Shield extends on chain → variable reach attack
+    - Collect power-up → enhance abilities or unlock areas
+    - Touch enemy → take damage
+    - Explore connected areas → find paths and items
+  enemy_characteristics: [patrol platforms and fly in patterns, contact damage, defeated by shield weapon, varied enemy types]
+  environment_characteristics: [horizontally scrolling interconnected areas, non-linear progression requiring exploration, power-ups hidden throughout, challenging platform layouts]
+  win_condition: Navigate through areas and reach the final goal

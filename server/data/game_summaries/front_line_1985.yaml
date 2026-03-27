@@ -1,0 +1,25 @@
+game_id: front_line_1985
+tags: [Shooter, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a soldier advancing through enemy territory in a vertically scrolling battlefield.
+  The soldier can shoot enemies on foot and throw grenades for area damage.
+  Tanks can be commandeered for enhanced firepower and protection.
+  While in a tank, the player has stronger attacks but becomes a larger target.
+  The objective is to advance through enemy lines and destroy the target installation.
+
+key_mechanics:
+  player_abilities: [move in 8 directions, shoot forward, throw grenades, enter and exit tanks]
+  interaction_modes:
+    - Shoot enemy soldier → defeat enemy
+    - Throw grenade → area damage explosion
+    - Enter abandoned or captured tank → gain vehicle control
+    - Control tank → stronger firepower, more defense, slower movement
+    - Tank destroyed → return to on-foot soldier
+    - Exit tank voluntarily → return to on-foot mobility
+    - Touch enemy or projectile → take damage
+    - Destroy enemy base → complete mission
+  enemy_characteristics: [soldiers patrol and shoot, tanks fire powerful shots, contact and projectile damage, tanks require multiple hits, enemies increase in density as player advances]
+  environment_characteristics: [vertically scrolling battlefield, tanks scattered throughout, obstacles and terrain features, enemy base as final target]
+  win_condition: Advance through enemy territory and destroy the target base

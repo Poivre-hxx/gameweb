@@ -1,0 +1,23 @@
+game_id: door_door_1985
+tags: [Platform, Puzzle, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a character that places doors to trap enemies on multi-level platforms.
+  Enemies must be caught between two doors, then pushed off the edge of the screen.
+  Doors can be placed strategically to create traps and block enemy movement.
+  The player must time door placement carefully while avoiding direct contact with enemies.
+  The objective is to push all enemies off the screen to complete each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, climb ladders, place doors at current position, push trapped enemies]
+  interaction_modes:
+    - Place door → door appears, blocks movement
+    - Trap enemy between two doors → enemy becomes stuck
+    - Push trapped enemy → enemy moves toward screen edge
+    - Push enemy off screen edge → defeat enemy permanently
+    - Touch active enemy → lose life
+    - Defeat all enemies → complete stage
+  enemy_characteristics: [patrol platforms, chase player, contact damage when active, become immobilized when trapped between doors, must be pushed off screen to defeat]
+  environment_characteristics: [fixed-screen platform layout with multiple levels, ladders for vertical movement, screen edges where enemies can be pushed off, limited number of doors can be placed]
+  win_condition: Push all enemies off the screen

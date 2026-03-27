@@ -1,0 +1,485 @@
+## Game Overview
+The player jumps on platforms, collects coins, defeats enemies, and wins by reaching the rightmost end of the map. The game features a gravity system, and the player must jump to avoid obstacles and enemies.
+
+---
+
+## Entity Definitions
+
+### Prop Entities
+
+#### ground
+**Description**: Basic ground that prevents the player and enemies from falling through
+**Spawn Method**:
+- SpawnType = init
+**Physics Type**:
+- PhysicsBody = static (does not move, blocks other entities)
+**Movement Mode**:
+- MovementMode = none
+**Collision Behavior**:
+- Blocks player and enemies from passing downward (provides standing support)
+- Blocks player and enemies from passing from the sides
+
+#### breakable brick
+**Description**: A brick that can be broken when the player hits it from below
+**Spawn Method**:
+- SpawnType = init
+**Physics Type**:
+- PhysicsBody = static
+**Movement Mode**:
+- MovementMode = none
+**Collision Behavior**:
+- Player hits from below: Brick is destroyed
+- Player lands on top: Provides standing support (not destroyed)
+- Player collides from side: Blocks passage
+- Enemy: Normal collision (blocks)
+
+#### question block
+**Description**: A question block containing `mushroom`, spawns a `mushroom` directly above when hit from below by the player, then turns into an empty block
+**Spawn Method**:
+- SpawnType = init
+**Physics Type**:
+- PhysicsBody = static
+**Movement Mode**:
+- MovementMode = none
+**Collision Behavior**:
+- Player hits from below:
+  - If not activated, spawns mushroom/coin, block changes to "activated" state (color becomes `#30302e`)
+  - If already activated, no effect
+- Player lands on top: Provides standing support
+- Player collides from side: Blocks passage
+- Enemy: Normal collision (blocks)
+
+#### pipe
+**Description**: An indestructible obstacle
+**Spawn Method**:
+- SpawnType = init
+**Physics Type**:
+- PhysicsBody = static
+**Movement Mode**:
+- MovementMode = none
+**Collision Behavior**:
+- Blocks player and enemies from any direction
+- Can serve as a standing platform
+
+#### cannon
+**Description**: A fixed device that fires bullets at regular intervals
+**Spawn Method**:
+- SpawnType = init
+**Physics Type**:
+- PhysicsBody = static
+**Movement Mode**:
+- MovementMode = none
+**Properties**:
+- Firing interval: 10.0 seconds
+- Firing direction: Horizontal left (-1, 0)
+**Behavior**:
+- Automatically fires one bullet every 10 seconds
+**Collision Behavior**:
+- Blocks player and enemies from passing
+- Can serve as a standing platform
+
+#### coin
+**Description**: A collectible coin that disappears when touched
+**Spawn Method**:
+- SpawnType = init
+**Physics Type**:
+- PhysicsBody = static (non-blocking collectible)
+**Movement Mode**:
+- MovementMode = none
+**Collision Behavior**:
+- Player touches: Coin is destroyed
+
+#### mushroom
+**Description**: Grants the player an ability boost when consumed
+**Spawn Method**:
+- SpawnType = trigger (spawned from question blocks)
+- SpawnType = init (marked on the map)
+**Physics Type**:
+- PhysicsBody = dynamic (affected by gravity)
+**Movement Mode**:
+- MovementMode = auto (horizontal movement + gravity)
+**Properties**:
+- Movement speed: 10 pixels/second
+- Initial direction: Right (1, 0)
+- Affected by gravity
+**Behavior**:
+- Reverses horizontal direction when hitting walls or pipes
+- Falls to the ground and moves along the ground
+**Collision Behavior**:
+- Player touches: Mushroom is destroyed, player gains ability
+- Bricks/pipes: Reverses movement direction
+- Enemy: Passes through (no collision)
+
+#### moving platform
+**Description**: A platform that moves up and down
+**Spawn Method**:
+- SpawnType = init
+**Physics Type**:
+- PhysicsBody = kinematic (moves but not affected by gravity)
+**Movement Mode**:
+- MovementMode = auto
+**Properties**:
+- Movement speed: 8 pixels/second
+- Movement range: 100 pixels up and down from initial position
+- Movement direction: Initially upward
+**Behavior**:
+- Reverses direction when reaching movement range boundaries
+- When the player stands on the platform, the player follows the platform's movement
+**Collision Behavior**:
+- Player lands on top: Provides standing support, player follows platform movement
+- Player collides from side or below: Blocks passage
+
+#### springboard
+**Description**: A springboard that provides extra jump power when stepped on
+**Spawn Method**:
+- SpawnType = init
+**Physics Type**:
+- PhysicsBody = static
+**Movement Mode**:
+- MovementMode = none
+**Collision Behavior**:
+- Player lands on top: Player gains upward velocity of 600 pixels/second (super jump)
+- Enemy: Also gains bounce effect
+
+#### bullet
+**Description**: A bullet fired from cannons, travels in a straight line
+**Spawn Method**:
+- SpawnType = trigger (dynamically created when cannon fires)
+**Spawn Parameters**:
+- Spawn position (x, y): Center position of the cannon
+- Firing direction (dx, dy): (-1, 0) horizontal left
+**Physics Type**:
+- PhysicsBody = kinematic (not affected by gravity)
+**Movement Mode**:
+- MovementMode = auto (automatically moves at fixed speed and direction, unaffected by gravity)
+**Properties**:
+- Movement speed: 0.5 pixels/second
+- Size: 12x12 pixels
+**Collision Behavior**:
+- Hits player: Bullet destroyed, player takes damage (simplified to player destruction in this version)
+- Hits bricks/pipes: Bullet destroyed
+- Out of map bounds: Bullet destroyed
+- Hits enemy: Passes through (no collision)
+
+---
+
+### Character Entities
+
+#### player
+**Description**: An entity controlled by the player via keyboard
+**Spawn Method**:
+- SpawnType = init
+**Physics Type**:
+- PhysicsBody = dynamic (affected by gravity, blocked by static/kinematic)
+**Movement Mode**:
+- MovementMode = trigger
+**Controls**:
+- A/D or Left/Right arrow keys control horizontal movement
+- Spacebar to jump
+**Properties**:
+- Horizontal movement speed: 20 pixels/second
+- Jump initial velocity: -400 pixels/second (upward)
+- Gravity acceleration: 1200 pixels/second²
+- Maximum fall speed: 600 pixels/second
+**Behavior**:
+- Can stand on bricks
+- Affected by gravity, continuously accelerates downward
+- Can only jump when on the ground (determined by is_grounded flag)
+- Hitting bricks from below can break breakable bricks or activate question blocks
+- Stomping on enemies can eliminate enemies
+- Collects coins and mushrooms
+**Collision Behavior**:
+- Collides with ground/pipes/platforms: Blocks movement, stops vertical movement
+- Stomps enemy from above: Enemy destroyed, player gains upward bounce velocity of -200 pixels/second
+- Collides with enemy from side: Player destroyed (game failure)
+- Collides with bullet: Player destroyed (game failure)
+- Steps on springboard: Gains super jump
+- Collects coins/mushrooms: Props destroyed
+- Hits bricks from below: Breaks breakable bricks, activates question blocks
+
+#### enemy
+**Description**: An enemy whose movement mode is automatically determined based on spawn position
+**Spawn Method**:
+- SpawnType = init
+**Physics Type** (varies by AI type):
+- Ground Patrol: PhysicsBody = dynamic (affected by gravity)
+- Flying Patrol: PhysicsBody = kinematic (not affected by gravity)
+- Stationary Turret: PhysicsBody = kinematic (not affected by gravity)
+**Movement Mode**:
+- MovementMode = auto (AI mode automatically selected based on element type below)
+- AI Type Determination Rules (determined by the element directly below the enemy's position at spawn):
+  - **Ground Patrol Type**
+    Determination Condition: Element directly below enemy is B(ground) or S(breakable brick)
+    Physics: PhysicsBody = dynamic (affected by gravity)
+    Movement Mode: Horizontal left-right patrol
+    Horizontal movement speed: 0.8 pixels/second
+    Maximum fall speed: 600 pixels/second
+    Initial direction: Left (-1, 0)
+    Affected by gravity
+    Behavior:
+      Moves left and right along the ground
+      Reverses direction when hitting walls, pipes, or map boundaries
+      Falls off platform edges
+  - **Flying Patrol Type**
+    Determination Condition: Element directly below enemy is X(space), i.e., suspended in air
+    Physics: PhysicsBody = kinematic (not affected by gravity)
+    Movement Mode: Four-direction patrol (up/down/left/right)
+    Movement speed: 0.6 pixels/second
+    Initial direction: Left (-1, 0)
+    Not affected by gravity
+    Behavior:
+      Patrols in a rectangular area in a loop
+      Patrol path: Centered at initial position, moves 100 pixels left/right, 80 pixels up/down
+      Patrol sequence: Left → Down → Right → Up → Left (loop)
+      Reverses current direction when hitting map boundaries
+  - **Stationary Turret Type**
+    Determination Condition: Element directly below enemy is P(pipe), standing on a pipe
+    Physics: PhysicsBody = kinematic (static-like but categorized as kinematic)
+    Movement Mode: Completely stationary
+    Does not move
+    Not affected by gravity (supported by pipe)
+    Behavior:
+      Fixed on top of pipe, does not move at all
+      Acts as a static obstacle
+**Collision Behavior**:
+  Stomped by player from above: Enemy destroyed
+  Collides with player from side: Player destroyed
+  Hits walls/pipes: Ground patrol type reverses direction; flying patrol type moves according to patrol logic
+  Collides with bullet: Passes through (no collision)
+  Collides with enemy: Passes through (no collision)
+
+---
+
+## Game Systems (Six-Layer Architecture)
+
+### Layer 1: GameSceneSystem
+**Responsibility**: Manage entity lifecycle, level progression, and game pacing
+
+**OnCreate Phase**:
+1. Load map data (map.json)
+2. Instantiate all entities with SpawnType = init based on map's "mapping" and "grid_str"
+3. Set correct Position, Size, Sprite, Collider, PhysicsBody components for each entity
+4. Enemy AI Type Initialization
+   - Query all entities tagged as enemy
+   - For each enemy, detect the element type directly below it (use get_tile_at to get map element at enemy position + height)
+   - Add corresponding AI components and PhysicsBody based on element below:
+     - **Ground Patrol Type** (below is ground or breakable brick):
+       - Add EnemyAI component, type = "ground_patrol"
+       - Add PhysicsBody('dynamic') component for gravity
+     - **Flying Patrol Type** (below is space in air):
+       - Add EnemyAI component, type = "flying_patrol"
+       - Add PatrolPath component, record center position, patrol range (100 pixels left/right, 80 pixels up/down), current state = "left"
+       - Add PhysicsBody('kinematic') component (no gravity)
+     - **Stationary Turret Type** (below is pipe):
+       - Add EnemyAI component, type = "stationary"
+       - Add PhysicsBody('kinematic') component (static-like behavior)
+5. Add QuestionBlock component for question blocks (mark activation state)
+6. Add Cannon component for cannons (shooting timer)
+7. Add MovingPlatform component for moving platforms (movement range and direction)
+
+**OnUpdate Phase**:
+1. **Entity Destruction Handling**:
+   - Check all entities marked as `mark_for_destruction`
+   - Remove these entities from the world
+2. **Game End Condition Detection**:
+   - If player is destroyed → Game failure
+   - If player reaches right edge of map (player.x >= map width - 50) → Game victory
+3. **Cannon Firing Logic** (using deferred creation pattern):
+   - Query all entities with Cannon and Position components
+   - Use deferred creation pattern to avoid modifying collection during iteration
+   - Step 1 (Collection phase) - Iterate through all cannon entities:
+     - For each cannon, decrement cooldown: cannon.cooldown -= delta_time
+     - If cooldown complete (cooldown <= 0):
+       - Collect bullet creation parameters to list: (cannon position x, cannon position y, firing direction (-1, 0))
+       - Reset cooldown: cannon.cooldown = cannon.fire_interval (10.0 seconds)
+   - Step 2 (Creation phase) - Batch create bullets after iteration completes:
+     - Iterate through all collected bullet parameters
+     - Call factory.create_bullet() for each to create bullet entities
+
+---
+
+### Layer 2: UserInputSystem
+**Responsibility**: Map player's control inputs to in-game intents (ActionIntent)
+
+**OnUpdate Phase**:
+1. Query all entities with `Tag.value == "player"` and `ActionIntent` components
+2. **Handle Horizontal Movement Input**:
+   - Detect A/D or Left/Right arrow keys
+   - A or Left: Set ActionIntent.move_direction = (-1, 0)  # Left
+   - D or Right: Set ActionIntent.move_direction = (1, 0)  # Right
+   - No key: Set ActionIntent.move_direction = (0, 0)  # Stop
+3. **Handle Jump Input**:
+   - Detect Spacebar
+   - If jump key pressed and player is on ground (is_grounded == True):
+     - Set ActionIntent.action = "jump"
+
+---
+
+### Layer 3: DecisionSystem
+**Responsibility**: Drive AI behavior logic, control enemies and moving platforms
+
+**OnUpdate Phase**:
+
+**1. Enemy Patrol Logic**:
+- Query all entities with EnemyAI, Position, Velocity, Tag components
+- For each enemy entity, execute different logic based on AI type:
+  - **Ground Patrol Type** (enemy_ai.type == "ground_patrol"):
+    - Maintain constant horizontal movement speed
+    - Direction reversal handled by collision system when hitting obstacles
+  - **Flying Patrol Type** (enemy_ai.type == "flying_patrol"):
+    - Get PatrolPath component
+    - Implement four-direction loop patrol state machine: left → down → right → up → left
+    - State "left": Set vx = -0.6, vy = 0, switch to "down" when reaching left boundary
+    - State "down": Set vx = 0, vy = 0.6, switch to "right" when reaching bottom boundary
+    - State "right": Set vx = 0.6, vy = 0, switch to "up" when reaching right boundary
+    - State "up": Set vx = 0, vy = -0.6, switch to "left" when reaching top boundary
+    - Boundary detection: Compare current position with patrol center point and patrol range
+  - **Stationary Turret Type** (enemy_ai.type == "stationary"):
+    - Set vx = 0, vy = 0, completely stationary
+
+**2. Moving Platform Control**:
+- Query all entities with MovingPlatform, Position, Velocity components
+- For each moving platform:
+  - Check if reached movement range boundary
+  - If position <= start position - movement range, set direction = 1 (downward)
+  - If position >= start position + movement range, set direction = -1 (upward)
+  - Update velocity based on direction: vel.vy = platform.direction * platform.speed (8 pixels/second)
+
+---
+
+### Layer 4: ActionSystem
+**Responsibility**: Read ActionIntent and execute specific behaviors (set velocity, jumping, etc.)
+
+**OnUpdate Phase**:
+
+**1. Handle Horizontal Movement Intent**:
+- Query all entities with ActionIntent, Velocity, PhysicsConfig components
+- For entities with PhysicsConfig.movement_mode == "trigger" (player):
+  - If intent.move_direction[0] != 0 (has horizontal movement input):
+    - Set vel.vx = intent.move_direction[0] * config.speed (20 pixels/second)
+  - Otherwise (no movement input):
+    - Set vel.vx = 0
+
+**2. Handle Jump Intent**:
+- Query all entities with ActionIntent, Velocity, PhysicsConfig, GroundedFlag components
+- For each entity:
+  - If intent.action == "jump" and grounded.is_grounded == True:
+    - Set vel.vy = -400 (upward jump)
+    - Set grounded.is_grounded = False
+    - Clear action intent: intent.action = ""
+
+**3. Question Block Activation** (using deferred creation pattern):
+- Query all entities with QuestionBlock, Position, Sprite components
+- Use deferred creation pattern to avoid modifying collection during iteration
+- Step 1 (Collection phase) - Iterate through all question blocks:
+  - If qblock.hit_from_below == True and qblock.activated == False (hit and not activated):
+    - Collect prop spawn parameters to list: ('mushroom', block position x, block position y - 18)
+    - Mark block as activated: qblock.activated = True
+    - Change block color: sprite.color = "#808080" (turn gray)
+    - Reset collision flag: qblock.hit_from_below = False
+- Step 2 (Creation phase) - Batch create props after iteration completes:
+  - Iterate through all collected prop parameters
+  - Call appropriate factory method based on type (e.g., factory.create_mushroom(x, y, (1, 0)))
+
+---
+
+### Layer 5: SimulationSystem
+**Responsibility**: Simulate physical rules in the scene, including gravity, collision detection, physics simulation, and interaction feedback
+
+**OnUpdate Phase**:
+
+**1. Save Previous Frame Position**:
+- Query all entities with Position and PreviousPosition components
+- For each entity, copy current position to PreviousPosition:
+  - prev_pos.x = pos.x
+  - prev_pos.y = pos.y
+
+**2. Apply Gravity** (FRAMEWORK AUTO-HANDLES):
+- Call `self.apply_physics_body_gravity(delta_time)` - framework automatically applies gravity to all dynamic entities
+
+**3. Update Position**:
+- Query all entities with Position and Velocity components
+- For each entity, update position based on velocity:
+  - pos.x += vel.vx * delta_time
+  - pos.y += vel.vy * delta_time
+
+**4. Collision Detection**:
+- Query all entities with Position, Size, Collider, Tag components
+- For each pair of colliding entities:
+  - Use `check_collision()` to detect collision
+  - Use `determine_collision_direction()` to get direction
+  - Call `self.resolve_physics_collision(eid1, eid2, direction)` - framework automatically handles physics blocking
+  - Call `self.handle_collision(eid1, tag1, eid2, tag2, direction)` - handle game-specific logic
+
+**Collision Rules Table** (ONLY game logic, physics blocking handled by framework):
+
+| Entity A | Entity B | Collision Direction | Game Logic (Physics blocking automatic) |
+|----------|----------|---------------------|----------------------------------------|
+| player | ground | top | Set is_grounded = True |
+| player | pipe | top | Set is_grounded = True |
+| player | cannon | top | Set is_grounded = True |
+| player | breakable brick | bottom | Brick destroyed |
+| player | breakable brick | top | Set is_grounded = True |
+| player | question block | bottom | Set hit_from_below = True |
+| player | question block | top | Set is_grounded = True |
+| player | enemy | top | Enemy destroyed, player bounces vy = -200 |
+| player | enemy | left/right/bottom | Player destroyed |
+| player | coin | any | Prop destroyed, player score +10 |
+| player | mushroom | any | Prop destroyed, player score +50 |
+| player | bullet | any | Player destroyed |
+| player | springboard | top | Player super jump vy = -600 |
+| player | moving platform | top | Set is_grounded = True, player follows platform movement |
+| enemy (ground patrol) | ground | top | (Framework handles blocking, no game logic needed) |
+| enemy (ground patrol) | pipe | top | (Framework handles blocking, no game logic needed) |
+| enemy (ground patrol) | breakable brick | top | (Framework handles blocking, no game logic needed) |
+| enemy (ground patrol) | question block | top | (Framework handles blocking, no game logic needed) |
+| enemy (ground patrol) | ground | left/right | Reverse horizontal direction vx = -vx |
+| enemy (ground patrol) | pipe | left/right | Reverse horizontal direction vx = -vx |
+| enemy (ground patrol) | breakable brick | left/right | Reverse horizontal direction vx = -vx |
+| enemy (ground patrol) | question block | left/right | Reverse horizontal direction vx = -vx |
+| enemy (flying patrol) | any | any | No collision, moves according to patrol path |
+| enemy (stationary turret) | any | any | No collision, remains stationary |
+| bullet | ground | any | Bullet destroyed |
+| bullet | pipe | any | Bullet destroyed |
+| bullet | breakable brick | any | Bullet destroyed |
+| bullet | question block | any | Bullet destroyed |
+| mushroom | ground | left/right | Reverse horizontal direction vx = -vx |
+| mushroom | pipe | left/right | Reverse horizontal direction vx = -vx |
+
+**Collision Handling Notes**:
+- Framework automatically handles ALL physics blocking via `resolve_physics_collision()`
+- `handle_collision()` should ONLY contain game logic (collecting items, destroying entities, etc.)
+- DO NOT manually revert positions or stop velocities in `handle_collision()` - framework does this automatically
+
+**5. Ground Detection (GroundedFlag Update)**:
+- Reset all entities' is_grounded flags at the beginning of each frame
+  - Query all entities with GroundedFlag
+  - Set grounded.is_grounded = False
+- During collision detection, when entity stands on solid from above:
+  - If collision direction == "top" and entityB is solid
+  - Set grounded.is_grounded = True
+
+**6. Boundary Detection and Constraints**:
+- Query all entities with Position, PreviousPosition, Tag components
+- Apply different boundary handling based on entity type:
+  - **player**:
+    - If pos.x < 0 (exceeds left boundary), revert: pos.x = prev_pos.x
+    - Can exceed right boundary (this is victory condition)
+    - If pos.y > screen_height (falls off bottom), mark for destruction
+  - **bullet and mushroom**:
+    - If out of bounds (pos.x < 0 or pos.x > map_width or pos.y > screen_height), mark for destruction
+  - **enemy**:
+    - If exceeds left/right boundaries (pos.x < 0 or pos.x > map_width), revert: pos.x = prev_pos.x
+    - For ground patrol type enemies, reverse horizontal direction: vel.vx = -vel.vx
+
+---
+
+### Layer 6: RenderSystem
+**Responsibility**: Render the game to the screen
+
+**Render Layer Order** (bottom to top):
+- Layer 0: Ground and background (ground, pipe)
+- Layer 1: Bricks and question blocks (breakable brick, question block)
+- Layer 2: Props (coin, mushroom)
+- Layer 3: Characters (player, enemy)
+- Layer 4: Special objects (bullet, moving platform, springboard, cannon)

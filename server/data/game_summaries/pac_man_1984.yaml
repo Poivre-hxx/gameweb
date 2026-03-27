@@ -1,0 +1,24 @@
+game_id: pac_man_1984
+tags: [Maze, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a character navigating a fixed maze to collect all items while avoiding four pursuing enemies.
+  Each enemy has a different behavior pattern: direct chase, ambush ahead, calculated pursuit, or random movement.
+  Collecting special power items temporarily reverses the dynamic, making enemies vulnerable and edible.
+  The player must manage positioning to avoid being trapped by multiple enemies converging from different directions.
+  The objective is to collect all items in the maze without being caught.
+
+key_mechanics:
+  player_abilities: [move in 4 directions, collect items, collect power items, consume vulnerable enemies]
+  interaction_modes:
+    - Collect small item → progress toward completion
+    - Collect power item → enemies become vulnerable for limited time
+    - Consume vulnerable enemy → bonus points, enemy respawns at center
+    - Consume multiple enemies in succession → increasing point bonuses
+    - Touch active enemy → lose life
+    - Power effect expires → enemies return to normal behavior
+    - Collect all items → complete level
+  enemy_characteristics: [four enemies with different AI behaviors (chase, ambush, intercept, random), constantly pursue player, become vulnerable and flee when power item eaten, respawn at center after being consumed, slow down in side tunnels]
+  environment_characteristics: [fixed symmetrical maze layout, items filling all passages, four power items at corners, side tunnels connecting left and right edges, bonus items appear at center after collecting set number of items]
+  win_condition: Collect all items in the maze

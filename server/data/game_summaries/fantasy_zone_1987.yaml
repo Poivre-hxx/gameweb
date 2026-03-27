@@ -1,0 +1,23 @@
+game_id: fantasy_zone_1987
+tags: [Shooter, Shoot 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a flying craft in horizontally scrolling stages with free bidirectional movement.
+  Enemy bases must be destroyed to trigger the stage boss.
+  Currency collected from enemies can be spent at shops to purchase weapon upgrades.
+  The objective is to destroy all bases, defeat the boss, and complete each area.
+
+key_mechanics:
+  player_abilities: [fly in multiple directions, move left or right freely, shoot forward, drop bombs downward, purchase upgrades with currency]
+  interaction_modes:
+    - Shoot enemy → destroy threat, gain currency
+    - Drop bomb on base → destroy base
+    - Destroy all bases → trigger boss appearance
+    - Collect currency → gain purchasing power
+    - Visit shop → purchase weapon or speed upgrades
+    - Touch enemy or projectile → take damage
+    - Defeat boss → complete stage
+  enemy_characteristics: [aerial and ground enemies attack, bases spawn enemies until destroyed, boss appears after all bases destroyed, varied attack patterns]
+  environment_characteristics: [horizontally scrolling with free left/right movement, enemy bases positioned throughout, shops appear periodically, currency-based upgrade system]
+  win_condition: Destroy all bases and defeat the boss in each area

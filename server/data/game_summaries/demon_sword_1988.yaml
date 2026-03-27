@@ -1,0 +1,23 @@
+game_id: demon_sword_1988
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a warrior in horizontally scrolling platform stages, using sword attacks and special techniques.
+  Various techniques can be collected and used for different combat situations.
+  Stages can be tackled in different orders with branching paths.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, attack with sword, use collected techniques]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Attack with sword → defeat enemies
+    - Collect technique → gain new ability
+    - Use technique → special attack or ability
+    - Touch enemy → take damage
+    - Choose path → select stage order
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms and fly in patterns, contact damage, defeated by sword attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, non-linear stage selection with branching paths, techniques provide tactical options]
+  win_condition: Complete all stages

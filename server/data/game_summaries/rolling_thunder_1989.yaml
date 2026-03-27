@@ -1,0 +1,23 @@
+game_id: rolling_thunder_1989
+tags: [Shooter, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls an agent in horizontally scrolling platform stages, shooting enemies with limited ammunition.
+  Doors can be entered to collect ammunition and items.
+  Ammunition is limited and must be managed as a resource.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, shoot with limited ammunition, enter doors]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Shoot enemy → defeat threat
+    - Enter door → collect ammunition or items
+    - Ammunition limited → must manage resources
+    - Run out of ammunition → cannot shoot
+    - Touch enemy or projectile → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms and attack, shoot projectiles, contact damage, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, doors provide ammunition and items, limited ammunition creates resource management]
+  win_condition: Reach the end of each stage

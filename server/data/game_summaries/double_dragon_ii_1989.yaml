@@ -1,0 +1,25 @@
+game_id: double_dragon_ii_1989
+tags: [Beat 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a martial artist in horizontally scrolling stages, fighting through waves of enemies using various combat techniques.
+  Combat uses punches, kicks, elbow strikes, and throws to defeat groups of attackers.
+  Weapons can occasionally be used when found.
+  Enemies attack from both sides and must be defeated to progress forward.
+  The objective is to clear all enemies from each area and reach the end of the stage.
+
+key_mechanics:
+  player_abilities: [move left/right, punch, kick, elbow strike, grab and throw enemy, use weapons when available]
+  interaction_modes:
+    - Punch enemy → quick damage
+    - Kick enemy → moderate damage
+    - Elbow strike → close-range damage
+    - Grab enemy → initiate throw or headbutt
+    - Throw enemy → deal significant damage
+    - Use weapon → enhanced attacks when available
+    - Touch enemy or attack → take damage
+    - Defeat all enemies in area → progress forward
+  enemy_characteristics: [attack in groups from both sides, use varied fighting styles, can grab and attack player, contact and attack damage]
+  environment_characteristics: [horizontally scrolling stages, enemies spawn in waves, weapons occasionally available]
+  win_condition: Defeat all enemies and reach the end of each stage

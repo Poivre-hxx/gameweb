@@ -1,0 +1,22 @@
+game_id: mappy_land_1986
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character in horizontally scrolling stages, collecting all items while avoiding enemies.
+  Trampolines provide high bounces to reach elevated platforms.
+  All items in each stage must be collected before the exit opens.
+  Enemies patrol and chase the player, requiring careful timing to avoid.
+  The objective is to collect all items and reach the exit in each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, bounce on trampolines for high jumps]
+  interaction_modes:
+    - Jump on trampoline → bounce high to reach elevated areas
+    - Collect item → progress toward completion
+    - Collect all items → exit opens
+    - Touch enemy → lose life
+    - Reach exit after collecting all items → complete stage
+  enemy_characteristics: [patrol platforms, chase player, contact damage only, cannot be defeated, must be avoided]
+  environment_characteristics: [horizontally scrolling platform stages, trampolines for vertical movement, all items must be collected, exit locked until items collected]
+  win_condition: Collect all items and reach the exit

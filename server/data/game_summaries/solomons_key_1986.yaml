@@ -1,0 +1,25 @@
+game_id: solomons_key_1986
+tags: [Platform, Puzzle, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a wizard in fixed-screen stages, creating and destroying blocks to navigate platforms.
+  Magic allows instant creation or removal of blocks to build paths or trap enemies.
+  Enemies patrol stages and must be defeated with fireballs or avoided through careful timing.
+  A key must be collected to unlock the exit door in each stage.
+  The objective is to collect the key and reach the exit while managing enemies and time limits.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, create block ahead, destroy block ahead, shoot fireball at enemies]
+  interaction_modes:
+    - Create block → place solid block in front, build platforms or trap enemies
+    - Destroy block → remove block in front, clear path
+    - Jump on created platforms → navigate terrain
+    - Shoot fireball at enemy → defeat threat
+    - Touch enemy → lose life
+    - Collect key → unlock exit door
+    - Reach exit with key → complete stage
+    - Time limit expires → lose life
+  enemy_characteristics: [patrol platforms actively, chase player, contact damage, some enemies shoot projectiles, can be trapped by created blocks or defeated by fireballs]
+  environment_characteristics: [fixed-screen platform layout, blocks can be created or destroyed anywhere, key hidden or guarded in stage, exit door requires key, time pressure adds urgency]
+  win_condition: Collect the key and reach the exit door

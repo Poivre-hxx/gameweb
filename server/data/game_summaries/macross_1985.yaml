@@ -1,0 +1,23 @@
+game_id: macross_1985
+tags: [Shooter, Shoot 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a transforming craft in a horizontally scrolling shooter with three distinct forms.
+  Fighter form provides high speed but weaker firepower for rapid movement.
+  Robot form provides powerful weapons but slower movement for heavy combat.
+  Hybrid form balances speed and firepower for versatile situations.
+  The player must transform strategically between forms to handle different enemy threats.
+
+key_mechanics:
+  player_abilities: [fly in 8 directions, shoot, transform between three forms (fighter/hybrid/robot)]
+  interaction_modes:
+    - Transform to fighter form → gain speed, lose firepower
+    - Transform to robot form → gain firepower, lose speed
+    - Transform to hybrid form → balanced speed and firepower
+    - Shoot enemy → destroy threat
+    - Touch enemy or projectile → take damage
+    - Choose form based on situation → tactical advantage
+  enemy_characteristics: [aerial enemies attack in formations, some enemies require heavy firepower (favor robot), some require evasion (favor fighter), varied attack patterns]
+  environment_characteristics: [horizontally scrolling battlefield, enemies approach from front and sides, situations favor different forms]
+  win_condition: Progress through the stage and defeat all enemy waves

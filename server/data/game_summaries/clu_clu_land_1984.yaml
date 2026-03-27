@@ -1,0 +1,23 @@
+game_id: clu_clu_land_1984
+tags: [Maze, Arcade]
+view: top-down view
+
+gameplay_summary: |
+  The player controls a character that cannot move freely but slides continuously with momentum.
+  To change direction, the player must grab posts and rotate 90 degrees around them.
+  Navigation requires careful planning as the character cannot stop or turn without a post.
+  The goal is to pass over all hidden spots in the maze to uncover them while avoiding enemies.
+  The objective is to uncover all hidden items in the maze.
+
+key_mechanics:
+  player_abilities: [slide with momentum in fixed direction, grab post and rotate 90 degrees, emit sound wave]
+  interaction_modes:
+    - Slide continuously with momentum → cannot stop freely
+    - Grab post while passing → rotate 90 degrees, change direction
+    - Pass over hidden spot → uncover item
+    - Emit sound wave → temporarily stun enemies
+    - Touch enemy → lose life
+    - Uncover all hidden spots → complete level
+  enemy_characteristics: [patrol maze in patterns, contact damage, temporarily stunned by sound waves, cannot be defeated permanently]
+  environment_characteristics: [maze with turning posts at intersections, hidden spots to uncover, walls that bounce player back]
+  win_condition: Uncover all hidden items in the maze

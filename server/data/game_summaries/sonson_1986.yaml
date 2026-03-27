@@ -1,0 +1,22 @@
+game_id: sonson_1986
+tags: [Shooter, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character in an automatically scrolling stage with three horizontal lanes.
+  The character can jump between lanes while shooting projectiles at approaching enemies.
+  The stage scrolls continuously to the right, requiring constant forward progression.
+  Enemies attack from various lanes and must be defeated or avoided through lane switching.
+  The objective is to survive to the end of each automatically scrolling stage.
+
+key_mechanics:
+  player_abilities: [jump between three horizontal lanes, shoot projectiles forward, move within current lane]
+  interaction_modes:
+    - Jump to different lane → change vertical position
+    - Shoot enemy → destroy threat
+    - Touch enemy or projectile → take damage
+    - Stage scrolls automatically → must keep pace
+    - Fall behind screen edge → lose life
+  enemy_characteristics: [appear from right side in various lanes, some shoot projectiles, contact damage, varied enemy types with different behaviors]
+  environment_characteristics: [horizontally auto-scrolling stage with three parallel lanes, enemies spawn from right, stage scrolls continuously requiring forward movement]
+  win_condition: Reach the end of the automatically scrolling stage

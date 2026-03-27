@@ -1,0 +1,24 @@
+game_id: athena_1987
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a warrior in horizontally scrolling platform stages, using various weapons and equipment.
+  Multiple weapon types can be collected and switched between for different combat situations.
+  Weapons and armor degrade with use and damage, requiring replacement with new items.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, attack with equipped weapon, collect and switch weapons]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Attack enemy with weapon → defeat threat
+    - Collect weapon → acquire new attack type
+    - Switch between weapons → tactical weapon choice
+    - Weapon degrades with use → must find replacements
+    - Armor degrades when damaged → must find replacements
+    - Touch enemy → take damage, damage armor
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms and fly in patterns, contact damage, defeated by weapon attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, weapons and armor scattered throughout, equipment degrades requiring strategic collection]
+  win_condition: Reach the end of each stage

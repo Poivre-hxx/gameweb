@@ -1,0 +1,20 @@
+game_id: new_ghostbusters_ii_1990
+tags: [Shooter, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a ghost hunter in horizontally scrolling platform stages, shooting and capturing ghosts.
+  A beam weapon is used to attack and weaken ghosts before capturing them.
+  The objective is to navigate platforms, defeat or capture ghosts, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, shoot beam weapon, capture ghosts]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Shoot beam at ghost → weaken threat
+    - Capture weakened ghost → eliminate threat
+    - Touch ghost or hazard → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [ghosts patrol and float, contact damage, must be weakened before capture, varied ghost types]
+  environment_characteristics: [horizontally scrolling platform stages, beam weapon weakens ghosts for capture]
+  win_condition: Reach the end of each stage

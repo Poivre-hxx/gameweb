@@ -1,0 +1,24 @@
+game_id: the_guardian_legend_1988
+tags: [Shooter, Shoot 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a transforming craft alternating between vertical scrolling shooting stages and top-down exploration areas.
+  Vertical corridor stages feature intense shooting action against waves of enemies.
+  Top-down exploration areas connect corridors and contain upgrades, enemies, and puzzles.
+  Weapon chips can be collected and equipped to customize the ship's arsenal.
+  The objective is to navigate both stage types, destroy enemy bases, and reach the final confrontation.
+
+key_mechanics:
+  player_abilities: [shoot continuously, move in 8 directions in exploration, fly freely in corridors, collect and equip weapon chips]
+  interaction_modes:
+    - Shoot enemy → destroy threat
+    - Collect weapon chip → gain new weapon type
+    - Equip weapon chip → customize loadout
+    - Navigate exploration area → find corridors and upgrades
+    - Enter corridor → vertical scrolling shooting stage
+    - Complete corridor → return to exploration, destroy enemy base
+    - Touch enemy or projectile → take damage
+  enemy_characteristics: [aerial enemies in corridors shoot in patterns, exploration enemies patrol areas, bosses guard corridors, varied attack patterns]
+  environment_characteristics: [alternating vertical shooting corridors and top-down exploration, weapon chips customize arsenal, exploration connects shooting stages]
+  win_condition: Destroy all enemy bases and defeat the final boss

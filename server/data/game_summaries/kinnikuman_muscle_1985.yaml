@@ -1,0 +1,23 @@
+game_id: kinnikuman_muscle_1985
+tags: [Fighting, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a wrestler in tag team matches, fighting opponents in a wrestling ring.
+  Wrestlers use grappling moves, throws, and strikes to defeat opponents.
+  Players can tag out to switch between team members for strategic advantage.
+  The objective is to pin or knock out the opposing team within the time limit.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, grapple opponent, execute throws, strike, tag partner]
+  interaction_modes:
+    - Grapple opponent → initiate throw or hold
+    - Execute throw → damage opponent
+    - Strike opponent → quick damage
+    - Pin opponent → attempt to win match
+    - Tag partner → switch active wrestler
+    - Opponent knocked down → opportunity to pin
+    - Win by pinfall or knockout → defeat opponent team
+  enemy_characteristics: [mirror player moveset, use grapples and strikes, can tag partners, AI-controlled or human opponent]
+  environment_characteristics: [fixed wrestling ring with ropes, corner posts for strategic positioning, partners wait at ring edge for tags]
+  win_condition: Pin or knock out the opposing team

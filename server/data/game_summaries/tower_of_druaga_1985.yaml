@@ -1,0 +1,23 @@
+game_id: tower_of_druaga_1985
+tags: [Maze, Arcade]
+view: top-down view
+
+gameplay_summary: |
+  The player controls a character navigating a single-floor maze with real-time combat against enemies.
+  A key must be located to unlock the exit, but the key may be hidden and require specific actions to reveal.
+  The player attacks enemies with directional sword strikes while dodging enemy attacks and projectiles.
+  Some floors contain hidden items or passages that only appear after performing particular actions in sequence.
+  The objective is to find the key, defeat or avoid enemies, and reach the exit.
+
+key_mechanics:
+  player_abilities: [move in 8 directions, attack in facing direction with sword]
+  interaction_modes:
+    - Attack enemy in facing direction → damage or defeat enemy
+    - Touch enemy or projectile → take damage
+    - Perform specific action sequence → reveal hidden key or item
+    - Collect visible key → unlock exit
+    - Reach exit door → complete floor
+    - Hidden elements remain invisible without trigger → must experiment to discover
+  enemy_characteristics: [diverse enemy types with different abilities, some patrol fixed routes, some chase player, some shoot projectiles, contact damage, varying durability requiring multiple hits]
+  environment_characteristics: [single-floor maze with walls creating passages, visible exit door, key location (visible or hidden), enemies distributed throughout floor, some items and paths hidden until triggered]
+  win_condition: Find and collect the key, then reach the exit

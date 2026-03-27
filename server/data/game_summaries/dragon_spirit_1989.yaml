@@ -1,0 +1,22 @@
+game_id: dragon_spirit_1989
+tags: [Shooter, Shoot 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a flying dragon in vertically scrolling stages, shooting enemies with breath attacks.
+  The dragon can grow additional heads by collecting power-ups, increasing firepower.
+  Taking damage reduces the number of heads and weakens firepower.
+  The objective is to survive through continuous waves and reach the end of each area.
+
+key_mechanics:
+  player_abilities: [fly in 8 directions, shoot breath attacks, collect power-ups to grow heads]
+  interaction_modes:
+    - Shoot enemy → destroy threat
+    - Collect power-up → grow additional dragon heads
+    - More heads → increased firepower
+    - Take damage → lose head, reduced firepower
+    - Touch enemy or projectile → take damage
+    - Progress through stage → advance forward
+  enemy_characteristics: [ground and aerial enemies attack, shoot projectiles, contact damage, varied formations]
+  environment_characteristics: [vertically auto-scrolling terrain, dragon heads determine firepower level, power-ups increase heads]
+  win_condition: Survive through the area and reach the end

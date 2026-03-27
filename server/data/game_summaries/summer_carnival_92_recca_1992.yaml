@@ -1,0 +1,22 @@
+game_id: summer_carnival_92_recca_1992
+tags: [Shooter, Shoot 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a spacecraft in vertically scrolling stages with high-speed bullet patterns.
+  Multiple weapon types can be switched between for tactical advantage.
+  Power-ups can be collected to enhance weapons and capabilities.
+  The objective is to survive through intense bullet patterns and reach the end of each area.
+
+key_mechanics:
+  player_abilities: [fly in 8 directions, shoot continuously, switch between weapon types, collect power-ups]
+  interaction_modes:
+    - Shoot enemy → destroy threat
+    - Switch weapon type → change attack pattern
+    - Different weapons provide different tactical options
+    - Collect power-up → enhance weapons or gain abilities
+    - Touch enemy or projectile → take damage
+    - Progress through stage → advance forward
+  enemy_characteristics: [aerial and ground enemies attack with dense bullet patterns, shoot projectiles, contact damage, high-speed formations]
+  environment_characteristics: [vertically auto-scrolling terrain, high-speed gameplay with intense bullet patterns, weapon switching provides tactical flexibility]
+  win_condition: Survive through the area and reach the end

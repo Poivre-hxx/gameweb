@@ -1,0 +1,24 @@
+game_id: battle_city_1985
+tags: [Shooter, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a tank in a fixed-screen battlefield, defending a base from waves of enemy tanks.
+  Enemy tanks spawn continuously and attempt to destroy the player's base.
+  Brick walls can be destroyed by tank fire, creating or blocking paths strategically.
+  Power-up items appear periodically, providing temporary advantages or defensive measures.
+  The objective is to destroy all enemy tanks while preventing the base from being destroyed.
+
+key_mechanics:
+  player_abilities: [move in 4 directions, shoot in facing direction, use power-ups]
+  interaction_modes:
+    - Shoot enemy tank → damage or destroy enemy
+    - Destroy all spawned enemies → complete stage
+    - Shoot brick wall → destroy wall, alter terrain
+    - Enemy shoots base → base takes damage
+    - Base destroyed → lose immediately
+    - Collect power-up → gain temporary shield, freeze enemies, or enhance firepower
+    - Touch enemy tank → take damage
+  enemy_characteristics: [spawn in waves from designated points, move toward base, shoot at player and base, some enemies are armored requiring multiple hits, varied tank types with different behaviors]
+  environment_characteristics: [fixed-screen battlefield with destructible brick walls, steel walls (indestructible), water obstacles, forest providing cover, player base at bottom requiring protection, enemy spawn points at top]
+  win_condition: Destroy all enemy tanks while keeping the base intact

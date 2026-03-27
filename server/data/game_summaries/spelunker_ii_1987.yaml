@@ -1,0 +1,25 @@
+game_id: spelunker_ii_1987
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls an extremely fragile explorer in horizontally scrolling cave stages, using tools to navigate hazards.
+  Ropes allow safe descent while bombs destroy passages and flares temporarily scare enemies.
+  Even minimal fall heights result in instant death, requiring careful movement planning.
+  Oxygen depletes continuously and must be replenished at air sources.
+  The objective is to explore caves, reach air sources, and descend to lower depths.
+
+key_mechanics:
+  player_abilities: [move left/right, jump cautiously, use rope to descend, throw bombs to destroy obstacles, use flares to scare enemies]
+  interaction_modes:
+    - Use rope → descend safely without fall damage
+    - Throw bomb → destroy passage or obstacle
+    - Use flare → temporarily scare enemies away
+    - Fall minimal height → instant death
+    - Oxygen depletes continuously → must reach air sources
+    - Run out of oxygen → lose life
+    - Touch enemy → lose life
+    - Reach lower depths → progress forward
+  enemy_characteristics: [patrol caves, contact damage only, scared by flares temporarily, cannot be defeated permanently, must be avoided]
+  environment_characteristics: [horizontally scrolling cave systems, vertical descents require ropes, air sources scattered throughout, extreme fragility creates constant tension]
+  win_condition: Navigate caves and reach the deepest levels

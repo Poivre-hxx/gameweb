@@ -1,0 +1,21 @@
+game_id: bubble_bobble_part_2_1993
+tags: [Platform, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a character in fixed-screen platform stages, shooting bubbles to trap enemies.
+  Trapped enemies must be popped by jumping on the bubbles to defeat them.
+  All enemies must be defeated to clear each stage.
+  The objective is to defeat all enemies and advance through stages.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, shoot bubbles]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Shoot bubble at enemy → trap enemy in bubble
+    - Jump on bubble → pop bubble and defeat enemy
+    - Touch enemy → take damage
+    - Defeat all enemies → complete stage
+  enemy_characteristics: [patrol platforms, contact damage, trapped by bubbles, defeated when bubble popped, varied enemy types]
+  environment_characteristics: [fixed-screen platform stages, bubble trapping creates two-step attack, all enemies must be defeated to proceed]
+  win_condition: Defeat all enemies in each stage

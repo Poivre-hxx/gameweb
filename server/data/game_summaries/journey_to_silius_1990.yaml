@@ -1,0 +1,23 @@
+game_id: journey_to_silius_1990
+tags: [Shooter, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a soldier in horizontally scrolling platform stages, shooting enemies with multiple weapon types.
+  Different weapons can be selected and switched between for tactical advantage.
+  The character can jump and shoot while progressing through enemy territory.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, shoot continuously, switch between weapons, collect power-ups]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Shoot enemy → destroy threat
+    - Switch weapon → change attack type
+    - Different weapons provide different tactical options
+    - Collect power-up → enhance weapons or restore health
+    - Touch enemy or projectile → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms and fly in patterns, contact damage, defeated by weapon fire, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, multiple weapon types for tactical choices, science fiction setting]
+  win_condition: Reach the end of each stage

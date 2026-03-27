@@ -1,0 +1,373 @@
+## Game Overview
+The player controls a tank to eliminate enemies by shooting. Enemies are controlled by AI and move and shoot automatically. **The player must protect the base (eagle) from being destroyed by enemies.**
+
+---
+
+## Entity Definitions
+
+### Prop Entities
+
+#### brick
+**Description**: A destructible wall that blocks all moving entities and bullets
+**Spawn Method**:
+- SpawnType = init (spawned at game start based on map data)
+**Physics Type**:
+- PhysicsBody = static
+**Movement Mode**:
+- MovementMode = none (stationary)
+**Collision Behavior**:
+- Blocks player and enemy passage
+- Destroyed when hit by bullets
+- Blocks bullets (bullets are also destroyed simultaneously)
+
+#### steel
+**Description**: An indestructible wall that blocks all moving entities and bullets
+**Spawn Method**:
+- SpawnType = init
+**Physics Type**:
+- PhysicsBody = static
+**Movement Mode**:
+- MovementMode = none
+**Collision Behavior**:
+- Blocks player and enemy passage
+- Blocks bullets (bullets are destroyed, but steel wall remains intact)
+
+#### water
+**Description**: An impassable water area
+**Spawn Method**:
+- SpawnType = init
+**Physics Type**:
+- PhysicsBody = static
+**Movement Mode**:
+- MovementMode = none
+**Collision Behavior**:
+- Blocks player and enemy passage
+- Bullets can fly over water (no collision occurs)
+
+#### forest
+**Description**: A passable forest that visually obscures tanks
+**Spawn Method**:
+- SpawnType = init
+**Physics Type**:
+- PhysicsBody = static (non-blocking, visual only)
+**Movement Mode**:
+- MovementMode = none
+**Collision Behavior**:
+- Player and enemy can pass through
+- Bullets can pass through
+- No collision occurs (visual obstruction effect only)
+
+#### snow
+**Description**: A passable snow field that reduces movement speed when traversed
+**Spawn Method**:
+- SpawnType = init
+**Physics Type**:
+- PhysicsBody = static (non-blocking, affects movement speed)
+**Movement Mode**:
+- MovementMode = none
+**Collision Behavior**:
+- Player and enemy can pass through
+- Tanks moving through snow have their speed reduced to 50% of original speed
+- Bullets are unaffected
+
+#### eagle
+**Description**: The base that the player must protect, usually located at the bottom center of the map
+**Spawn Method**:
+- SpawnType = init (spawned at specified position based on map data at game start)
+**Physics Type**:
+- PhysicsBody = static
+**Movement Mode**:
+- MovementMode = none (stationary)
+**Properties**:
+- Health: No health value set, destroyed immediately when hit by bullets
+**Collision Behavior**:
+- Blocks player and enemy passage (acts as an obstacle)
+- Destroyed when hit by any bullet (including player bullets and enemy bullets)
+- Blocks bullets (both eagle and bullet are destroyed upon impact)
+
+#### bullet
+**Description**: A projectile fired by tanks, travels in a straight line
+**Spawn Method**:
+- SpawnType = trigger (dynamically created when a tank fires)
+**Spawn Parameters**:
+- Spawn position (x, y): Center position of the shooter
+- Firing direction (dx, dy): Shooter's facing direction (normalized vector)
+- Owner type (owner_type): 'player' or 'enemy'
+**Physics Type**:
+- PhysicsBody = kinematic (moves in straight line, not affected by gravity)
+**Movement Mode**:
+- MovementMode = auto (automatically moves at fixed speed and direction)
+**Implementation Recommendation**:
+- Recommended to use a custom Owner component to store owner type (owner_type: 'player' or 'enemy')
+  - Define a data class Owner with field owner_type (string type, value is 'player' or 'enemy')
+- Add owner_type parameter in create_bullet() function
+- Pass the shooter's tag.type when calling create_bullet() in ActionSystem
+**Self-Damage Prevention Mechanism**:
+- Bullets overlap with the shooter's position when first spawned
+- Collision detection must check the bullet's owner_type
+- Player bullets (owner_type='player') can only hit enemies, cannot hit player
+- Enemy bullets (owner_type='enemy') can only hit player, cannot hit enemies
+**Properties**:
+- Movement speed: 300 pixels/second
+- Size: 8x8 pixels
+**Collision Behavior**:
+- Hit brick: Bullet destroyed, brick destroyed
+- Hit steel: Bullet destroyed, steel intact
+- Hit eagle: Bullet destroyed, eagle destroyed (game failure)
+- Hit enemy: Only when bullet's owner_type == 'player', bullet destroyed, enemy destroyed
+- Hit player: Only when bullet's owner_type == 'enemy', bullet destroyed, player destroyed
+- Hit own shooter: Ignore collision (avoid self-damage)
+- Out of map bounds: Bullet destroyed
+
+---
+
+### Character Entities
+
+#### player
+**Description**: A tank controlled by the player via keyboard
+**Spawn Method**:
+- SpawnType = init
+**Physics Type**:
+- PhysicsBody = kinematic (top-down movement, not affected by gravity)
+**Movement Mode**:
+- MovementMode = trigger (controlled by input)
+**Controls**:
+- WASD to move up/down/left/right
+- Spacebar to fire bullets
+**Properties**:
+- Movement speed: 150 pixels/second
+- Shooting cooldown: 0.5 seconds
+- Health: No health value set, destroyed immediately when hit by bullets
+**Behavior**:
+- Faces the movement direction when moving
+- When firing bullets, bullets are fired in the tank's current facing direction
+- If tank is stationary, retains the last movement direction as firing direction
+
+#### enemy
+**Description**: An enemy tank controlled by AI
+**Spawn Method**:
+- SpawnType = init
+**Physics Type**:
+- PhysicsBody = kinematic (top-down movement, not affected by gravity)
+**Movement Mode**:
+- MovementMode = trigger (controlled by AI)
+**Properties**:
+- Movement speed: 100 pixels/second
+- Shooting cooldown: 1.0 seconds
+- Health: No health value set, destroyed immediately when hit by bullets
+**AI Behavior**:
+- **Movement Decision**:
+  - Locate positions of eagle and player
+  - **Priority Logic**:
+    - Calculate distance between enemy and eagle
+    - If distance < detection range (200 pixels):
+      - Move toward eagle
+    - Otherwise, check player:
+      - Calculate distance between enemy and player
+      - If distance < detection range (400 pixels):
+        - Calculate direction vector toward player
+        - Set ActionIntent.move_direction = normalized direction vector
+    - Otherwise:
+      - Randomly select a direction (up/down/left/right)
+      - Set ActionIntent.move_direction = random direction
+      - Add timer to change direction periodically
+- **Shooting Decision**:
+  - Primary target: eagle (base)
+  - Secondary target: player
+  - If eagle is within shooting range (distance < 200 pixels) and no obstruction between them, prioritize moving toward eagle and shooting
+  - If player is within shooting range (distance < 150 pixels) and no obstruction between them, fire bullet
+  - Bullets are fired in the tank's current facing direction
+
+---
+
+## Game Systems (Six-Layer Architecture)
+
+### Layer 1: GameSceneSystem
+**Responsibility**: Manage entity lifecycle, level progression, and game pacing
+
+**OnCreate Phase**:
+1. Load map data (map.json)
+2. Instantiate all entities with SpawnType = init based on map's "entities" array
+   - brick, steel, water, forest, snow
+   - eagle
+   - player
+   - enemy
+3. Set correct Position, Size, Sprite, Collider, PhysicsBody components for each entity
+
+**OnUpdate Phase**:
+1. **Entity Destruction Handling**:
+   - Check all entities marked as `mark_for_destruction`
+   - Remove these entities from the world
+2. **Game End Condition Detection**:
+   - **If eagle is destroyed → Game failure (highest priority)**
+   - If player is destroyed → Game failure
+   - If all enemies are destroyed → Game victory
+
+---
+
+### Layer 2: UserInputSystem
+**Responsibility**: Map player's control inputs to in-game intents (ActionIntent)
+
+**OnUpdate Phase**:
+1. Query all entities with `Tag.value == "player"` and `ActionIntent` components
+2. **Handle Movement Input**:
+   - Detect WASD keys
+   - W: Set ActionIntent.move_direction = (0, -1)  # Up
+   - S: Set ActionIntent.move_direction = (0, 1)   # Down
+   - A: Set ActionIntent.move_direction = (-1, 0)  # Left
+   - D: Set ActionIntent.move_direction = (1, 0)   # Right
+   - No key: Set ActionIntent.move_direction = (0, 0)  # Stop
+3. **Handle Shooting Input**:
+   - Detect Spacebar
+   - If Spacebar pressed: Set ActionIntent.action = "shoot"
+4. **Update Facing Direction**:
+   - If there is movement input, update Direction component to movement direction (for subsequent shooting)
+
+---
+
+### Layer 3: DecisionSystem
+**Responsibility**: Drive AI behavior logic through intelligent decision-making for enemies
+
+**OnUpdate Phase**:
+1. Query all entities with `Tag.value == "enemy"` and `ActionIntent` components
+2. Execute AI decision for each enemy:
+
+**Target Priority**:
+1. **Primary target**: eagle - prioritize attack when distance < 200 pixels
+2. **Secondary target**: player - attack when distance < 150 pixels
+
+**Movement Decision**:
+- Locate positions of eagle and player
+- **Priority Logic**:
+  - Calculate distance between enemy and eagle
+  - If distance < detection range (200 pixels):
+    - Calculate direction vector toward eagle
+    - Set ActionIntent.move_direction = normalized direction vector
+  - Otherwise, check player:
+    - Calculate distance between enemy and player
+    - If distance < detection range (400 pixels):
+      - Calculate direction vector toward player
+      - Set ActionIntent.move_direction = normalized direction vector
+  - Otherwise:
+    - Randomly select a direction (up/down/left/right)
+    - Set ActionIntent.move_direction = random direction
+    - Add timer to change direction periodically
+
+**Shooting Decision**:
+- **Prioritize shooting eagle**:
+  - Calculate distance between enemy and eagle
+  - If distance < shooting range (200 pixels) and facing eagle:
+    - Set ActionIntent.action = "shoot"
+- **Secondary shooting player**:
+  - Calculate distance between enemy and player
+  - If distance < shooting range (150 pixels):
+    - Shoot directly
+    - Set ActionIntent.action = "shoot"
+
+**Collision Avoidance**:
+- If enemy collides with obstacle (detected by comparing previous frame position with current position)
+- Change movement direction
+
+---
+
+### Layer 4: ActionSystem
+**Responsibility**: Read ActionIntent and execute specific behaviors (set velocity, create bullets, etc.)
+
+**OnUpdate Phase**:
+
+**1. Handle Movement Intent**:
+- Query all entities with `ActionIntent, Velocity, PhysicsConfig` components
+- For entities with PhysicsConfig.movement_mode == "trigger":
+  - Read ActionIntent.move_direction (dx, dy)
+  - If (dx, dy) != (0, 0):
+    - Normalize direction vector: (ndx, ndy) = normalize(dx, dy)
+    - Get movement speed: speed = PhysicsConfig.speed
+    - Check if on snow (optional): If on snow, speed *= 0.5
+    - Set Velocity: vel.vx = ndx * speed, vel.vy = ndy * speed
+    - Update Direction: direction.dx = ndx, direction.dy = ndy
+  - Otherwise:
+    - Set Velocity: vel.vx = 0, vel.vy = 0
+
+**2. Handle Shooting Intent** (Important: Use deferred creation pattern):
+- Query all entities with `ActionIntent, Position, Tag, Direction, ShootCooldown` components
+- **Use deferred creation pattern to avoid modifying collection during iteration**:
+  - **Step 1: Collection Phase** - Iterate through all qualifying entities
+    - For each entity, check: intent.action == "shoot" and cooldown.cooldown <= 0
+    - Calculate bullet spawn position (center of tank)
+    - Collect bullet creation parameters to list: (position x, position y, direction vector, owner type)
+    - Reset cooldown for this entity: cooldown.cooldown = cooldown.max_cooldown
+    - Clear action intent for this entity: intent.action = ""
+  - **Step 2: Creation Phase** - Batch create bullets after iteration completes
+    - Iterate through all collected bullet parameters
+    - Call factory.create_bullet() for each to create bullet entities
+
+**3. Update Cooldown**:
+- Query all entities with `ShootCooldown` component
+- If cooldown.cooldown > 0:
+  - cooldown.cooldown -= delta_time
+
+---
+
+### Layer 5: SimulationSystem
+**Responsibility**: Simulate physical rules in the scene, including collision detection, physics simulation, and interaction feedback
+
+**OnUpdate Phase**:
+
+**1. Save Previous Frame Position**:
+- Query all entities with Position and PreviousPosition components
+- For each entity, copy current position to PreviousPosition:
+  - prev_pos.x = pos.x
+  - prev_pos.y = pos.y
+
+**2. Update Position**:
+- Query all entities with Position and Velocity components
+- For each entity, update position based on velocity:
+  - pos.x += vel.vx * delta_time
+  - pos.y += vel.vy * delta_time
+
+**3. Collision Detection**:
+- Get all entities with `Position, Size, Collider, Tag` components
+- Perform AABB collision detection for each pair of entities:
+  - Use `check_collision()` to detect collision
+  - Call `self.resolve_physics_collision(eid1, eid2, direction)` - framework automatically handles physics blocking
+  - Call `self.handle_collision(eid1, tag1, eid2, tag2, direction)` - handle game-specific logic
+
+**Collision Rules** (ONLY game logic, physics blocking handled by framework):
+
+| Entity A | Entity B | Game Logic (Physics blocking automatic) |
+|----------|----------|----------------------------------------|
+| bullet (player) | brick | Bullet destroyed, brick destroyed |
+| bullet (player) | steel | Bullet destroyed |
+| bullet (player) | eagle | Bullet destroyed, eagle destroyed (game failure) |
+| bullet (player) | enemy | Bullet destroyed, enemy destroyed |
+| bullet (enemy) | brick | Bullet destroyed, brick destroyed |
+| bullet (enemy) | steel | Bullet destroyed |
+| bullet (enemy) | eagle | Bullet destroyed, eagle destroyed (game failure) |
+| bullet (enemy) | player | Bullet destroyed, player destroyed |
+| player/enemy | brick | (Framework handles blocking automatically) |
+| player/enemy | steel | (Framework handles blocking automatically) |
+| player/enemy | water | (Framework handles blocking automatically) |
+| player/enemy | eagle | (Framework handles blocking automatically) |
+| player | enemy | (Framework handles blocking automatically) |
+| forest/snow | any entity | No collision (passable) |
+
+**Collision Handling Notes**:
+- Framework automatically handles ALL physics blocking via `resolve_physics_collision()`
+- `handle_collision()` should ONLY contain game logic (destroying entities, changing game state, etc.)
+- DO NOT manually revert positions in `handle_collision()` - framework does this automatically
+
+**4. Boundary Detection and Constraints**:
+- Tanks: Framework BoundaryConstraintSystem automatically constrains character entities to screen bounds
+- Bullets: Framework BoundaryConstraintSystem automatically destroys projectiles that go out of bounds
+
+---
+
+### Layer 6: RenderSystem
+**Responsibility**: Render the game world to the screen
+**Description**: Provided by framework, renders by layer based on Sprite component's layer attribute
+
+**Render Layer Order** (bottom to top):
+- Layer 0: Terrain (brick, steel, water, snow, **eagle**)
+- Layer 1: Characters (player, enemy)
+- Layer 2: Forest (forest) - Rendered above characters, creating obstruction effect
+- Layer 3: Bullets (bullet)

@@ -1,0 +1,24 @@
+game_id: commando_1986
+tags: [Shooter, Run and Gun, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a soldier advancing through vertically scrolling stages, shooting enemies with a rifle and throwing grenades.
+  The rifle fires rapidly forward while grenades are thrown in an arc for area damage.
+  Enemies attack from multiple directions and must be defeated while progressing.
+  Limited grenades require strategic use against groups or fortified positions.
+  The objective is to advance through enemy territory and reach the end of each area.
+
+key_mechanics:
+  player_abilities: [move in 8 directions on ground, shoot rifle forward continuously, throw grenade in arc (limited)]
+  interaction_modes:
+    - Shoot enemy with rifle → rapid-fire damage
+    - Throw grenade → arc trajectory, area damage on impact
+    - Grenade hits multiple enemies → destroy group
+    - Grenades limited → must use strategically
+    - Collect grenade pickup → replenish grenades
+    - Touch enemy or projectile → take damage
+    - Advance through stage → progress forward
+  enemy_characteristics: [soldiers attack from multiple directions, some shoot projectiles, some throw grenades, contact and projectile damage, varied enemy types]
+  environment_characteristics: [vertically auto-scrolling terrain, enemies spawn from multiple angles, grenade pickups scattered throughout, bunkers and fortified positions]
+  win_condition: Advance through enemy territory and reach the end

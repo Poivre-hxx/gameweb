@@ -1,0 +1,22 @@
+game_id: konami_wai_wai_world_1988
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls characters from various franchises in horizontally scrolling platform stages, with the ability to switch between unlocked characters.
+  Each character has unique abilities suited for different situations.
+  Characters must be rescued before they can be used, expanding the available roster.
+  The objective is to navigate platforms, defeat enemies, and complete stages using different character abilities.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, attack with character-specific method, switch between unlocked characters]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Attack enemy with character ability → defeat threat
+    - Rescue character → unlock for use
+    - Switch to different character → use unique abilities
+    - Touch enemy → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms, contact damage, defeated by character attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, multiple playable characters with unique abilities, characters unlocked through rescue]
+  win_condition: Complete stages using different character abilities

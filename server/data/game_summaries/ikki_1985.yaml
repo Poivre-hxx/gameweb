@@ -1,0 +1,21 @@
+game_id: ikki_1985
+tags: [Shooter, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character advancing through vertically scrolling areas, throwing projectiles at enemies.
+  Projectiles can be thrown in multiple directions to attack surrounding threats.
+  Enemies approach from various angles and must be defeated while progressing forward.
+  The player must navigate through enemy territory and reach the goal at each area's end.
+  The objective is to advance through all areas while defeating enemies and avoiding attacks.
+
+key_mechanics:
+  player_abilities: [move in 8 directions, throw projectiles in facing direction]
+  interaction_modes:
+    - Throw projectile at enemy → defeat enemy
+    - Touch enemy or projectile → take damage
+    - Defeat enemies while advancing → progress through area
+    - Reach end of area → complete stage
+  enemy_characteristics: [approach from multiple directions, shoot projectiles, contact damage, varied enemy types with different attack patterns]
+  environment_characteristics: [vertically scrolling areas with obstacles, enemies spawn throughout, goal at end of each area]
+  win_condition: Reach the end of each area

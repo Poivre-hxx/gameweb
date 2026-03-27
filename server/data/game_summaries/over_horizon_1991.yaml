@@ -1,0 +1,22 @@
+game_id: over_horizon_1991
+tags: [Shooter, Shoot 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a spacecraft in horizontally scrolling stages with rotatable weapon systems.
+  Weapons can be rotated to shoot in multiple directions independently.
+  Power-ups can be collected to enhance weapons and capabilities.
+  The objective is to survive through continuous waves and reach the end of each area.
+
+key_mechanics:
+  player_abilities: [fly in 8 directions, shoot continuously, rotate weapon direction, collect power-ups]
+  interaction_modes:
+    - Shoot enemy → destroy threat
+    - Rotate weapon → change firing direction
+    - Shoot in adjusted direction → attack from multiple angles
+    - Collect power-up → enhance weapons or gain abilities
+    - Touch enemy or projectile → take damage
+    - Progress through stage → advance forward
+  enemy_characteristics: [aerial and ground enemies attack from various directions, shoot projectiles, contact damage, varied formations]
+  environment_characteristics: [horizontally auto-scrolling terrain, rotatable weapons provide tactical shooting angles, power-ups dropped by enemies]
+  win_condition: Survive through the area and reach the end

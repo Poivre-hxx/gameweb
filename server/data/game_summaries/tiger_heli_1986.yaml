@@ -1,0 +1,21 @@
+game_id: tiger_heli_1986
+tags: [Shooter, Shoot 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a helicopter in a vertically scrolling shooter, attacking aerial and ground enemies.
+  Bombs can be deployed to clear all enemies on screen temporarily.
+  The helicopter shoots continuously forward while bombs provide emergency crowd control.
+  Enemies attack in formations and patterns requiring evasion and shooting skills.
+  The objective is to survive through continuous waves and reach the end of each area.
+
+key_mechanics:
+  player_abilities: [move in 8 directions, shoot continuously, use bomb to clear screen (limited)]
+  interaction_modes:
+    - Shoot enemy → destroy threat
+    - Use bomb → clear all enemies on screen
+    - Bombs limited → must use strategically
+    - Touch enemy or projectile → take damage
+  enemy_characteristics: [aerial and ground enemies attack, shoot projectiles, varied formations, contact and projectile damage]
+  environment_characteristics: [vertically auto-scrolling terrain, enemies approach in waves, bombs limited and replenished by pickups]
+  win_condition: Survive through the area and defeat all enemy waves

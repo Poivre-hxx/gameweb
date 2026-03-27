@@ -1,0 +1,27 @@
+game_id: super_mario_bros_3_1988
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character in horizontally scrolling platform stages, jumping on enemies to defeat them.
+  Multiple power-up suits provide different abilities including flight, swimming enhancement, and projectile attacks.
+  Stages are accessed through an overworld map with branching paths and optional levels.
+  The character can run to build momentum for longer jumps.
+  The objective is to navigate platforms, defeat enemies, and reach the goal at the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, run to build momentum, collect and use power-up suits]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Jump on enemy from above → defeat enemy
+    - Run to build speed → perform longer jumps or activate suit abilities
+    - Collect power-up suit → gain special abilities
+    - Raccoon suit enables flight → temporary aerial movement
+    - Frog suit enhances swimming → better underwater control
+    - Hammer suit throws projectiles → ranged attacks
+    - Touch enemy from side or below → take damage, lose power-up
+    - Select stage on map → choose path through world
+    - Reach goal → complete stage
+  enemy_characteristics: [patrol platforms and fly in patterns, defeated by jumping on top, contact damage from sides, varied enemy types across themed worlds]
+  environment_characteristics: [horizontally scrolling platform stages across multiple themed worlds, overworld map for stage selection, power-up suits with unique abilities, running builds momentum for enhanced jumps]
+  win_condition: Complete stages and reach the final world

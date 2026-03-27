@@ -1,0 +1,24 @@
+game_id: donkey_kong_1983
+tags: [Platform, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a character navigating multi-level platforms to reach the top.
+  Obstacles continuously roll down ramps and must be avoided by jumping or climbing to different levels.
+  Moving enemies patrol platforms horizontally, blocking certain paths.
+  Collecting a hammer grants temporary ability to destroy obstacles and enemies.
+  The objective is to reach the top platform while avoiding all hazards.
+
+key_mechanics:
+  player_abilities: [move left/right, jump over obstacles, climb ladders, swing hammer (when collected)]
+  interaction_modes:
+    - Jump over rolling obstacle → safe passage
+    - Climb ladder → move to different platform level
+    - Touch rolling obstacle or enemy → lose life
+    - Collect hammer → gain temporary ability to destroy obstacles
+    - Swing hammer at obstacle or enemy → destroy it
+    - Hammer effect expires after time limit → return to normal
+    - Reach top platform → complete level
+  enemy_characteristics: [obstacles roll down ramps continuously, fire enemies patrol platforms back and forth, contact damage, destroyed by hammer]
+  environment_characteristics: [multi-level platforms connected by ladders, ramps where obstacles roll down, limited horizontal space on each platform, hammer power-up locations]
+  win_condition: Reach the top platform

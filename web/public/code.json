@@ -1,0 +1,165 @@
+{
+  "entityConfig": {
+    "player": {
+      "speed": 80,
+      "color": "#00ff00",
+      "projectileType": "player_projectile",
+      "width": 1,
+      "height": 1
+    },
+    "enemy": {
+      "speed": 40,
+      "color": "#800080",
+      "width": 0.9,
+      "height": 0.9
+    },
+    "boss": {
+      "speed": 20,
+      "color": "#4b0082",
+      "projectileType": "enemy_projectile",
+      "width": 1,
+      "height": 1
+    },
+    "player_projectile": {
+      "speed": 320,
+      "color": "#FFFF00",
+      "width": 0.25,
+      "height": 0.25
+    },
+    "enemy_projectile": {
+      "speed": 256,
+      "color": "#FFFFFF",
+      "width": 0.25,
+      "height": 0.25
+    },
+    "indestructible_wall": {
+      "color": "#0000ff",
+      "width": 1,
+      "height": 1
+    },
+    "destructible_wall": {
+      "color": "#8b4513",
+      "width": 1,
+      "height": 1
+    },
+    "hazard": {
+      "color": "#ff4500",
+      "width": 1,
+      "height": 1
+    },
+    "turret": {
+      "color": "#ff0000",
+      "projectileType": "enemy_projectile",
+      "width": 1,
+      "height": 1
+    }
+  },
+  "inputMapping": {
+    "A": "basic_shoot",
+    "B": "spread_shot",
+    "X": null,
+    "Y": null
+  },
+  "skillRules": [
+    {
+      "entity": "player",
+      "skills": [
+        "basic_shoot",
+        "spread_shot"
+      ]
+    }
+  ],
+  "aiRules": [
+    {
+      "entity": "enemy",
+      "movementAI": "patrol_then_chase"
+    },
+    {
+      "entity": "boss",
+      "combatAI": "aim_attack"
+    },
+    {
+      "entity": "turret",
+      "combatAI": "aim_attack"
+    }
+  ],
+  "collisionRules": [
+    {
+      "a": "player",
+      "b": "enemy",
+      "action": [
+        "destroy_a"
+      ]
+    },
+    {
+      "a": "player",
+      "b": "boss",
+      "action": [
+        "destroy_a"
+      ]
+    },
+    {
+      "a": "player",
+      "b": "hazard",
+      "action": [
+        "destroy_a"
+      ]
+    },
+    {
+      "a": "player_projectile",
+      "b": "enemy",
+      "action": [
+        "destroy_both"
+      ]
+    },
+    {
+      "a": "player_projectile",
+      "b": "boss",
+      "action": [
+        "destroy_both"
+      ]
+    },
+    {
+      "a": "player_projectile",
+      "b": "turret",
+      "action": [
+        "destroy_both"
+      ]
+    },
+    {
+      "a": "enemy_projectile",
+      "b": "player",
+      "action": [
+        "destroy_both"
+      ]
+    },
+    {
+      "a": "player_projectile",
+      "b": "destructible_wall",
+      "action": [
+        "destroy_both"
+      ]
+    },
+    {
+      "a": "enemy_projectile",
+      "b": "destructible_wall",
+      "action": [
+        "destroy_both"
+      ]
+    },
+    {
+      "a": "enemy_projectile",
+      "b": "wall",
+      "action": [
+        "destroy_a"
+      ]
+    },
+    {
+      "a": "player_projectile",
+      "b": "enemy_projectile",
+      "action": [
+        "destroy_both"
+      ]
+    }
+  ]
+}

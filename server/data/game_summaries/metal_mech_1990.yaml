@@ -1,0 +1,23 @@
+game_id: metal_mech_1990
+tags: [Shooter, Arcade]
+view: top-down view
+
+gameplay_summary: |
+  The player controls a pilot in top-down perspective, switching between piloting a mech and exploring on foot.
+  The mech provides heavy firepower and protection but cannot enter narrow passages.
+  The pilot on foot has weaker attacks but can access areas the mech cannot reach.
+  The objective is to navigate areas, defeat enemies, and complete missions using both forms strategically.
+
+key_mechanics:
+  player_abilities: [move in 8 directions, shoot in facing direction, switch between mech and on-foot forms]
+  interaction_modes:
+    - Shoot enemy → destroy threat
+    - Switch to mech form → gain heavy firepower and protection
+    - Switch to on-foot form → access narrow passages and specific areas
+    - Mech cannot enter narrow areas → must exit to progress
+    - On-foot has weaker attacks → vulnerable but mobile
+    - Touch enemy or projectile → take damage
+    - Complete objective → advance mission
+  enemy_characteristics: [ground and aerial enemies attack, shoot projectiles, contact damage, varied enemy types]
+  environment_characteristics: [top-down battlefield terrain, form switching provides tactical flexibility, mech for combat and on-foot for access]
+  win_condition: Complete missions and objectives

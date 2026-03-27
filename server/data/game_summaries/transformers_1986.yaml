@@ -1,0 +1,21 @@
+game_id: transformers_1986
+tags: [Shooter, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a robot in horizontally scrolling platform stages, shooting enemies and navigating obstacles.
+  The robot can jump between platforms and shoot projectiles forward.
+  Enemies attack from various angles and must be defeated or avoided.
+  The game is known for its high difficulty with precise jumping required.
+  The objective is to reach the end of each stage while surviving enemy attacks.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, shoot projectiles forward]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Shoot enemy → destroy threat
+    - Touch enemy or projectile → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms and fly in patterns, shoot projectiles, contact damage, require precise timing to avoid]
+  environment_characteristics: [horizontally scrolling platform stages, narrow platforms requiring precise jumps, enemies positioned to create difficulty spikes]
+  win_condition: Reach the end of each stage

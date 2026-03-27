@@ -1,0 +1,22 @@
+game_id: tao_1989
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character in horizontally scrolling platform stages with the ability to transform into different animal forms.
+  Each animal form has unique abilities suited for different situations.
+  Transformation items must be collected to gain access to different forms.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, collect transformation items, transform into animal forms, use form-specific abilities]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Collect transformation item → gain access to animal form
+    - Transform into form → use unique abilities
+    - Different forms have different capabilities → tactical choices
+    - Touch enemy → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms, contact damage, defeated by form-specific attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, transformation items unlock different forms, each form provides unique movement or combat abilities]
+  win_condition: Reach the end of each stage

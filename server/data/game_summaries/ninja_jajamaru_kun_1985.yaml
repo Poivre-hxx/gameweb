@@ -1,0 +1,22 @@
+game_id: ninja_jajamaru_kun_1985
+tags: [Platform, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a ninja on multi-level platforms, defeating enemies by throwing projectiles.
+  Each stage requires defeating all enemies to rescue a captive at the top of the screen.
+  The ninja can jump between platforms and throw projectiles in multiple directions.
+  Enemies patrol platforms and must be defeated while avoiding their attacks.
+  The objective is to defeat all enemies and reach the captive to complete each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, throw projectiles in 8 directions, climb certain structures]
+  interaction_modes:
+    - Throw projectile at enemy → defeat enemy
+    - Jump between platforms → navigate stage
+    - Defeat all enemies → captive becomes accessible
+    - Reach captive → complete stage
+    - Touch enemy or projectile → take damage
+  enemy_characteristics: [patrol platforms at various levels, some shoot projectiles, contact damage, varied enemy types with different movement patterns]
+  environment_characteristics: [fixed-screen multi-level platforms, ladders or poles for vertical movement, captive at top of stage, platforms arranged vertically]
+  win_condition: Defeat all enemies and rescue the captive

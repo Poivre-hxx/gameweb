@@ -1,0 +1,23 @@
+game_id: elevator_action_1985
+tags: [Shooter, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls an agent infiltrating a multi-story building, moving between floors using elevators and stairs.
+  The agent must collect documents from marked rooms while shooting enemy guards.
+  Elevators provide vertical transportation but expose the player to attacks from adjacent floors.
+  The objective is to collect all documents and reach the ground floor exit.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, shoot horizontally, duck to avoid shots, ride elevators up/down, climb stairs]
+  interaction_modes:
+    - Shoot enemy guard → defeat threat
+    - Enter marked door → collect document
+    - Call elevator → elevator arrives at current floor
+    - Enter elevator → ride to selected floor
+    - Duck → avoid projectiles
+    - Enemy shoots at player → must dodge or take cover
+    - Collect all documents and reach exit → complete mission
+  enemy_characteristics: [guards patrol floors and shoot at player, emerge from doors, some positioned on different floors shooting across gaps, contact and projectile damage]
+  environment_characteristics: [multi-story building with connected floors, elevators for vertical movement, stairs between adjacent floors, marked doors containing documents, open floor layout with limited cover]
+  win_condition: Collect all documents and reach the ground floor exit

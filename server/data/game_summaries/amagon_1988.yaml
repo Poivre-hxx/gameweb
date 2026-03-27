@@ -1,0 +1,25 @@
+game_id: amagon_1988
+tags: [Shooter, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a soldier in horizontally scrolling platform stages with the ability to transform into a more powerful form.
+  In normal form, the soldier shoots enemies with a gun while collecting energy.
+  Collecting enough energy allows transformation into a stronger form with enhanced melee attacks.
+  The transformed form provides increased power but depletes energy continuously.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right as normal form, jump, shoot gun in normal form, collect energy, transform to powerful form, melee attack in transformed form]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Shoot enemy with gun → defeat threat in normal form
+    - Collect energy → build toward transformation
+    - Transform when energy sufficient → become stronger form
+    - Melee attack in transformed form → powerful close combat
+    - Energy depletes in transformed form → limited duration
+    - Touch enemy → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms and fly in patterns, contact damage, defeated by gun or melee attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, transformation provides temporary power boost, energy management critical for success]
+  win_condition: Reach the end of each stage

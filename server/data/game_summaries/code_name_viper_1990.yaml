@@ -1,0 +1,22 @@
+game_id: code_name_viper_1990
+tags: [Shooter, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls an agent in horizontally scrolling platform stages, using guns and a whip to defeat enemies.
+  The character can shoot forward and use a whip for close-range attacks.
+  Items can be collected to restore health and gain power-ups.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, shoot gun forward, whip attack at close range, collect items]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Shoot enemy with gun → ranged attack
+    - Whip attack enemy → close-range damage
+    - Collect item → restore health or gain power-ups
+    - Touch enemy or projectile → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms and fly in patterns, contact damage, defeated by gun or whip attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, dual weapon system for tactical options, items scattered throughout]
+  win_condition: Reach the end of each stage

@@ -1,0 +1,24 @@
+game_id: mega_man_1987
+tags: [Shooter, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a robot in horizontally scrolling platform stages, shooting enemies with an arm cannon.
+  Stages can be tackled in any order, with each ending in a boss battle.
+  Defeating a boss grants the player that boss's special weapon.
+  Special weapons have limited energy and are effective against specific bosses, creating strategic choices.
+  The objective is to defeat all stage bosses and reach the final confrontation.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, shoot arm cannon, switch between acquired special weapons]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Shoot with arm cannon → defeat enemies, unlimited ammo
+    - Defeat stage boss → acquire boss's special weapon
+    - Switch to special weapon → use limited energy attacks
+    - Special weapon effective against certain boss → strategic advantage
+    - Special weapon energy depletes with use → must manage resources
+    - Choose stage order → tackle bosses in strategic sequence
+  enemy_characteristics: [patrol platforms and fly in patterns, shoot projectiles, contact damage, stage bosses with unique patterns and weaknesses]
+  environment_characteristics: [horizontally scrolling platform stages, player-chosen stage order, special weapons with limited energy, boss weaknesses create strategic depth]
+  win_condition: Defeat all stage bosses and complete the final stage

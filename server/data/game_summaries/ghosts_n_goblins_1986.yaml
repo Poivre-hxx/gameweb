@@ -1,0 +1,23 @@
+game_id: ghosts_n_goblins_1986
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls an armored warrior in horizontally scrolling platform stages, throwing weapons at enemies.
+  Various weapons can be collected, each with different attack patterns and ranges.
+  Taking damage removes armor, leaving the character vulnerable to instant death on the next hit.
+  Jumps are committed once initiated and cannot be adjusted mid-air, requiring precise timing.
+  The objective is to reach the end of each stage while managing limited defenses and rigid movement.
+
+key_mechanics:
+  player_abilities: [move left/right, jump with fixed trajectory, throw current weapon]
+  interaction_modes:
+    - Throw weapon at enemy → defeat threat
+    - Collect new weapon → replace current weapon
+    - Take damage while armored → lose armor, become vulnerable
+    - Take damage while vulnerable → lose life
+    - Jump direction locked → cannot adjust after leaving ground
+    - Reach end of stage → complete level
+  enemy_characteristics: [various supernatural creatures, contact damage, some shoot projectiles, respawn continuously, attack patterns require memorization]
+  environment_characteristics: [horizontally scrolling graveyard and castle stages, platforms at multiple heights, limited safe zones, enemies spawn relentlessly]
+  win_condition: Reach the end of each stage

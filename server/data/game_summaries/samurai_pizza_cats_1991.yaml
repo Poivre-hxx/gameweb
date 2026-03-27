@@ -1,0 +1,20 @@
+game_id: samurai_pizza_cats_1991
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a warrior in horizontally scrolling platform stages, using sword attacks to defeat enemies.
+  Items can be collected to restore health and gain power-ups.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, sword attack, collect items]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Sword attack enemy → defeat threat
+    - Collect item → restore health or gain power-ups
+    - Touch enemy → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms, contact damage, defeated by sword attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, items scattered throughout]
+  win_condition: Reach the end of each stage

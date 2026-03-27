@@ -1,0 +1,24 @@
+game_id: ninja_gaiden_iii_1991
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a ninja in horizontally scrolling platform stages, using sword attacks and ninja techniques.
+  The ninja can climb walls and cling to surfaces for advanced platforming.
+  Special ninja techniques consume energy and provide powerful attacks.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, sword attack, wall climb and cling, use ninja techniques (consumes energy)]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Sword attack enemy → defeat threat at close range
+    - Jump onto wall → cling to wall surface
+    - Climb wall → ascend or descend vertical surfaces
+    - Use ninja technique → powerful attack, consumes energy
+    - Collect energy item → replenish ninja technique energy
+    - Touch enemy or projectile → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms and attack, shoot projectiles, contact damage, challenging patterns and placements, difficult boss encounters]
+  environment_characteristics: [horizontally scrolling platform stages, wall climbing enables advanced navigation, ninja techniques provide tactical options, high difficulty with precise timing requirements]
+  win_condition: Reach the end of each stage

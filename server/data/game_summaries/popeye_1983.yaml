@@ -1,0 +1,24 @@
+game_id: popeye_1983
+tags: [Platform, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a character on multi-level platforms, catching items that continuously fall from above.
+  An enemy patrols platforms and throws projectiles while attempting to interfere.
+  The player must position correctly to catch falling items while dodging the enemy and projectiles.
+  Collecting a power item grants temporary ability to defeat the enemy.
+  The objective is to catch all falling items before time expires.
+
+key_mechanics:
+  player_abilities: [move left/right, climb stairs/ladders, attack enemy (when powered up)]
+  interaction_modes:
+    - Position under falling item → catch item
+    - Miss falling item → item lost, cannot complete level
+    - Touch enemy or projectile → lose life
+    - Collect power item → gain temporary attack ability
+    - Attack enemy with power → enemy knocked away temporarily
+    - Power expires → return to normal, cannot attack
+    - Catch all items → complete level
+  enemy_characteristics: [patrols platforms continuously, throws projectiles at player, contact damage, temporarily removed when attacked with power, returns after short time]
+  environment_characteristics: [multi-level platforms with stairs and ladders, items fall from top at intervals, power items appear at fixed locations, limited vertical space for positioning]
+  win_condition: Catch all falling items before time expires

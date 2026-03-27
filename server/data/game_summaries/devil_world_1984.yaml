@@ -1,0 +1,24 @@
+game_id: devil_world_1984
+tags: [Maze, Arcade]
+view: top-down view
+
+gameplay_summary: |
+  The player controls a character navigating a maze to collect all dots.
+  The unique mechanic is that screen boundaries constantly shift inward, shrinking the playable area.
+  The player must collect dots while avoiding being crushed by the moving screen edges.
+  Collecting crosses grants temporary fire-breathing ability to defeat enemies.
+  The objective is to collect all dots before the shrinking maze becomes impossible to navigate.
+
+key_mechanics:
+  player_abilities: [move in 4 directions, breathe fire (when powered up)]
+  interaction_modes:
+    - Collect dot → progress toward completion
+    - Collect cross → gain temporary fire breath power
+    - Breathe fire on enemy → defeat enemy temporarily
+    - Touch enemy without power → lose life
+    - Screen boundary shifts inward → maze shrinks, paths blocked
+    - Get crushed by moving boundary → lose life
+    - Collect all dots → complete level
+  enemy_characteristics: [patrol maze passages, contact damage, temporarily defeated by fire breath, respawn after being defeated]
+  environment_characteristics: [maze with dynamically shifting boundaries, dots throughout maze, crosses for power-up, shrinking playable space]
+  win_condition: Collect all dots before being crushed by shrinking boundaries

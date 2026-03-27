@@ -1,0 +1,23 @@
+game_id: the_goonies_1986
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character exploring horizontally scrolling stages to rescue trapped companions.
+  Enemies are defeated by kicking, and obstacles are destroyed using limited bombs.
+  All companions in each stage must be found and rescued before the exit door unlocks.
+  Stages contain multiple rooms and hidden areas requiring thorough exploration.
+  The objective is to rescue all companions and reach the unlocked exit in each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, kick enemies, use bombs to destroy obstacles]
+  interaction_modes:
+    - Kick enemy → defeat threat
+    - Use bomb → destroy breakable obstacles
+    - Find companion → rescue one companion
+    - Rescue all companions → exit door unlocks
+    - Reach unlocked exit → complete stage
+    - Touch enemy → take damage
+  enemy_characteristics: [patrol platforms, contact damage, defeated by kicks, respawn after time]
+  environment_characteristics: [horizontally scrolling stages with multiple rooms, breakable obstacles blocking paths, companions hidden throughout stage, exit door locked until all rescued]
+  win_condition: Rescue all companions and reach the exit

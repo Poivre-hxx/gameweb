@@ -1,0 +1,25 @@
+game_id: rainbow_islands_1988
+tags: [Platform, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a character in fixed-screen stages, creating rainbow bridges to climb vertically and defeat enemies.
+  Rainbows can be shot that form temporary platforms and damage enemies they touch.
+  The character must climb to the top of each stage before time runs out.
+  Items are collected by touching them or by having rainbows collapse on them.
+  The objective is to reach the top of each stage while defeating enemies and collecting items.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, shoot rainbows that form platforms]
+  interaction_modes:
+    - Shoot rainbow → create temporary platform and weapon
+    - Rainbow touches enemy → defeat enemy
+    - Rainbow collapses when walked on → items drop down
+    - Jump on rainbow platform → climb upward
+    - Collect item → gain power-ups or points
+    - Touch enemy → take damage
+    - Time expires → lose life
+    - Reach top of stage → complete level
+  enemy_characteristics: [patrol platforms and fly, contact damage, defeated by rainbow bridges touching them, varied enemy types]
+  environment_characteristics: [fixed-screen vertical stages, rainbow bridges create both platforms and weapons, time limit creates urgency, reaching top required]
+  win_condition: Reach the top of the stage before time runs out

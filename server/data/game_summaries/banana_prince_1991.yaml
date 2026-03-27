@@ -1,0 +1,22 @@
+game_id: banana_prince_1991
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character in horizontally scrolling platform stages, throwing bananas to defeat enemies.
+  Stages can be selected in non-linear order.
+  Items can be collected to restore health and gain power-ups.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, throw bananas, collect items]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Throw banana at enemy → defeat threat
+    - Collect item → restore health or gain power-ups
+    - Select stage order → choose progression path
+    - Touch enemy → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms, contact damage, defeated by thrown bananas, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, non-linear stage selection, items scattered throughout]
+  win_condition: Complete all stages

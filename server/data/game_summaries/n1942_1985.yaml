@@ -1,0 +1,23 @@
+game_id: n1942_1985
+tags: [Shooter, Shoot 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a fighter aircraft in a vertically scrolling shooter, advancing through enemy airspace.
+  The aircraft can perform evasive rolls that provide temporary invincibility to dodge concentrated fire.
+  Power-up items enhance weapon capabilities when collected during flight.
+  Enemy aircraft attack in formations and patterns that require both shooting and evasive maneuvers.
+  The objective is to survive through waves of enemies and reach the end of each mission.
+
+key_mechanics:
+  player_abilities: [move in 8 directions, shoot continuously, perform evasive roll (limited uses)]
+  interaction_modes:
+    - Shoot enemy aircraft → destroy threat
+    - Perform evasive roll → temporary invincibility, dodge attacks
+    - Roll uses limited → must manage evasion resource
+    - Collect power-up → enhance weapon spread or firepower
+    - Touch enemy or projectile → take damage
+    - Lose powered-up state when hit → revert to basic weapons
+  enemy_characteristics: [aircraft attack in formation patterns, some enemies require multiple hits, varied attack patterns including kamikaze dives, boss aircraft with heavy armor at stage ends]
+  environment_characteristics: [vertically auto-scrolling ocean and island terrain, enemies enter from top and sides, power-up items dropped by certain enemies, boss encounters at mission ends]
+  win_condition: Complete the mission by surviving all enemy waves

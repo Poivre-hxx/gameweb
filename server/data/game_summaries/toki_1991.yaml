@@ -1,0 +1,21 @@
+game_id: toki_1991
+tags: [Shooter, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character in horizontally scrolling platform stages, shooting projectiles from the mouth.
+  Projectiles can be fired continuously to defeat enemies.
+  Power-ups can be collected to enhance attacks.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, shoot projectiles from mouth, collect power-ups]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Shoot projectile at enemy → defeat threat
+    - Collect power-up → enhance attacks or gain abilities
+    - Touch enemy or projectile → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms and fly in patterns, contact damage, defeated by projectile attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, projectiles fired continuously, power-ups enhance capabilities]
+  win_condition: Reach the end of each stage

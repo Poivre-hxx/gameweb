@@ -1,0 +1,22 @@
+game_id: holy_diver_1989
+tags: [Shooter, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a sorcerer in horizontally scrolling platform stages, using magic projectiles to defeat enemies.
+  The character can transform into different forms with unique abilities.
+  Stages can be tackled in different orders with player-chosen progression.
+  The objective is to navigate platforms, defeat enemies, and complete all stages.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, shoot magic projectiles, transform into different forms]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Shoot magic projectile at enemy → defeat threat
+    - Transform → gain unique form abilities
+    - Touch enemy or projectile → take damage
+    - Choose stage order → select progression path
+    - Complete stage → advance forward
+  enemy_characteristics: [patrol platforms and fly in patterns, contact damage, defeated by magic attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, non-linear stage selection, transformation provides tactical options]
+  win_condition: Complete all stages

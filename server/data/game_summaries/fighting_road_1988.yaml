@@ -1,0 +1,20 @@
+game_id: fighting_road_1988
+tags: [Beat 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a fighter in horizontally scrolling stages, battling multiple enemies using martial arts.
+  Combat uses punches and kicks to defeat groups of attackers.
+  Enemies attack from both sides and must be defeated to progress forward.
+  The objective is to clear all enemies from each area and reach the end of the stage.
+
+key_mechanics:
+  player_abilities: [move left/right, punch, kick]
+  interaction_modes:
+    - Punch enemy → damage opponent
+    - Kick enemy → damage opponent
+    - Touch enemy or attack → take damage
+    - Defeat all enemies in area → progress forward
+  enemy_characteristics: [attack in groups from both sides, contact and attack damage, varied enemy types]
+  environment_characteristics: [horizontally scrolling stages, enemies spawn in waves]
+  win_condition: Defeat all enemies and reach the end of each stage

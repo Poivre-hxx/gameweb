@@ -1,0 +1,25 @@
+game_id: a_boy_and_his_blob_1990
+tags: [Puzzle, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a boy with a blob companion in horizontally scrolling platform stages, solving puzzles through transformation.
+  The boy feeds jellybeans to the blob, causing it to transform into different useful items and tools.
+  Different jellybean flavors create different transformations such as ladders, trampolines, or umbrellas.
+  The blob's transformations must be used strategically to navigate obstacles and progress.
+  The objective is to explore areas, solve puzzles, and complete objectives.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, throw jellybeans to blob, call blob to follow, use blob transformations]
+  interaction_modes:
+    - Throw jellybean to blob → blob transforms into item
+    - Different jellybean flavors → different transformation types
+    - Use ladder transformation → climb to higher areas
+    - Use trampoline transformation → bounce to reach platforms
+    - Use umbrella transformation → slow fall or glide
+    - Call blob → bring companion closer
+    - Navigate using transformations → solve environmental puzzles
+    - Touch hazard → take damage
+  enemy_characteristics: [environmental hazards present, obstacles require specific transformations to pass]
+  environment_characteristics: [horizontally scrolling exploration areas, jellybean feeding creates strategic transformations, blob transformations enable puzzle solving and navigation]
+  win_condition: Complete objectives and reach goals

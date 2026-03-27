@@ -1,0 +1,24 @@
+game_id: galaga_1985
+tags: [Shooter, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a craft at the bottom of the screen, shooting upward at enemy formations.
+  Enemies periodically dive from formation in attack patterns while firing projectiles.
+  Certain enemies can capture the player's craft with a tractor beam, temporarily removing it from play.
+  A captured craft can be rescued by destroying the captor, allowing dual craft control with doubled firepower.
+  The objective is to destroy all enemies in each wave while avoiding capture and projectiles.
+
+key_mechanics:
+  player_abilities: [move left/right at bottom, shoot upward continuously, control dual crafts when rescued (doubled firepower)]
+  interaction_modes:
+    - Shoot enemy in formation → destroy enemy, earn points
+    - Shoot diving enemy → destroy enemy, earn bonus points
+    - Enemy fires tractor beam → player craft captured, loses one life
+    - Shoot captor enemy → rescue captured craft
+    - Control rescued craft → dual crafts with doubled firepower
+    - Touch enemy or projectile → lose life (or lose one craft if dual)
+    - Destroy all enemies → advance to next wave
+  enemy_characteristics: [arranged in formations at top, dive in coordinated patterns, shoot projectiles while diving, certain enemies can capture player craft, diving enemies worth more points, formations become more aggressive]
+  environment_characteristics: [fixed screen with vertical space, no cover or obstacles, enemy formations at top, player confined to bottom area, captured craft held in formation until rescued]
+  win_condition: Destroy all enemies in each wave

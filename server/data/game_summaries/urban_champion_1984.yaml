@@ -1,0 +1,26 @@
+game_id: urban_champion_1984
+tags: [Fighting, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character in one-on-one fighting matches on a narrow street.
+  Using light and heavy attacks plus blocking, the player must push the opponent backward.
+  The goal is to force the opponent off the edge of the screen into a hazard.
+  Authority figures periodically intervene, requiring both fighters to stop temporarily or face penalty.
+  Environmental hazards fall from above, damaging anyone in their path.
+  The objective is to push the opponent into the hazard at the screen edge.
+
+key_mechanics:
+  player_abilities: [move left/right within arena, quick attack, strong attack, defensive stance]
+  interaction_modes:
+    - Quick attack hits opponent → small pushback, fast recovery
+    - Strong attack hits opponent → large pushback, slow recovery
+    - Enter defensive stance → reduce damage from incoming attacks
+    - Successfully block attack → opponent's attack deflected
+    - Push opponent to screen edge → opponent falls into hazard, win round
+    - Authority figure appears → both fighters must stop immediately
+    - Continue fighting during intervention → take penalty damage
+    - Falling object hits fighter → take damage
+  enemy_characteristics: [mirrors player move set, uses attacks and blocks strategically, pushed backward by attacks, AI patterns or human-controlled]
+  environment_characteristics: [narrow street arena with hazards at both edges, authority figures interrupt periodically, objects fall from above at intervals, limited horizontal space forces confrontation]
+  win_condition: Push the opponent into the hazard at the screen edge

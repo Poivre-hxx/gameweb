@@ -1,0 +1,25 @@
+game_id: bomberman_1985
+tags: [Maze, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a character in fixed-screen maze stages, placing bombs to destroy obstacles and enemies.
+  Bombs explode after a short delay in a cross pattern, destroying breakable walls and enemies.
+  The player must avoid being caught in bomb blasts while navigating the maze.
+  Finding and reaching the exit hidden behind destructible walls completes each stage.
+  The objective is to clear a path to the exit while eliminating enemies and avoiding explosions.
+
+key_mechanics:
+  player_abilities: [move in 4 directions, place bomb at current position, collect power-ups]
+  interaction_modes:
+    - Place bomb → bomb explodes after delay in cross pattern
+    - Bomb destroys breakable wall → create passage
+    - Bomb destroys enemy → defeat threat
+    - Touch bomb explosion → take damage or lose life
+    - Touch enemy → take damage
+    - Collect power-up → increase bomb range, carry more bombs, or gain speed
+    - Find hidden exit → exit becomes accessible
+    - Reach exit → complete stage
+  enemy_characteristics: [patrol maze paths, chase player when detected, contact damage, defeated by bomb explosions, varied movement patterns]
+  environment_characteristics: [fixed-screen maze with breakable and indestructible walls, exit hidden behind breakable walls, power-ups hidden in walls, bomb explosions affect all objects in cross pattern]
+  win_condition: Find and reach the exit in each stage

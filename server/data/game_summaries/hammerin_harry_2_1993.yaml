@@ -1,0 +1,21 @@
+game_id: hammerin_harry_2_1993
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a construction worker in horizontally scrolling platform stages, using a hammer to defeat enemies.
+  The hammer provides powerful melee attacks with wide swing range.
+  Items can be collected to restore health and gain power-ups.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, hammer attack, collect items]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Hammer attack enemy → defeat threat with wide swing
+    - Collect item → restore health or gain power-ups
+    - Touch enemy → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms, contact damage, defeated by hammer attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, hammer provides wide attack range, items scattered throughout]
+  win_condition: Reach the end of each stage

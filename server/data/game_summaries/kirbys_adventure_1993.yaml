@@ -1,0 +1,25 @@
+game_id: kirbys_adventure_1993
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character in horizontally scrolling platform stages with the ability to inhale enemies and copy their powers.
+  Inhaled enemies can be swallowed to gain their unique abilities.
+  Different copied abilities provide different attack types and properties.
+  The character can also fly by inflating and floating through the air.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, inhale enemies, swallow to copy ability, use copied ability attacks, fly by inflating]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Inhale enemy → suck enemy into mouth
+    - Swallow enemy → copy enemy's ability
+    - Use copied ability → attack with unique power
+    - Different abilities provide different attack types → tactical variety
+    - Inflate and fly → float through air for navigation
+    - Touch enemy → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms, contact damage, can be inhaled and copied, each enemy type provides unique ability, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, ability copying creates tactical variety, flight enables advanced navigation]
+  win_condition: Reach the end of each stage

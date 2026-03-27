@@ -1,0 +1,24 @@
+game_id: twinbee_1986
+tags: [Shooter, Shoot 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a craft in a vertically scrolling shooter with dual weapon systems and a unique power-up mechanic.
+  Air-to-air weapons target flying enemies while bombs target ground installations.
+  Shooting clouds releases bells that change color when continuously hit, providing different power-ups.
+  The player must juggle bells in the air while fighting enemies to obtain desired upgrades.
+  The objective is to survive through stages while managing the bell system and destroying threats.
+
+key_mechanics:
+  player_abilities: [move in 8 directions, shoot upward at aerial targets, drop bombs on ground targets]
+  interaction_modes:
+    - Shoot aerial enemy → destroy flying threat
+    - Drop bomb on ground target → destroy surface installation
+    - Shoot cloud → bell drops and falls
+    - Hit falling bell repeatedly → bell changes color
+    - Catch colored bell → gain corresponding power-up (speed/weapon upgrade/shield)
+    - Miss bell → bell falls off screen, lose opportunity
+    - Touch enemy or projectile → take damage
+  enemy_characteristics: [aerial enemies in formation patterns, ground installations fire upward, both air and ground threats active simultaneously]
+  environment_characteristics: [vertically auto-scrolling terrain, clouds appear periodically releasing bells, bells fall continuously requiring juggling, dual-layer threat system]
+  win_condition: Survive through the stage and defeat all enemy waves

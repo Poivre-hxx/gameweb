@@ -1,0 +1,26 @@
+game_id: adventure_island_iii_1992
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character in horizontally scrolling platform stages, throwing weapons and riding dinosaurs.
+  A vitality meter depletes continuously and must be replenished by collecting food.
+  Dinosaurs can be ridden to gain additional abilities and protection.
+  Different dinosaurs provide different capabilities such as fire breath or flight.
+  The objective is to navigate platforms, defeat enemies, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, throw weapons, collect food, ride dinosaurs, use dinosaur abilities]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Throw weapon at enemy → defeat threat
+    - Collect food → replenish vitality meter
+    - Vitality depletes continuously → must collect food regularly
+    - Ride dinosaur → gain protection and abilities
+    - Different dinosaurs provide different capabilities → tactical choices
+    - Touch enemy → take damage, lose dinosaur if riding
+    - Vitality reaches zero → lose life
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms, contact damage, defeated by thrown weapons or dinosaur attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, vitality depletion creates resource management pressure, dinosaurs provide tactical advantages]
+  win_condition: Reach the end of each stage

@@ -1,0 +1,24 @@
+game_id: pac_land_1985
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character running through horizontally scrolling stages toward a goal.
+  Obstacles such as water hazards, moving vehicles, and gaps must be jumped over or avoided.
+  Ghosts pursue the player and must be evaded through timing and jumping.
+  Power-up items temporarily allow the player to fight back against pursuers.
+  The objective is to reach the end of each stage while avoiding hazards and enemies.
+
+key_mechanics:
+  player_abilities: [move left/right, jump over obstacles, collect power-ups]
+  interaction_modes:
+    - Jump over obstacle → safe passage
+    - Jump on vehicle → bounce higher
+    - Fall in water or pit → lose life
+    - Touch ghost → lose life
+    - Collect power-up → temporarily able to defeat ghosts
+    - Defeat powered-up ghost → earn points
+    - Reach goal at end → complete stage
+  enemy_characteristics: [ghosts chase player horizontally, can be temporarily defeated with power-up, respawn continuously, speed increases in later stages]
+  environment_characteristics: [horizontally scrolling neighborhood and forest areas, water hazards, moving vehicles, gaps requiring jumps, power-up items scattered in stages]
+  win_condition: Reach the goal at the end of the stage

@@ -1,0 +1,21 @@
+game_id: makai_island_1987
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character in horizontally scrolling platform stages, exploring multiple islands.
+  Enemies must be defeated through attacks while navigating platform layouts.
+  Items are scattered throughout stages and must be collected.
+  The objective is to explore islands, defeat enemies, and reach the end of each area.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, attack enemies, collect items]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Attack enemy → defeat threat
+    - Collect item → gain power-ups or points
+    - Touch enemy → take damage
+    - Complete island → advance to next area
+  enemy_characteristics: [patrol platforms, contact damage, defeated by attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages across multiple islands, items scattered throughout, platforms at multiple heights]
+  win_condition: Complete all island areas

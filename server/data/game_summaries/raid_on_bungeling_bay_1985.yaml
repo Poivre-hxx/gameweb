@@ -1,0 +1,25 @@
+game_id: raid_on_bungeling_bay_1985
+tags: [Shooter, Arcade]
+view: top-down view
+
+gameplay_summary: |
+  The player controls a helicopter with free eight-directional flight over enemy territory.
+  The objective is to destroy ground targets and installations using bombs and gunfire.
+  The helicopter has limited ammunition and fuel that depletes during missions.
+  The player must return to a base to resupply before resources are exhausted.
+  Enemy forces counterattack from both ground and air, requiring evasive maneuvering.
+
+key_mechanics:
+  player_abilities: [fly in 8 directions freely, drop bombs on ground targets, shoot forward-firing guns, land at base to resupply]
+  interaction_modes:
+    - Drop bomb on ground target → destroy installation or enemy
+    - Shoot air or ground enemies → destroy threats
+    - Ammunition depletes with use → must return to base
+    - Fuel depletes over time → must return to base
+    - Land at base → restore ammunition and fuel
+    - Base destroyed → lose resupply capability, eventual failure
+    - Touch enemy or projectile → take damage
+    - Destroy priority targets → complete mission objectives
+  enemy_characteristics: [ground installations fire at player, enemy aircraft patrol and attack, some targets fight back when approached, counterattacks increase as targets destroyed]
+  environment_characteristics: [open scrolling map with multiple zones, friendly base for resupply, enemy installations scattered across territory, limited ammunition and fuel create strategic planning]
+  win_condition: Destroy all priority targets before losing base or being destroyed

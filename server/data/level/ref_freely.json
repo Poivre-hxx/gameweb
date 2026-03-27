@@ -1,0 +1,3049 @@
+{
+    "coordinate_system": "Top-left corner is the origin (0,0)",
+    "field_guide": {
+        "mapping": "Defines all element types (terrain and interactive objects), where the key is a single-character representation of the element.",
+        "terrain": "Single-tile terrain layer. Each character in each row string of the grid array directly corresponds to a key in mapping",
+        "interaction": "Multi-tile interactive object layer. The anchor represents the top-left corner coordinate of the area occupied by the object, and the object extends size-specified tiles to the right (+x) and downward (+y) from that point. Includes: id (unique identifier), category (category), element (references mapping key), anchor (top-left corner coordinates {x,y}), size (occupied tiles {width,height})",
+        "collision": "Collision type for physics behavior. prevent: no collision detection or events; Passive: triggers collision events only, no physical response; Active: full collision with movement response; Fixed: immovable solid object that blocks Active bodies"
+    },
+    "games": {
+        "game_a": {
+            "mapping": {
+                "X": {
+                    "name": "space",
+                    "description": "empty area, all entities can pass through freely, no collision detection, used for open flight space",
+                    "color": "#000000",
+                    "collision": "prevent",
+                    "layer": "terrain"
+                },
+                "#": {
+                    "name": "indestructible_wall",
+                    "description": "solid terrain (rocks, organic walls, biomechanical structures), blocks player/enemy/projectile permanently, causes instant death on player contact, cannot be destroyed",
+                    "color": "#0000ff",
+                    "collision": "fixed",
+                    "layer": "terrain"
+                },
+                "D": {
+                    "name": "destructible_wall",
+                    "description": "breakable obstacle (ground targets, bubbles, cell membranes), blocks player/enemy movement, can be destroyed by player projectile ",
+                    "color": "#8b4513",
+                    "collision": "fixed",
+                    "layer": "terrain",
+                    "category": "static_environment"
+                },
+                "H": {
+                    "name": "hazard",
+                    "description": "environmental trap (volcanoes, tentacles, fire jets, solar prominences), damages or instantly kills player on contact, may emit periodic projectiles or flames, some hazards move in fixed patterns",
+                    "color": "#ff4500",
+                    "collision": "passive",
+                    "layer": "terrain",
+                    "category": "static_environment"
+                },
+                "T": {
+                    "name": "turret",
+                    "description": "stationary enemy gun emplacement, blocks player movement, fires projectiles at player direction periodically, can be destroyed by player projectile",
+                    "color": "#ff0000",
+                    "collision": "fixed",
+                    "layer": "terrain",
+                    "category": "enemy"
+                },
+                "P": {
+                    "name": "player",
+                    "description": "player spacecraft, moves in all directions, fires missiles, destroyed on contact with walls/enemies/hazards/enemy projectiles",
+                    "color": "#00ff00",
+                    "collision": "active",
+                    "layer": "interaction",
+                    "category": "prop",
+                    "default_size": {
+                        "width": 1,
+                        "height": 1
+                    }
+                },
+                "E": {
+                    "name": "enemy",
+                    "description": "spawn point for enemy waves (normal/elite/formation), enemies fly in preset patterns or chase player, destroyed by player projectile, damages player on contact",
+                    "color": "#800080",
+                    "collision": "active",
+                    "layer": "interaction",
+                    "category": "enemy",
+                    "default_size": {
+                        "width": 1,
+                        "height": 1
+                    }
+                },
+                "B": {
+                    "name": "boss",
+                    "description": "spawn point for stage boss (giant brain, dragon, moai heads, etc.), large enemy with multiple attack patterns, has destructible core that must be hit to defeat, spawns minions during battle, blocks screen scrolling until defeated",
+                    "color": "#4b0082",
+                    "collision": "active",
+                    "layer": "interaction",
+                    "category": "prop",
+                    "default_size": {
+                        "width": 4,
+                        "height": 4
+                    }
+                }
+            },
+            "maps": [
+                {
+                    "map_id": "stage_1",
+                    "terrain": {
+                        "grid": [
+                            {
+                                "y": 0,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX##########################################################################################################################################################################################################"
+                            },
+                            {
+                                "y": 1,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXTXXXXXXXTXXXXXXXTXXXXXXXTXXXXXXXXXTXTXTXXTXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXXXHXXXTXXXXXXXTXXTXXXXXXXHXXXXXHXXXTXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXTXHXTXXXTXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 2,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXXXHXXXXXXXXXXXXXXXXXXXXXXHXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXXHXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 3,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXXXHXXXXXXXXXXXXXXXXXXXXXXHXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXXHXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 4,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXXXHXXXXXXXXXXXXXXXXXXXXXXHHHHHHHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHHHHHHHHXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 5,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHHHHHHHHHXXXXXXXXXXXXXXXXXXXXXXHHHHHHHXXXXXXXXHHHHHHHHHHXXXXXXXXXXXHHHHHHHHXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 6,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHHHHHHHHHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHHHHHHHHHHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 7,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHHXXXXXXXXXXXXXXXXHHHHHHHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 8,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHHHHHXXXXXXXXXXXXHXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 9,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 10,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXTXXXXXXXTXXXXXXXTXXXXXXXTXXXXXXXXXTXTXTXXTXXXXXXXXXXXXXXXXXXXXXXXXHHXXXXXHHXXXXXXXXXXXXXXXTXXXXXXXTXXTXXXXXXXXXXXXXXXXXTXXXXHXXXXXXXXHXXXXXXXXXXXXXXXXXTXXXTXXXTXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 11,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX##########################################################################################################################################################################################################"
+                            }
+                        ]
+                    },
+                    "interaction": [
+                        {
+                            "id": "player",
+                            "element": "P",
+                            "anchor": {
+                                "x": 4,
+                                "y": 5
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 16,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 18,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 17,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 19,
+                                "y": 7
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 21,
+                                "y": 6
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 23,
+                                "y": 5
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 25,
+                                "y": 4
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 14,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 12,
+                                "y": 4
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 10,
+                                "y": 5
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 27,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 29,
+                                "y": 7
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 31,
+                                "y": 6
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 33,
+                                "y": 5
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 35,
+                                "y": 4
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 35,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 37,
+                                "y": 7
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 39,
+                                "y": 6
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 41,
+                                "y": 5
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 43,
+                                "y": 4
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 45,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 47,
+                                "y": 7
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 49,
+                                "y": 6
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 51,
+                                "y": 5
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 53,
+                                "y": 4
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 56,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 58,
+                                "y": 7
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 60,
+                                "y": 6
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 62,
+                                "y": 5
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 64,
+                                "y": 4
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 67,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 69,
+                                "y": 7
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 71,
+                                "y": 6
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 73,
+                                "y": 5
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 75,
+                                "y": 4
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 89,
+                                "y": 10
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 91,
+                                "y": 9
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 93,
+                                "y": 9
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 95,
+                                "y": 9
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 97,
+                                "y": 10
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 99,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 101,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 103,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 105,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 107,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 172,
+                                "y": 9
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 172,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 175,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 175,
+                                "y": 9
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 183,
+                                "y": 9
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 185,
+                                "y": 9
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 213,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 215,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 217,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 213,
+                                "y": 9
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 215,
+                                "y": 9
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 217,
+                                "y": 9
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 255,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 255,
+                                "y": 5
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 255,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "boss",
+                            "element": "B",
+                            "anchor": {
+                                "x": 279,
+                                "y": 4
+                            },
+                            "size": {
+                                "width": 4,
+                                "height": 4
+                            }
+                        }
+                    ]
+                },
+                {
+                    "map_id": "stage_2",
+                    "terrain": {
+                        "grid": [
+                            {
+                                "y": 0,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX##########################################################################################################################################################################################################################"
+                            },
+                            {
+                                "y": 1,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXTXXXXXTXXXXXXXXHXXXXTXHXTXXXTXXXXXXXXXXXXXXXXTXXXXXXXXXXXXXXXHXXXXXHXXXXXXXXXXXTXXXXXTXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXHXTXXXXXXXXXXXXXXHXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 2,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXHXXXXXXXXXXXXXXXXHXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 3,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXHXXXXXXXXXXXXXXXXHXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 4,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHHHHHHHHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHHHHHHHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHHHHHHHXXXXXXXXXXXXXXXXHHHHHHHHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 5,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHHHHHHHHXXXXXXXXXXXXXHHHHHHHHXXXXXXXXXXXXXXXXXHHHHHHHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHHHHHHHXXXXXXXXXXXXXXXXHHHHHHHHXXXXXXXXXXXXXXXXXXXXXXXXXHHXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 6,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHHHHHHHHXXXXXXXHHXXXXXXXXXXXXXXXXHHHHHHHHXXXXXXXXXXXXXXXXXXXXXXXXXXXXHHHHHHHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHHHHHHHHXXXXXXXXXXXHHHHXXXXXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 7,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXXHXXXXXXXXHHHHHXXXXXXXXXXXXHHHHHHHHXXXXXXXXXXXXXXXXXXXXXXXXXXXXHHHHHHHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHHHHHHHHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 8,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 9,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 10,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXTXXXXXTXXXXXXXXXXXXXXTXXXTXXXTXXXXXXHXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXXHXXTXXXXXTXXXXXXXXXXXXXXXXXXXHXXXXXHXXXXXXXXXXXXTXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 11,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX##########################################################################################################################################################################################################################"
+                            }
+                        ]
+                    },
+                    "interaction": [
+                        {
+                            "id": "player",
+                            "element": "P",
+                            "anchor": {
+                                "x": 4,
+                                "y": 5
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 16,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 18,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 17,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 19,
+                                "y": 7
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 21,
+                                "y": 6
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 23,
+                                "y": 5
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 25,
+                                "y": 4
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 14,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 12,
+                                "y": 4
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 10,
+                                "y": 5
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 27,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 29,
+                                "y": 7
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 31,
+                                "y": 6
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 33,
+                                "y": 5
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 35,
+                                "y": 4
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 35,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 37,
+                                "y": 7
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 39,
+                                "y": 6
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 41,
+                                "y": 5
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 43,
+                                "y": 4
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 47,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 49,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 51,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 53,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 55,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 73,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 73,
+                                "y": 5
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 73,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 145,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 147,
+                                "y": 7
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 149,
+                                "y": 6
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 152,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 154,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 156,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 158,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 160,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 188,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 190,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 192,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 194,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 196,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 226,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 228,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 230,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 232,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 234,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "boss",
+                            "element": "B",
+                            "anchor": {
+                                "x": 253,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 4,
+                                "height": 4
+                            }
+                        }
+                    ]
+                },
+                {
+                    "map_id": "stage_3",
+                    "terrain": {
+                        "grid": [
+                            {
+                                "y": 0,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#######################################################################################################################################################################################################"
+                            },
+                            {
+                                "y": 1,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX######DDDDDXXXXXXXXXXDDD#######XXXDDDDDDDXXXX#####XXXXXXXXXX#########D##XXXXXXXXXXX#########XX############XXXXXXX############XXXXXXX############XXXXXXX############XXXXXXXX#####XXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 2,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXDDDDDXXXXXXXXXXXDXXX#####XXXXDDDDDDXXXXDDDHXXXXXXXXXXXXXX######DXXXXXXXXXXXXXXXXXXXXXXXXXXX######XXXXXXXXXXXXX######XXXXXXXXXXXXX######XXXXXXXXXXXXX######XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 3,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXDDDXXXXDXXXXXXXXXXXX###XXXXXXDDDDXXXXXXDDHXXXXXXXXXXXXXXXXXXXXDXXXXXXXXXXXXXXXXXXXXXXXXXXXXX##XXXXXXXXXXXXXXXXX##XXXXXXXXXXXXXXXXX##XXXXXXXXXXXXXXXXX##XXXXXXXXXXXXXXXXXXXX########XXXXXXXXXXX"
+                            },
+                            {
+                                "y": 4,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXDXXXXDDDXXXXXXXXXXXX#XXXXXXXXDDXXXXXXXXDHXXXXXXTXXXXXXXXXXXXXDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX########XXXXXXXXXXX"
+                            },
+                            {
+                                "y": 5,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXXXXXX############XXXXXXXXXXXXXDXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX######################T####T###############################################XXXXXXXXXXXXXXXHXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 6,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX############XXXXXXXXXXXXXXXXXXXXHDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX###########################################################################XXXXXXXXXXXXXXXHXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 7,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXDXXXXXXXXXXXXDDDXXDDDXXXXXXXXXXXXXXXXXXXXXHDDXXXXXTXXXXXXXXXXXXXXXDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 8,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXDDDXXXXXXXXXXXXDXXXXDXXX###XXXXXXXXXXXXXXX#H#DDXXXXXXXXXXXXXXXXXXXXDXXXXXXXXXXXXXXXXXXXXXXXXXXXXX##XXXXXXXXXXXXXXXXX##XXXXXXXXXXXXXXXXX##XXXXXXXXXXXXXXXXX##XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 9,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXDDDDDXXXXXXXXXXXDXXXXDXX#######XXXXXXXXXXX#####DDXXXXXXXXXXXXX######DXXXXXXXXXXXXXXXXXXXXXXXXXXX######XXXXXXXXXXXXX######XXXXXXXXXXXXX######XXXXXXXXXXXXX######XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 10,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#DDDDDXXXXXXXXXXXXXXXXXX###########XXXXXXX#######DDXXXXXXXXX#########D##XXXXXXXXXXX#########XX############XXXXXXX############XXXXXXX############XXXXXXX############XXXXXXXX#####XXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 11,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#######################################################################################################################################################################################################"
+                            }
+                        ]
+                    },
+                    "interaction": [
+                        {
+                            "id": "player",
+                            "element": "P",
+                            "anchor": {
+                                "x": 4,
+                                "y": 5
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 11,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 13,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 15,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 17,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 19,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 22,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 24,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 26,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 28,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 30,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 34,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 36,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 38,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 40,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 42,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 46,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 48,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 50,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 52,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 54,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 56,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 60,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 62,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 64,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 66,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 68,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 73,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 75,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 77,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 79,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 81,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 86,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 88,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 90,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 92,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 94,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 86,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 88,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 90,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 92,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 94,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 121,
+                                "y": 9
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 127,
+                                "y": 6
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 140,
+                                "y": 9
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 161,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 184,
+                                "y": 5
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 184,
+                                "y": 6
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 231,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 231,
+                                "y": 10
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 271,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 271,
+                                "y": 10
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "boss",
+                            "element": "B",
+                            "anchor": {
+                                "x": 292,
+                                "y": 4
+                            },
+                            "size": {
+                                "width": 4,
+                                "height": 4
+                            }
+                        }
+                    ]
+                },
+                {
+                    "map_id": "stage_4",
+                    "terrain": {
+                        "grid": [
+                            {
+                                "y": 0,
+                                "row": "XXXXXXXXXXXXXXXXX#############################################################H#################################################################################################################################################################################"
+                            },
+                            {
+                                "y": 1,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXX###############XXXXXXXXXXXX#HH########H#XXXXXXXXXX#####H######XXXXXXXXXXXXX###########XDDDDDDDDXXXXDXXXDDXXXDDDXXXDXXXXDXXXXDXXXXDXXXXXDXXXXDDXXXXDDXXXDXXXXXXXXXDDDDDXXXXXXXTXXXXXXDDDDDXXXXXXXXXXXXXXDDDDDDDDXXXXDDDDDDDDDDDXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 2,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXX###############XXXXXXXXXXXXXHH#######XHXXXXXXXXXXXXXX##H####XXXXXXXXXXXXXXXXXX#####XXXXXXDDDDXXXXXXDDXXDDDXXDXDXXXDXXXXDXXXXDXXXDDXXXXXDDXXXDXDXXXDDXXXDXXXXXXXXXXDXXXXXXXXXXXXXXXXXDDDDDXXXXXXXXXXXXXXDDDDDDDDXXXXDDDDDDDDDDDXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 3,
+                                "row": "XXXXXXXXXXXXXXXXX###XXXXXX#########XXXXXXXXXXXXXXXXXHXX###XXXHXXXXXXXXXXXXXXXXH##XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXDDXXXXXXXXDDDXXDXDDXDDXDDXXXXDDXXXDDXDDXXXXXXXXDXXDXDXXXDDXXDDXXXXXXXXXXDDXXXXXXXXXXXXXXXXDDDDDXXXDDDDDXXXXXXDDDDDDDDXXXXDDDDDDDDDDDXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 4,
+                                "row": "XXXXXXXXXXXXXXXXX###XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXXXXHXXXXXXXXXXXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXDXXXDXXXXDDDXDDDDXDXDDDDDDXXXXXXXXXXDDDXXDXDDXDDDXXXXXXXXXDDXXDDXXXXXXXXXXXXXXHDDDDXXXDDDDDXXXXXXDDDDDDDDXXXXDDDDDDDDDDDXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 5,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXDXXXDXXXXXDXXXXDXXXDDXXXDDXXXXXXXXXXDDXXXDDXXXXDXXXXXXXXXXDXXXXDXXXXXXXXXXXXXXHXXXXXXXDDDDDXXXXXXDDDDDDDDXXXXDDDDDDDDDDDXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 6,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXDXXXXXXXXXXDXXXDXXXXXDXXXXDXXXXDXXXXDXXXXXXXXXXDDXXXXDXXXXDXXXXXXXXXDXXXXXDDXXXXXXXXXXXXXHXXXXXXXDDDDDXXXXXXDDDDDDDDXXXXDDDDDDDDDDDXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 7,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX######XXXXHXXXXXXXXXXXXXXHXXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXDDDXXXXXXXXDDDXDDDXXXDDDXXXDXXXXDXXXXDXXXXXXXXXXDXDXXXDXXXXDXXXXXXXXXXXDDDXXXXXXXXXXXXXXXXHDDDDXXXDDDDDXXXXXXDDDDDDDDXXXXDDDDDDDDDDDXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 8,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX###########XXHHXXXXXXXXXXXXXHXXXX##XHXXXXXXXXXXXXXXXXXXXXXXX##XXXXXXXXXXXXXXXXXDDDDDXXXXXXDDXDDDXDDXXDXDXXDDDXXXDXXXDDDXXXXXXXXXDXDXDDDDDXXDDXXXXXXXXXDDDDDDXXXXXXXXXXXXXXDDDDDXXXDDDDDXXXXXXDDDDDDDDXXXXDDDDDDDDDDDXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 9,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX##################HHXXXXXXXXXXXXXHXX#####HXXXXXXXXXXXXXXXXXXXXX######XXXXXXXXXXXXXXDDDDDDDXXXXXDXXDDXXXDXDXXXDDXXXDDDDDDDDXXDXXXXXXXDXXXDDXXXDDDXDDDXXXXXXDDDDDDDDXXXXXXXXXXXXXDDDDDXXXXXXXXXXXXXXDDDDDDDDXXXXDDDDDDDDDDDXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 10,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXX############################XXXXXXXXXXH#######H##XXXXXXXXXXXXXXXX##############XXXXXXXDDDDDDDDDDDXXDDXXXDXXXDXDXXXDDXXXDDXXXDDXXXDXXXXXXDXXXXDDXXXDDXXXXDXXXXXDDDDDDDDDDXXXXXTXXXXXXDDDDDXXXXXXXXXXXXXXDDDDDDDDXXXXDDDDDDDDDDDXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 11,
+                                "row": "XXXXXXXXXXXXXXXXX###############################################################################################################################################################################################################################################"
+                            }
+                        ]
+                    },
+                    "interaction": [
+                        {
+                            "id": "boss",
+                            "element": "B",
+                            "anchor": {
+                                "x": 251,
+                                "y": 4
+                            },
+                            "size": {
+                                "width": 4,
+                                "height": 4
+                            }
+                        },
+                        {
+                            "id": "player",
+                            "element": "P",
+                            "anchor": {
+                                "x": 4,
+                                "y": 5
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 10,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 10,
+                                "y": 6
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 10,
+                                "y": 9
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 13,
+                                "y": 9
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 13,
+                                "y": 3
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 13,
+                                "y": 6
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 77,
+                                "y": 10
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 84,
+                                "y": 10
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 54,
+                                "y": 10
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 57,
+                                "y": 10
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "map_id": "stage_5",
+                    "terrain": {
+                        "grid": [
+                            {
+                                "y": 0,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX###########T#################################################################################################################"
+                            },
+                            {
+                                "y": 1,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXX#############XXXXXXXXXXX##XXXXXXXXXXXXXXXXXXXX##XXXXXXX##XXXXXXXXX##XXXX##XX##XXXXXXX##XXXXX##################XXXXXX##XXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 2,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXX###############XXXXXXXXXXX##XXXXXXXXXXXXXXXXXXXX##XXXXXXX##XXXXXXXXXTTXXXXTTXXXXXXXXXXXTTXXXXX###########XXXXXXXXXXXXX##XXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 3,
+                                "row": "XXXXXXXXXXXXXXXX######################XXXXXXXXXXX##XXXXXXXXXXXXXXXXXXXXTTXXXXXXX##XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX###########XXXXXXXXXXXXX##XXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 4,
+                                "row": "XXXXXXXXXXXXXX######################XXXXXXXXXXXXXDDXXXXXXXXXXXXXXXXXXXXXXXXXXXXX##XXXXXXXXXTTXXXXXXXXXXXXXXXXXXXXXXXX###########XXXXXXXXXXXXX##XXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 5,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXDDXXXXXXXXXXXXXXXXXXXXXXXXXXXXX##XXXXXXXXX##XXXXXXXXXXXXXXXXX##XXXXX####XXXXXXXXXXXXXXXXXXXX##XXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 6,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXDDXXXXXXXXXXXXXXXXXXXXXXXXXXXXX##XXXXXXXXX##XXXXXXXXXXXXXXXXX#####XXXXXXXXX##XXXXXXXXXXXXXXX##XXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 7,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX##XXXXXXXXXXXXXXXXXXXXXXXXXXXXXDDXXXXXXXXX##XXTTXXXXXXXXXXXXX################XXXXXXXXXXXXXXXDDXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 8,
+                                "row": "XXXXXXXXXXXXXX###XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX##XXXXXXXTTXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX##XX##XXXXXXXXXXXXX################XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 9,
+                                "row": "XXXXXXXXXXXXXXXX####################XXXXXXXXXXXXX##XXXXXXX##XXXXXXXXXXXXXXXXXXX###XXXXXXXXX######XXXXXXXXXXXXXXXXX############XXXXTTXXXXXTTXX##XXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 10,
+                                "row": "XXXXXXXXXXXXXXXXXXXX##################XXXXXXXXXXX####XXXXX##XXXXXXXXXXXXXXXXXX####XXXXXXXXX######XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX##XXXXX##XX##XXXXXXXXXXXXX"
+                            },
+                            {
+                                "y": 11,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXX##################T#################################################################################################################"
+                            }
+                        ]
+                    },
+                    "interaction": [
+                        {
+                            "id": "player",
+                            "element": "P",
+                            "anchor": {
+                                "x": 2,
+                                "y": 4
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 14,
+                                "y": 5
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 14,
+                                "y": 7
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 19,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 19,
+                                "y": 5
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 54,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 56,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 54,
+                                "y": 10
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 56,
+                                "y": 10
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 65,
+                                "y": 10
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 72,
+                                "y": 10
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 77,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 88,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 90,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 88,
+                                "y": 10
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 90,
+                                "y": 10
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 101,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 102,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 135,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "boss",
+                            "element": "B",
+                            "anchor": {
+                                "x": 148,
+                                "y": 4
+                            },
+                            "size": {
+                                "width": 4,
+                                "height": 4
+                            }
+                        }
+                    ]
+                },
+                {
+                    "map_id": "stage_6",
+                    "terrain": {
+                        "grid": [
+                            {
+                                "y": 0,
+                                "row": "XXXXXXXXXXXXXXXXX###################################################################################################################################"
+                            },
+                            {
+                                "y": 1,
+                                "row": "XXXXXXXXXXXXXXXXX#######XXXXXX##XXXXXXX##X####XXXX##XX##XXXXXXX####XXXXXXX##XX###########XX###XXXX##XXXXXXX###XXX#######XXXX#####XXXXXXXXXXXXXXXXX##"
+                            },
+                            {
+                                "y": 2,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX##XXXXXXXXXXX##XXXXX##XXXXXXXXXXXXXXXXXXXXXX##XX##XX###XX##XX###XXXXDDDXXXXXXXXXXXX###XXXXXXXX#####XXXXXXXXXXXXXXXXX##"
+                            },
+                            {
+                                "y": 3,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX##XXXXXXXXXXXDDXXXXX##XXXXXXX##XXXXXXXXXXXXXDDXX##XXXXXXX##XX###XXXXDDDXXXXXXXXXXXX###XXXXXXXX#####XXXXXXXXXXXXXXXXX##"
+                            },
+                            {
+                                "y": 4,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX##XXXXXXXXXXXXXXXXXX##XXXXXXX###X#######XXXXDDXX##XXXXXXXDDXX###XXXXDDDXXXXXXXXXXXX###XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX##"
+                            },
+                            {
+                                "y": 5,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX##XXXXXXX##XXXXXXXXX##XXXXXXXX#########XXXXXXXXX##XXXXXXXXXXX###XXXX###XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX##"
+                            },
+                            {
+                                "y": 6,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX##XXXXXXX##XXXXXXXXXDDXXXXXXXXX######XXXXXXXXXXX##XXXXXXXDDXX###XXXX###XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX##"
+                            },
+                            {
+                                "y": 7,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXDDXXXXXXX##XXXXXXXXXXXXXXXXXXXX####XXXXXXXXXXXXX##XXXXXXX##XXXXXXXXX###XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX##"
+                            },
+                            {
+                                "y": 8,
+                                "row": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX##XXXXDDDXXDDXXXXXXXXXXXXXXXXXXXXXXXXXXDDXXXXXXX##XXXXXXXXX###XXXXXXXXXXXXXXXXXXXXXXX#####XXXXXXXXXXXXXXXXX##"
+                            },
+                            {
+                                "y": 9,
+                                "row": "XXXXXXXXXXXXXXXXXXXTTXXXXXTTXX##XXXXXXX##XXXX###XX##XXXXXXXXXXXXXXXXXX##XXXXXXDDXXXXXXX##XXXXXXXXX###XXXXXX##XXXXXXXXXXXXXXX#####XXXXXXXXXXXXXXXXX##"
+                            },
+                            {
+                                "y": 10,
+                                "row": "XXXXXXXXXXXXXXXXXXX##XXXXX##XX##XXXXXXX##XXX#####X##XXXXXXXXXXX##XX#####XXXXXX###XXXXXX##XX###XXXX###XXX#####XXXX#######XXXX#####XXXXXXXXXXXXXXXXX##"
+                            },
+                            {
+                                "y": 11,
+                                "row": "XXXXXXXXXXXXXXXXX###################################################################################################################################"
+                            }
+                        ]
+                    },
+                    "interaction": [
+                        {
+                            "id": "boss",
+                            "element": "B",
+                            "anchor": {
+                                "x": 135,
+                                "y": 5
+                            },
+                            "size": {
+                                "width": 4,
+                                "height": 4
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 122,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 122,
+                                "y": 10
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 108,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 104,
+                                "y": 9
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 107,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 109,
+                                "y": 2
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 69,
+                                "y": 5
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 61,
+                                "y": 8
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 24,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "player",
+                            "element": "P",
+                            "anchor": {
+                                "x": 4,
+                                "y": 4
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 9,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 11,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 13,
+                                "y": 1
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 9,
+                                "y": 10
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 11,
+                                "y": 10
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 13,
+                                "y": 10
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 9,
+                                "y": 7
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 11,
+                                "y": 7
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 13,
+                                "y": 7
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 9,
+                                "y": 4
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 11,
+                                "y": 4
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        },
+                        {
+                            "id": "enemy",
+                            "element": "E",
+                            "anchor": {
+                                "x": 13,
+                                "y": 4
+                            },
+                            "size": {
+                                "width": 1,
+                                "height": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

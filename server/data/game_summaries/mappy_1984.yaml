@@ -1,0 +1,24 @@
+game_id: mappy_1984
+tags: [Platform, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a character navigating a multi-story building to collect all items.
+  The only way to move between floors is by bouncing on trampolines at specific locations.
+  The player cannot attack enemies directly but can open doors to create shockwaves that push enemies back.
+  Careful planning is required to collect items while using doors defensively and trampolines for escape.
+  The objective is to collect all items without being caught by pursuing enemies.
+
+key_mechanics:
+  player_abilities: [move left/right on floors, bounce on trampolines to change floors, open doors to create shockwaves]
+  interaction_modes:
+    - Bounce on trampoline → jump to floor above or below
+    - Open door → create shockwave in direction, push back nearby enemies
+    - Door shockwave hits enemy → enemy knocked back temporarily
+    - Collect item → progress toward completion
+    - Touch enemy → lose life
+    - Open special door → stun all enemies temporarily
+    - Collect all items → complete level
+  enemy_characteristics: [pursue player across all floors, use trampolines to follow, contact damage, knocked back by door shockwaves, temporarily stunned by special doors, increase in number as level progresses]
+  environment_characteristics: [multi-story building with horizontal floors, trampolines at fixed positions for vertical movement, doors that create directional shockwaves, items scattered across floors, special doors for area effect]
+  win_condition: Collect all items in the building

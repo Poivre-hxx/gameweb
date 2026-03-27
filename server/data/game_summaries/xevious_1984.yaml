@@ -1,0 +1,23 @@
+game_id: xevious_1984
+tags: [Shooter, Shoot 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a craft in a vertically scrolling shooter with dual weapon systems.
+  Air-to-air weapons target flying enemies while air-to-ground weapons target surface installations.
+  The player must simultaneously manage threats from above (aerial enemies) and below (ground targets).
+  Ground bombing requires forward planning as weapons have travel time to reach surface targets.
+  The objective is to survive continuous waves of enemies from both air and ground.
+
+key_mechanics:
+  player_abilities: [move in 8 directions, fire forward-shooting weapon, drop air-to-ground bombs]
+  interaction_modes:
+    - Fire at aerial enemy → destroy flying threat
+    - Drop bomb on ground target → destroy surface installation
+    - Ground targets require lead time → must anticipate position
+    - Touch enemy or projectile → lose life
+    - Destroy hidden ground targets → reveal and earn bonus points
+    - Ground installations fire at player → must dodge while bombing
+  enemy_characteristics: [aerial enemies attack in formation patterns, ground installations fire upward continuously, some targets require multiple hits, both air and ground threats active simultaneously]
+  environment_characteristics: [vertically auto-scrolling terrain, aerial enemies enter from top, ground installations embedded in terrain, hidden targets require discovery, dual-layer threat system]
+  win_condition: Survive as long as possible through continuous enemy waves

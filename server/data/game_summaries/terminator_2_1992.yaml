@@ -1,0 +1,20 @@
+game_id: terminator_2_1992
+tags: [Shooter, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a cyborg in horizontally scrolling platform stages, using guns and melee attacks.
+  The character can shoot enemies with weapons and use punches when out of ammunition.
+  The objective is to advance through stages, defeat enemies, and reach mission objectives.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, shoot with weapons, punch attack]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Shoot enemy with weapon → ranged attack
+    - Punch attack enemy → melee combat when out of ammunition
+    - Touch enemy or projectile → take damage
+    - Complete objective → advance stage
+  enemy_characteristics: [patrol platforms and attack, shoot projectiles, contact damage, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, weapons provide ranged attacks, melee option when out of ammunition]
+  win_condition: Complete missions and reach objectives

@@ -1,0 +1,22 @@
+game_id: the_wing_of_madoola_1986
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a warrior in horizontally scrolling stages with interconnected non-linear areas, using a sword to defeat enemies.
+  Power-up items enhance abilities and unlock access to new areas.
+  The game features challenging platforming requiring precise jumps and combat timing.
+  Areas connect in non-linear ways requiring exploration and backtracking.
+  The objective is to explore interconnected areas, defeat enemies, and reach the final goal.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, swing sword to attack, collect power-ups]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Swing sword at enemy → defeat threat
+    - Collect power-up → enhance abilities or unlock areas
+    - Touch enemy → take damage
+    - Explore connected areas → find paths and items
+  enemy_characteristics: [patrol platforms and fly in patterns, contact damage, defeated by sword attacks, require precise timing to defeat]
+  environment_characteristics: [horizontally scrolling interconnected areas, non-linear progression requiring exploration, challenging platform layouts, power-ups hidden throughout]
+  win_condition: Navigate through areas and reach the final goal

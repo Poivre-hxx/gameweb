@@ -1,0 +1,23 @@
+game_id: kings_knight_1986
+tags: [Shooter, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a ground-based character in vertically scrolling stages, shooting enemies and obstacles.
+  Obstacles must be destroyed to clear a path forward through narrow passages.
+  Multiple characters can be selected, each with different shooting patterns and abilities.
+  Experience points increase power gradually as enemies are defeated.
+  The objective is to advance through stages while destroying obstacles and surviving enemy attacks.
+
+key_mechanics:
+  player_abilities: [move in 8 directions on ground, shoot forward continuously, destroy obstacles]
+  interaction_modes:
+    - Shoot enemy → destroy threat, gain experience
+    - Shoot obstacle → destroy barrier, clear path
+    - Blocked by obstacle → must destroy to proceed
+    - Gain experience → gradually increase power
+    - Select character → different shooting patterns and abilities
+    - Touch enemy or projectile → take damage
+  enemy_characteristics: [ground and aerial enemies attack, shoot projectiles, contact damage, continuous spawning]
+  environment_characteristics: [vertically auto-scrolling terrain, destructible obstacles blocking paths, narrow passages requiring obstacle clearing, experience-based power progression]
+  win_condition: Advance through the stage by clearing obstacles and surviving

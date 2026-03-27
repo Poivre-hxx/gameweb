@@ -1,0 +1,21 @@
+game_id: iron_tank_1988
+tags: [Shooter, Arcade]
+view: top-down view
+
+gameplay_summary: |
+  The player controls a tank in top-down perspective, shooting enemies and navigating battlefields.
+  The tank can rotate its turret independently to aim in any direction while moving.
+  Enemies must be destroyed to progress through enemy territory.
+  The objective is to fight through all stages and reach mission objectives.
+
+key_mechanics:
+  player_abilities: [drive tank in 8 directions, rotate turret to aim, shoot continuously]
+  interaction_modes:
+    - Drive tank → navigate battlefield
+    - Rotate turret independent of movement → aim while moving
+    - Shoot enemy → destroy threat
+    - Touch enemy or projectile → take damage
+    - Progress through stage → advance forward
+  enemy_characteristics: [ground and aerial enemies attack, shoot projectiles, contact damage, varied enemy types including enemy tanks]
+  environment_characteristics: [top-down battlefield terrain, independent turret rotation for tactical shooting]
+  win_condition: Complete missions and reach objectives

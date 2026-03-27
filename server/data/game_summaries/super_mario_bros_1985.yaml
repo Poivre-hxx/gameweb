@@ -1,0 +1,26 @@
+game_id: super_mario_bros_1985
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character in a side-scrolling platform level, moving from left to right toward the goal.
+  Jumping on enemies from above defeats them, while side contact causes damage.
+  Collecting power-up items grants transformations that provide additional abilities or protection.
+  Blocks can be struck from below to break them or reveal hidden items.
+  The objective is to reach the goal marker at the end of the level while avoiding hazards.
+
+key_mechanics:
+  player_abilities: [move left/right, run for increased speed, jump with variable height, break blocks from below (when transformed)]
+  interaction_modes:
+    - Jump and land on enemy from above → defeat enemy
+    - Touch enemy from side → take damage or lose transformation
+    - Collect mushroom → grow larger, gain ability to break blocks
+    - Collect fire flower → gain projectile attack ability
+    - Take damage when transformed → revert to smaller form
+    - Strike block from below → break block or reveal item
+    - Strike question block → dispense item once, becomes inactive
+    - Fall into pit → lose life
+    - Reach goal marker → complete level
+  enemy_characteristics: [patrol horizontally on platforms, some have special movement patterns, contact damage from sides, vulnerable to stomping from above, some require multiple stomps or projectiles]
+  environment_characteristics: [horizontally scrolling level from left to right, platforms at multiple heights, breakable blocks, question blocks with items, pipes as obstacles or shortcuts, pits as hazards, goal marker at level end]
+  win_condition: Reach the goal marker at the end of the level

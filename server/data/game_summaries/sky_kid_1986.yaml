@@ -1,0 +1,23 @@
+game_id: sky_kid_1986
+tags: [Shooter, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls an aircraft in horizontally scrolling stages, shooting enemies and bombing ground targets.
+  A primary target must be destroyed to complete each mission.
+  The aircraft shoots at aerial enemies while dropping bombs on surface installations.
+  Missing the primary target requires looping back through the stage to attempt again.
+  The objective is to destroy the designated target and reach the end of each mission.
+
+key_mechanics:
+  player_abilities: [fly in vertical range, shoot forward at aerial enemies, drop bombs on ground targets]
+  interaction_modes:
+    - Shoot aerial enemy → destroy flying threat
+    - Drop bomb on ground target → destroy surface installation
+    - Hit primary target with bomb → fulfill mission objective
+    - Miss primary target → must loop back and retry
+    - Touch enemy or projectile → take damage
+    - Destroy primary target and reach end → complete mission
+  enemy_characteristics: [aerial enemies fly in patterns, ground installations fire upward, varied enemy types, contact and projectile damage]
+  environment_characteristics: [horizontally scrolling sky and terrain, primary target marked or designated, enemies distributed throughout, stage loops if target missed]
+  win_condition: Destroy the primary target and reach the end of the mission

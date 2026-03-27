@@ -1,0 +1,25 @@
+game_id: metal_gear_1987
+tags: [Shooter, Arcade]
+view: top-down view
+
+gameplay_summary: |
+  The player controls a soldier infiltrating enemy territory in top-down perspective, using stealth and combat tactics.
+  Equipment and weapons can be collected to access new areas and enhance combat capabilities.
+  Stealth is emphasized, with avoiding detection often preferable to direct combat.
+  Enemies have limited vision cones and patrol patterns that must be learned and exploited.
+  The objective is to infiltrate the enemy base, rescue hostages, and destroy the weapon called Metal Gear.
+
+key_mechanics:
+  player_abilities: [move in 8 directions, shoot in facing direction, collect equipment and weapons, use items]
+  interaction_modes:
+    - Shoot enemy → defeat threat
+    - Avoid enemy detection → stealth approach
+    - Collect equipment → gain new abilities or access
+    - Use item → solve puzzles or overcome obstacles
+    - Enter detected state → enemies alert and pursue
+    - Touch enemy or projectile → take damage
+    - Rescue hostage → gain information or items
+    - Reach objective → progress mission
+  enemy_characteristics: [patrol with limited vision cones, alert nearby enemies when player detected, shoot projectiles, contact damage, varied enemy types and patrol patterns]
+  environment_characteristics: [top-down military base with interconnected rooms, equipment gates access to new areas, stealth emphasized over combat, enemy patrol patterns require observation]
+  win_condition: Infiltrate the base and complete mission objectives

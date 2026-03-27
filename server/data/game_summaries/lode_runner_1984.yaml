@@ -1,0 +1,26 @@
+game_id: lode_runner_1984
+tags: [Platform, Puzzle, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a character navigating multi-level platforms to collect all items.
+  The player can dig holes in floors to create temporary traps for pursuing enemies.
+  Trapped enemies are immobilized until holes automatically refill after a time limit.
+  The player must time trap creation carefully to avoid or delay enemies.
+  The objective is to collect all items and reach the exit ladder without being caught.
+
+key_mechanics:
+  player_abilities: [move left/right, climb ladders, hang from horizontal bars, dig holes adjacent to player]
+  interaction_modes:
+    - Collect item → progress toward completion
+    - Dig hole in brick floor → create temporary trap
+    - Enemy walks into hole → falls and becomes trapped
+    - Trapped enemy is immobilized → cannot move or threaten player
+    - Hole begins refilling after time → warning of enemy release
+    - Hole fully refills → enemy released and resumes chase
+    - Player falls into own hole → temporarily stuck
+    - Touch active enemy → lose life
+    - Collect all items and reach exit ladder → complete level
+  enemy_characteristics: [constantly pursue player, follow player across platforms and ladders, fall into holes, trapped when in holes, released when holes refill, resume chase after release]
+  environment_characteristics: [multi-level platforms connected by ladders, horizontal bars for crossing gaps, brick floors (can be dug), solid floors (cannot be dug), items scattered across platforms, exit ladder appears after all items collected]
+  win_condition: Collect all items and reach the exit ladder

@@ -1,0 +1,24 @@
+game_id: mario_bros_1983
+tags: [Platform, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a character on multi-level platforms in a fixed screen arena.
+  Enemies must be defeated using a mandatory two-step process: first flip, then kick.
+  Jumping from below a platform flips enemies standing on it upside down.
+  Flipped enemies must be kicked quickly before they recover and become faster.
+  The objective is to defeat all enemies in each phase while managing multiple threats.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, strike platform from below]
+  interaction_modes:
+    - Jump and strike platform from below → flip enemy standing above
+    - Flipped enemy lands upside down → temporarily helpless
+    - Touch flipped enemy → kick and defeat enemy
+    - Wait too long → flipped enemy recovers and speeds up
+    - Touch active (non-flipped) enemy → lose life
+    - Strike POW block → flip all enemies simultaneously
+    - POW block used three times → block destroyed, unavailable
+  enemy_characteristics: [patrol platforms back and forth, contact damage when active, must be flipped before vulnerable, recover after time limit and increase speed, some require multiple flips to defeat]
+  environment_characteristics: [multi-level platforms with gaps between them, POW block at center (limited uses), platform edges loop to opposite side]
+  win_condition: Defeat all enemies in each phase

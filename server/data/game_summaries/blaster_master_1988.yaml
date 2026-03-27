@@ -1,0 +1,26 @@
+game_id: blaster_master_1988
+tags: [Shooter, Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player alternates between controlling a vehicle in side-scrolling stages and exploring on foot in top-down areas.
+  The vehicle provides firepower and mobility in horizontal sections with jumping and shooting.
+  On-foot segments allow entry into narrow passages and buildings shown in top-down perspective.
+  Power-ups and abilities unlock access to new areas in the interconnected world.
+  The objective is to explore the non-linear map, defeat enemies, and reach boss encounters.
+
+key_mechanics:
+  player_abilities: [drive vehicle with jumping and shooting in side-scrolling, exit vehicle to explore on foot in top-down areas, collect power-ups]
+  interaction_modes:
+    - Drive vehicle → navigate side-scrolling terrain with enhanced mobility
+    - Shoot with vehicle → destroy threats with powerful weapons
+    - Jump with vehicle → traverse vertical obstacles
+    - Exit vehicle → enter narrow passages and buildings
+    - Explore on foot in top-down → access restricted areas
+    - Shoot on foot → weaker attacks but necessary for exploration
+    - Collect power-up → unlock new abilities or areas
+    - Touch enemy or projectile → take damage
+    - Defeat boss → progress through world
+  enemy_characteristics: [ground and aerial enemies in side-scrolling, concentrated enemies in top-down areas, bosses guard progression, varied attack patterns]
+  environment_characteristics: [side-scrolling and top-down perspectives alternate, non-linear interconnected world, power-ups unlock access, vehicle and on-foot have different capabilities]
+  win_condition: Navigate the world and defeat all bosses

@@ -1,0 +1,24 @@
+game_id: sqoon_1986
+tags: [Shooter, Shoot 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a submarine in a vertically scrolling shooter, rescuing people from islands and transporting them to a mothership.
+  The submarine shoots enemies while using a retrieval beam to collect survivors from land.
+  Rescued people must be delivered to the mothership for completion credit.
+  Fuel depletes continuously and must be replenished by docking with the mothership or collecting items.
+  The objective is to rescue people while managing fuel and surviving enemy attacks.
+
+key_mechanics:
+  player_abilities: [move in 8 directions, shoot at enemies, use retrieval beam to collect people, dock with mothership]
+  interaction_modes:
+    - Shoot enemy → destroy threat
+    - Use retrieval beam on person → person boards submarine
+    - Carry people to mothership → deliver for rescue credit
+    - Dock with mothership → refuel and unload passengers
+    - Fuel depletes over time → must refuel regularly
+    - Run out of fuel → lose mobility or life
+    - Touch enemy or projectile → take damage
+  enemy_characteristics: [aerial and aquatic enemies attack, shoot projectiles, contact damage, threaten both submarine and survivors on islands]
+  environment_characteristics: [vertically auto-scrolling ocean and islands, people stranded on islands, mothership appears periodically for docking, fuel management critical to survival]
+  win_condition: Rescue required number of people while surviving

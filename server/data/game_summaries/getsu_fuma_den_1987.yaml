@@ -1,0 +1,24 @@
+game_id: getsu_fuma_den_1987
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a warrior in horizontally scrolling action stages accessed through an overworld map.
+  Combat uses sword attacks and various collected weapons with different properties.
+  Multiple weapon types can be collected and switched between for tactical advantage.
+  A top-down map allows selection of different paths through the underworld.
+  The objective is to navigate through stages, defeat enemies, and reach the final confrontation.
+
+key_mechanics:
+  player_abilities: [move left/right in stages, jump, swing sword, switch between collected weapons]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Swing sword at enemy → defeat threat
+    - Collect weapon → acquire new attack type
+    - Switch between weapons → tactical weapon choice
+    - Touch enemy → take damage
+    - Select path on map → choose stage progression
+    - Complete stage → return to map, advance forward
+  enemy_characteristics: [patrol platforms, contact damage, defeated by weapon attacks, varied enemy types across stages]
+  environment_characteristics: [horizontally scrolling action stages, top-down map for path selection, multiple weapon types with different properties, non-linear stage progression]
+  win_condition: Navigate through stages and defeat the final boss

@@ -1,0 +1,22 @@
+game_id: z_gundam_hot_scramble_1986
+tags: [Shooter, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a transforming mecha through stages with alternating perspectives.
+  Side-scrolling stages feature horizontal shooting against enemy forces.
+  Top-down stages feature vertical shooting through enemy territory.
+  The mecha can transform between mobile suit and flight modes with different capabilities.
+  The objective is to complete stages in various perspectives while managing transformations.
+
+key_mechanics:
+  player_abilities: [move within stage boundaries, shoot at enemies, transform between modes]
+  interaction_modes:
+    - Shoot enemy → destroy threat
+    - Transform to flight mode → increased mobility, different weapons
+    - Transform to mobile suit mode → stronger firepower, slower movement
+    - Touch enemy or projectile → take damage
+    - Complete stage objectives → advance to next perspective
+  enemy_characteristics: [attack from various angles depending on stage perspective, shoot projectiles, contact damage, varied enemy types]
+  environment_characteristics: [stages alternate between horizontal and vertical scrolling perspectives, enemies adapt to current view, transformation provides tactical options]
+  win_condition: Complete all stages across different perspectives

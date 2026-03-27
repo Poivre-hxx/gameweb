@@ -1,0 +1,21 @@
+game_id: gegege_no_kitaro_1986
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character in horizontally scrolling platform stages, defeating enemies by throwing projectiles.
+  The character can jump between platforms and throw various weapons at enemies.
+  Items are scattered throughout stages and must be collected for points and power-ups.
+  The objective is to reach the end of each stage while defeating enemies and collecting items.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, throw projectiles at enemies, collect items]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Throw projectile at enemy → defeat threat
+    - Collect item → gain points or power-up
+    - Touch enemy → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms, contact damage, defeated by projectiles, varied enemy types with different movement patterns]
+  environment_characteristics: [horizontally scrolling platform stages, items scattered throughout, platforms at multiple heights]
+  win_condition: Reach the end of each stage

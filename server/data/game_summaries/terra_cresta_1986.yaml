@@ -1,0 +1,23 @@
+game_id: terra_cresta_1986
+tags: [Shooter, Shoot 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a spacecraft in a vertically scrolling shooter with a modular formation system.
+  Ship parts can be collected to attach additional firepower modules.
+  Collected modules form a connected chain that increases attack coverage.
+  Modules can be temporarily released to attack independently before reconnecting.
+  The objective is to build a complete formation and survive through continuous enemy waves.
+
+key_mechanics:
+  player_abilities: [move in 8 directions, shoot continuously, collect ship modules, release formation temporarily]
+  interaction_modes:
+    - Collect ship module → attach to formation
+    - Complete formation → gain maximum firepower coverage
+    - Release formation → modules attack independently, then reconnect
+    - Shoot enemy → destroy threat
+    - Touch enemy or projectile → take damage, lose modules
+    - Lose modules when hit → revert to weaker formation
+  enemy_characteristics: [aerial enemies attack in formations, varied attack patterns, contact and projectile damage, boss enemies at stage ends]
+  environment_characteristics: [vertically auto-scrolling space, ship modules dropped by certain enemies, formation system provides tactical depth]
+  win_condition: Survive through the area and defeat all enemy waves

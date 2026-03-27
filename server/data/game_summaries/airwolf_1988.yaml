@@ -1,0 +1,19 @@
+game_id: airwolf_1988
+tags: [Shooter, Arcade]
+view: top-down view
+
+gameplay_summary: |
+  The player controls a helicopter in top-down perspective, shooting enemies and navigating terrain.
+  The helicopter can shoot in multiple directions while flying.
+  The objective is to complete missions by destroying targets and reaching objectives.
+
+key_mechanics:
+  player_abilities: [fly in 8 directions, shoot in facing direction]
+  interaction_modes:
+    - Fly through area → navigate terrain
+    - Shoot enemy → destroy threat
+    - Touch enemy or projectile → take damage
+    - Complete objective → advance mission
+  enemy_characteristics: [ground and aerial enemies attack, shoot projectiles, contact damage, varied enemy types]
+  environment_characteristics: [top-down battlefield terrain, mission-based objectives]
+  win_condition: Complete mission objectives

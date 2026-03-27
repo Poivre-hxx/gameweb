@@ -1,0 +1,24 @@
+game_id: ikari_warriors_1986
+tags: [Shooter, Run and Gun, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a soldier advancing through vertically scrolling stages, shooting enemies and throwing grenades.
+  Tanks can be commandeered for enhanced firepower and armor protection.
+  The rifle fires continuously while grenades provide area damage with limited supply.
+  Entering a tank provides temporary invulnerability and stronger weapons until the tank is destroyed.
+  The objective is to advance through enemy territory and reach the end of each area.
+
+key_mechanics:
+  player_abilities: [move in 8 directions on ground, rotate facing direction, shoot rifle continuously, throw grenade (limited), enter and pilot tank]
+  interaction_modes:
+    - Shoot enemy with rifle → destroy threat
+    - Throw grenade → area damage on impact
+    - Enter tank → gain armor and enhanced firepower
+    - Tank takes damage → tank destroyed, return to on-foot
+    - Touch enemy or projectile on foot → take damage
+    - Touch enemy or projectile in tank → damage tank armor
+    - Advance through stage → progress forward
+  enemy_characteristics: [soldiers and vehicles attack from multiple directions, shoot projectiles, contact damage, varied enemy types including infantry and armor]
+  environment_characteristics: [vertically auto-scrolling battlefield, tanks available at certain points, grenades limited and replenished by pickups, destructible obstacles]
+  win_condition: Advance through enemy territory and reach the end

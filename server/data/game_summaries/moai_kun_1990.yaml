@@ -1,0 +1,19 @@
+game_id: moai_kun_1990
+tags: [Puzzle, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a character in fixed-screen stages, moving and manipulating blocks and statues to solve puzzles.
+  Objects can be pushed and pulled to create paths and reach the goal.
+  The objective is to solve each room's puzzle and advance to the next stage.
+
+key_mechanics:
+  player_abilities: [move in 4 directions, push objects, pull objects, manipulate statues]
+  interaction_modes:
+    - Push object → move object forward
+    - Pull object → drag object toward player
+    - Manipulate statue → reposition blocking elements
+    - Reach goal → complete room
+  enemy_characteristics: [obstacles and hazards present, contact with hazards causes failure, environmental challenges]
+  environment_characteristics: [fixed-screen rooms, objects and statues must be moved to solve puzzles, real-time manipulation required]
+  win_condition: Solve puzzles and reach the goal in each room

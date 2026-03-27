@@ -1,0 +1,24 @@
+game_id: joust_1987
+tags: [Platform, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a rider on a flying mount in fixed-screen multi-level stages, engaging in aerial jousting combat.
+  Colliding with enemies from a higher position defeats them and turns them into collectible eggs.
+  Flapping maintains altitude, with height advantage determining combat outcomes.
+  Eggs must be collected before they hatch into stronger enemies.
+  The objective is to defeat all enemies and collect their eggs in each wave.
+
+key_mechanics:
+  player_abilities: [move left/right, flap to gain altitude, collide with enemies]
+  interaction_modes:
+    - Flap continuously → maintain or gain altitude
+    - Collide with enemy from higher position → defeat enemy, convert to egg
+    - Collide with enemy from lower/equal position → take damage
+    - Collect egg → gain points, prevent respawn
+    - Egg hatches if not collected → enemy respawns stronger
+    - Touch enemy while at disadvantage → lose life
+    - Defeat all enemies → complete wave
+  enemy_characteristics: [flying enemies on mounts, height determines collision outcome, defeated enemies become eggs, eggs hatch into stronger forms if uncollected, contact based on positional advantage]
+  environment_characteristics: [fixed-screen with multiple platform levels, lava at bottom, height advantage critical for combat, eggs drop to platforms when enemies defeated]
+  win_condition: Defeat all enemies and survive waves

@@ -1,0 +1,22 @@
+game_id: city_connection_1985
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a car navigating multi-level roads, painting all unpainted road sections.
+  The car can jump between road levels and shoot projectiles at pursuing police cars.
+  Roads loop horizontally, allowing continuous circular movement.
+  Police cars chase the player and must be avoided or temporarily disabled.
+  The objective is to paint all road sections while evading police pursuit.
+
+key_mechanics:
+  player_abilities: [drive left/right, jump between road levels, shoot projectiles forward]
+  interaction_modes:
+    - Drive over unpainted road → paint section
+    - Jump between levels → navigate to unpainted sections
+    - Shoot police car → temporarily disable pursuer
+    - Touch police car → take damage
+    - Paint all road sections → complete stage
+  enemy_characteristics: [police cars chase player on same level, contact damage, temporarily disabled by projectiles, respawn after time]
+  environment_characteristics: [multi-level horizontal roads that loop at edges, unpainted sections to cover, obstacles on roads, roads wrap around for continuous movement]
+  win_condition: Paint all road sections in the stage

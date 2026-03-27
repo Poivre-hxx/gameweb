@@ -1,0 +1,22 @@
+game_id: super_arabian_1985
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character traversing side-scrolling platform stages while throwing bombs at enemies.
+  Bombs arc through the air and explode on contact with enemies or terrain.
+  The character must jump between platforms and avoid enemy attacks while progressing forward.
+  Each area concludes with a boss enemy that requires pattern recognition to defeat.
+  The objective is to reach the end of each stage and defeat the boss.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, throw bombs in arc trajectory]
+  interaction_modes:
+    - Throw bomb → bomb arcs forward and explodes on impact
+    - Bomb hits enemy → damage or defeat enemy
+    - Jump between platforms → navigate terrain
+    - Touch enemy or projectile → take damage
+    - Defeat boss enemy → complete stage
+  enemy_characteristics: [patrol platforms, some shoot projectiles, contact damage, boss enemies have attack patterns and higher durability, various enemy types throughout stages]
+  environment_characteristics: [horizontally scrolling platform stages, platforms at multiple heights, gaps requiring jumps, boss arena at end of each stage]
+  win_condition: Defeat the boss at the end of the stage

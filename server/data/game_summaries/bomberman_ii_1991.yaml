@@ -1,0 +1,23 @@
+game_id: bomberman_ii_1991
+tags: [Maze, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a character in fixed-screen maze stages, placing bombs to destroy obstacles and enemies.
+  Bombs explode after a short delay, creating cross-shaped blast patterns.
+  The player must avoid bomb explosions while using them to defeat enemies.
+  Power-ups can be collected to increase bomb count, blast range, or movement speed.
+  The objective is to defeat all enemies in each stage to advance.
+
+key_mechanics:
+  player_abilities: [move in 4 directions, place bombs (limited by bomb count), collect power-ups]
+  interaction_modes:
+    - Place bomb → bomb explodes after delay
+    - Bomb explodes in cross pattern → destroy blocks and enemies in blast range
+    - Avoid bomb blast → prevent taking damage
+    - Collect power-up → increase bomb count, blast range, or speed
+    - Touch enemy → take damage
+    - Defeat all enemies → complete stage
+  enemy_characteristics: [patrol maze paths, contact damage, defeated by bomb explosions, varied enemy types with different movement patterns]
+  environment_characteristics: [fixed-screen maze stages, destructible blocks create paths, bomb timing and positioning critical, power-ups enhance capabilities]
+  win_condition: Defeat all enemies in each stage

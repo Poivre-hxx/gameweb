@@ -1,0 +1,22 @@
+game_id: battle_of_olympus_1988
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a warrior in horizontally scrolling stages with interconnected non-linear areas, using sword attacks and items.
+  Items and abilities can be collected to unlock access to new areas.
+  Areas connect in non-linear ways requiring exploration and backtracking.
+  The objective is to explore interconnected regions, defeat enemies, and reach the final confrontation.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, attack with sword, use collected items]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Attack with sword → defeat enemies
+    - Collect item → gain new ability or access
+    - Use item → unlock areas or enhance abilities
+    - Touch enemy → take damage
+    - Explore connected areas → find paths and items
+  enemy_characteristics: [patrol platforms and fly in patterns, contact damage, defeated by sword attacks, varied enemy types]
+  environment_characteristics: [horizontally scrolling interconnected areas, non-linear progression requiring exploration, items unlock access to new regions]
+  win_condition: Navigate through areas and reach the final confrontation

@@ -1,0 +1,19 @@
+game_id: gyrodine_1986
+tags: [Shooter, Shoot 'em up, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a helicopter in a vertically scrolling shooter, advancing through enemy territory.
+  The helicopter shoots at both aerial enemies and ground installations.
+  Enemy aircraft attack from various angles while ground forces fire upward.
+  The objective is to survive through continuous waves of enemies and reach the end of each mission.
+
+key_mechanics:
+  player_abilities: [move in 8 directions, shoot forward continuously]
+  interaction_modes:
+    - Shoot aerial enemy → destroy flying threat
+    - Shoot ground target → destroy surface installation
+    - Touch enemy or projectile → take damage
+  enemy_characteristics: [aircraft attack in varied patterns, ground installations fire upward, contact and projectile damage, varied enemy types]
+  environment_characteristics: [vertically auto-scrolling terrain, enemies approach from multiple directions, both air and ground threats active simultaneously]
+  win_condition: Survive through the mission and defeat all enemy waves

@@ -1,0 +1,26 @@
+game_id: contra_1988
+tags: [Shooter, Run and Gun, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a soldier in stages alternating between side-scrolling and background perspectives, shooting enemies with various weapons.
+  Weapon power-ups provide different firing patterns including spread shots, lasers, and rapid fire.
+  The soldier can run, jump, and shoot in eight directions while progressing through enemy territory.
+  Some stages shift to a behind-the-back perspective with depth-based movement.
+  The objective is to fight through all stages and destroy the alien fortress.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, shoot in 8 directions, lie prone, collect weapon power-ups]
+  interaction_modes:
+    - Shoot enemy → destroy threat
+    - Jump between platforms → navigate terrain
+    - Lie prone → avoid high projectiles
+    - Collect weapon power-up → change firing pattern
+    - Spread shot fires multiple bullets → wide coverage
+    - Laser penetrates enemies → pierce through
+    - Rapid fire increases shot speed → higher damage output
+    - Touch enemy or projectile → instant death
+    - Complete stage → advance forward
+  enemy_characteristics: [ground and aerial enemies attack, shoot projectiles, contact means instant death, varied enemy types, challenging boss encounters]
+  environment_characteristics: [stages alternate between side-scrolling and depth-based perspectives, weapon power-ups change firing patterns, one-hit death creates high difficulty]
+  win_condition: Complete all stages and destroy the final fortress

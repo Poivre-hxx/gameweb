@@ -1,0 +1,23 @@
+game_id: the_legend_of_kage_1986
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a ninja with extraordinary jumping ability in fast-paced horizontally scrolling stages.
+  The ninja can leap to extreme heights and throw rapid-fire projectiles at numerous enemies.
+  Large numbers of enemies attack simultaneously from multiple directions.
+  Stages alternate between forest areas with tree platforms and castle interiors.
+  The objective is to fight through waves of enemies and reach the captive at each stage's end.
+
+key_mechanics:
+  player_abilities: [move left/right, jump to extreme heights, throw rapid projectiles in 8 directions]
+  interaction_modes:
+    - Jump to great height → reach high platforms, evade ground threats
+    - Throw projectile → rapid-fire attacks in facing direction
+    - Projectile hits enemy → defeat threat
+    - Touch enemy or projectile → take damage
+    - Defeat all enemies in area → progress forward
+    - Reach captive → complete stage
+  enemy_characteristics: [appear in large numbers simultaneously, attack from ground and air, ninjas throw projectiles, contact and projectile damage, constant waves require rapid responses]
+  environment_characteristics: [horizontally scrolling forest and castle stages, tree branches as platforms in forest, multiple vertical levels, enemies spawn continuously in large groups]
+  win_condition: Fight through enemy waves and reach the captive

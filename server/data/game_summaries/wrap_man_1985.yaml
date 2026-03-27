@@ -1,0 +1,22 @@
+game_id: warp_man_1985
+tags: [Maze, Arcade]
+view: top-down view
+
+gameplay_summary: |
+  The player controls a character navigating maze-like levels to collect all items while avoiding enemies.
+  Warp points allow instant teleportation between connected locations across the maze.
+  Enemies pursue the player and must be evaded using both normal movement and strategic warping.
+  The player must collect all items in the maze to complete each stage.
+  The objective is to clear all items while avoiding capture by pursuing enemies.
+
+key_mechanics:
+  player_abilities: [move in 4 directions, use warp points to teleport]
+  interaction_modes:
+    - Collect item → progress toward completion
+    - Enter warp point → instantly teleport to connected warp point
+    - Use warp strategically → escape pursuers or reach distant areas
+    - Touch enemy → lose life
+    - Collect all items → complete stage
+  enemy_characteristics: [pursue player through maze, can also use warp points to follow, contact damage, patrol and chase patterns]
+  environment_characteristics: [maze layout with passages and walls, items scattered throughout maze, warp points connecting different areas, enemies spawn and patrol maze]
+  win_condition: Collect all items in the maze

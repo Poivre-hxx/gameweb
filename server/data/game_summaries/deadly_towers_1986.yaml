@@ -1,0 +1,22 @@
+game_id: deadly_towers_1986
+tags: [Platform, Arcade]
+view: top-down view
+
+gameplay_summary: |
+  The player controls a warrior exploring multiple towers in a top-down action game, using a sword to defeat enemies.
+  Equipment and items can be collected throughout towers or purchased with collected currency.
+  Each tower contains multiple floors connected by passages and stairs.
+  The objective is to explore all towers, collect necessary items, and defeat enemies to progress.
+
+key_mechanics:
+  player_abilities: [move in 8 directions, swing sword to attack, collect items, purchase equipment with currency]
+  interaction_modes:
+    - Swing sword at enemy → defeat threat
+    - Collect currency → gain purchasing power
+    - Purchase equipment → enhance abilities
+    - Collect key items → access new areas
+    - Explore towers → find passages and progress
+    - Touch enemy → take damage
+  enemy_characteristics: [patrol tower floors, contact damage, defeated by sword attacks, respawn in areas, varied enemy types]
+  environment_characteristics: [multiple interconnected towers with many floors, shops for purchasing equipment, hidden passages and items, currency dropped by enemies]
+  win_condition: Explore towers, collect required items, and defeat final threats

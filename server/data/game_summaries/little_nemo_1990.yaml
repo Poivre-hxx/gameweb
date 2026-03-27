@@ -1,0 +1,25 @@
+game_id: little_nemo_1990
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a boy in horizontally scrolling platform stages, feeding candy to animals to ride them.
+  Different animals can be tamed by feeding them candy, allowing the boy to ride and use their abilities.
+  Each animal provides unique movement or combat capabilities.
+  The objective is to navigate platforms, use animal abilities strategically, and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump, throw candy to animals, ride tamed animals, use animal-specific abilities]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Throw candy to animal → tame animal
+    - Ride tamed animal → gain access to unique abilities
+    - Different animals provide different capabilities → tactical choices
+    - Frog allows higher jumps → reach elevated areas
+    - Mole allows digging → access underground passages
+    - Gorilla provides combat strength → defeat tougher enemies
+    - Touch enemy → take damage
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms, contact damage, animals can be tamed with candy, varied enemy types]
+  environment_characteristics: [horizontally scrolling platform stages, animals provide unique abilities for navigation and combat, candy used to tame animals]
+  win_condition: Reach the end of each stage

@@ -1,0 +1,25 @@
+game_id: space_invaders_1985
+tags: [Shooter, Arcade]
+view: frame view
+
+gameplay_summary: |
+  The player controls a craft at the bottom of the screen, moving horizontally to shoot upward at descending enemies.
+  Enemy units are arranged in rows and gradually descend toward the player's position.
+  Destructible barriers provide temporary cover from enemy fire but erode with each hit.
+  As enemies are eliminated, the remaining units move faster, increasing pressure.
+  The objective is to destroy all enemies before they reach the bottom of the screen.
+
+key_mechanics:
+  player_abilities: [move left/right at bottom, shoot upward one bullet at a time]
+  interaction_modes:
+    - Shoot enemy → destroy enemy
+    - Destroy all enemies in wave → advance to next wave with increased difficulty
+    - Enemy reaches bottom → lose immediately
+    - Hide behind barrier → block enemy projectiles
+    - Barrier hit by projectile → barrier partially destroyed
+    - Barrier fully eroded → no longer provides cover
+    - Touch enemy or projectile → lose life
+    - Fewer enemies remaining → enemies move faster
+  enemy_characteristics: [arranged in rows moving as a group, descend gradually while moving horizontally, shoot projectiles downward, speed increases as units destroyed, contact damage, special unit appears periodically for bonus points]
+  environment_characteristics: [fixed screen with vertical space, four destructible barriers between player and enemies, barriers gradually erode from repeated fire, no other terrain or obstacles]
+  win_condition: Destroy all enemies before they reach the bottom

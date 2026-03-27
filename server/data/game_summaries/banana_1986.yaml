@@ -1,0 +1,21 @@
+game_id: banana_1986
+tags: [Platform, Arcade]
+view: scroller view
+
+gameplay_summary: |
+  The player controls a character in horizontally scrolling platform stages, collecting items while avoiding hazards.
+  Jumping between platforms and timing movements are required to gather all collectibles.
+  Enemies and obstacles must be avoided through careful navigation.
+  The objective is to collect required items and reach the end of each stage.
+
+key_mechanics:
+  player_abilities: [move left/right, jump between platforms]
+  interaction_modes:
+    - Jump between platforms → navigate terrain
+    - Collect item → progress toward completion
+    - Touch enemy or hazard → take damage
+    - Collect required items → stage completion
+    - Reach end of stage → complete level
+  enemy_characteristics: [patrol platforms, contact damage, must be avoided through timing]
+  environment_characteristics: [horizontally scrolling platform stages, collectible items scattered throughout, gaps and platforms requiring jumps]
+  win_condition: Collect required items and reach the end of each stage
